@@ -1,145 +1,611 @@
-﻿# Products.Api
+﻿# Products API - Sistema de Gestión de Productos y Categorías
 
-## Descripción General
+## 📋 Descripción General
 
-Esta API RESTful implementa la gestión de productos para un marketplace similar a MercadoLibre.
+**Products API** es una API RESTful desarrollada en .NET 8 que proporciona un sistema completo de gestión de productos y categorías. La solución implementa una arquitectura limpia multicapa con persistencia en archivos JSON, logging avanzado, y documentación interactiva con Swagger.
 
-El diseño sigue el patrón **CQRS (Command Query Responsibility Segregation)**, separando las operaciones de consulta (queries) de las de comando (commands) para mejorar la escalabilidad, mantenibilidad y claridad del código.  
-Si bien el patrón CQRS puede agregar complejidad inicial, los beneficios a largo plazo en términos de flexibilidad y rendimiento justifican su adopción en este proyecto.  
-Se eligió este patrón de arquitectura para facilitar la evolución futura del sistema, permitiendo optimizaciones específicas para cada tipo de operación y mejorando la capacidad de respuesta bajo cargas variables.  
-Por ejemplo, dividir la lógica de lectura y escritura permite aplicar diferentes estrategias de manejo de datos, como el uso de bases de datos optimizadas para lectura en queries y para escritura en commands, según sea necesario.
+## 🏗️ Arquitectura de la Solución
 
-Algunas de las características clave incluyen:
+La aplicación sigue los principios de **Clean Architecture** y **Domain-Driven Design (DDD)**, separando las responsabilidades en capas bien definidas:
 
-- **Patrón CQRS (Command Query Responsibility Segregation):**  
-  Permite escalar y mantener el sistema de manera eficiente, robusta y con una clara definición de cada funcionalidad.
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        Products.Api (Capa de Presentación)      │
+│  Controllers | Middlewares | Swagger | Health Checks           │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              Products.Api.Application (Capa de Aplicación)      │
+│  Services | DTOs | Interfaces | Mappers | Business Logic       │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                Products.Api.Domain (Capa de Dominio)            │
+│  Entities | Models | Domain Exceptions | Business Rules         │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│           Products.Api.Persistence (Capa de Infraestructura)    │
+│  Repositories | Adapters | CustomContext | Data Access          │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-- **Patrón Repository:**  
-  Proporciona una abstracción sobre la capa de acceso a datos, permitiendo que el dominio de la aplicación permanezca independiente de los detalles de la base de datos.  
-  Aunque se utiliza un archivo JSON como base de datos, el repositorio está definido con operaciones asíncronas, lo que permite modificar su implementación fácilmente para acceder a una base de datos real.  
-  Además, en esta capa se implementan operaciones de paginación y filtrado, así como entidades que representan la "base de datos", manteniendo la separación respecto a los modelos de dominio.
+### Proyectos de la Solución
 
-- **Inyección de Dependencias:**  
-  Fundamental para la construcción de una API o cualquier aplicación, cumpliendo con el principio de inversión de dependencias (DIP) de SOLID, y permitiendo que los componentes sean fácilmente testeables y mantenibles.
+1. **Products.Api** - API Web principal
+2. **Products.Api.Application** - Lógica de aplicación y casos de uso
+3. **Products.Api.Domain** - Modelos de dominio y reglas de negocio
+4. **Products.Api.Persistence** - Acceso a datos y persistencia
+5. **Products.Api.Application.Test** - Tests unitarios de aplicación
+6. **Products.Api.Persistence.Test** - Tests unitarios de persistencia
 
-- **MediatR:**  
-  Facilita la implementación del patrón CQRS actuando como mediador entre comandos/consultas y sus respectivos manejadores, reduciendo el acoplamiento y mejorando la organización del código.
+## 🔄 Flujo de Funcionamiento del Sistema
 
-- **Mapster:**  
-  Biblioteca para mapear objetos entre diferentes tipos (por ejemplo, de entidades a DTOs y viceversa).  
-  Es importante que estas bibliotecas sean eficientes y no utilicen reflexión en exceso. Alternativamente, se puede implementar el patrón Adapter manualmente.
+### Flujo de una Petición HTTP
 
-- **Versionado de API:**  
-  Permite mantener la compatibilidad hacia atrás mientras se introducen nuevas funcionalidades o cambios, facilitando que los clientes de la API se adapten a las actualizaciones sin interrupciones.
+```
+┌─────────┐
+│ Cliente │
+└────┬────┘
+     │ 1. HTTP Request
+     ▼
+┌─────────────────────────────────────────────┐
+│         CorrelationIdMiddleware             │
+│  - Genera/Valida X-Correlation-ID           │
+│  - Asigna TraceIdentifier                   │
+└────────────────┬────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────┐
+│    RequestResponseLoggingMiddleware         │
+│  - Log de Request (método, URL, body)       │
+│  - Log de Response (status, body)           │
+└────────────────┬────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────┐
+│       ExceptionHandlerMiddleware            │
+│  - Captura excepciones globales             │
+│  - Transforma a ErrorResponse               │
+│  - InputException → 400                     │
+│  - NotFoundException → 404                  │
+│  - BusinessException → 422                  │
+│  - DataIntegrationException → 500           │
+└────────────────┬────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────┐
+│           Controller Layer                  │
+│  - ProductsController                       │
+│  - CategoriesController                     │
+│  - Validación de ModelState                 │
+│  - InvalidModelStateHandler                 │
+└────────────────┬────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────┐
+│          Application Layer                  │
+│  - ProductService / CategoryService         │
+│  - Lógica de negocio                        │
+│  - Validaciones de dominio                  │
+│  - Transformación DTOs                      │
+└────────────────┬────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────┐
+│         Repository Layer                    │
+│  - ProductRepository                        │
+│  - CategoryRepository                       │
+│  - Adapters (Entity ↔ Domain)              │
+└────────────────┬────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────┐
+│          CustomContext                      │
+│  - Persistencia en JSON                     │
+│  - Thread-safe operations (lock)            │
+│  - Data/data.json                           │
+└─────────────────────────────────────────────┘
+```
 
-- **Swagger/OpenAPI:**  
-  Proporciona documentación interactiva para la API, facilitando la comprensión y prueba de los endpoints disponibles.
+## 🎯 Componentes Principales y Funcionamiento
 
-- **Manejo Global de Errores:**  
-  Garantiza que todas las excepciones sean capturadas y gestionadas de manera consistente, proporcionando respuestas claras y útiles a los clientes.  
-  Se definieron varios tipos de excepciones según el contexto de validación, utilizando correctamente los códigos de estado HTTP.
+### 1. **Middlewares (Pipeline de Peticiones)**
 
-- **Validaciones de Negocio:**  
-  Aseguran que los datos procesados por la API cumplan con las reglas y restricciones definidas, mejorando la integridad y confiabilidad del sistema.
+#### CorrelationIdMiddleware
+- **Función**: Genera o valida el header `X-Correlation-ID` para trazabilidad
+- **Funcionamiento**:
+  ```csharp
+  1. Lee el header X-Correlation-ID de la petición
+  2. Si no existe, genera un nuevo GUID
+  3. Lo almacena en context.Items
+  4. Lo agrega a los headers de respuesta
+  5. Lo asigna como TraceIdentifier para logging
+  ```
 
-- **Health Checks:**  
-  Permiten monitorear el estado de la aplicación y sus dependencias, facilitando la detección temprana de problemas y asegurando la disponibilidad del servicio.  
-  Útil para integraciones con herramientas de monitoreo como Dynatrace.
+#### RequestResponseLoggingMiddleware
+- **Función**: Registra todas las peticiones y respuestas HTTP
+- **Funcionamiento**:
+  ```csharp
+  1. Captura el body de la petición
+  2. Log: método HTTP, URL, body
+  3. Intercepta el stream de respuesta
+  4. Captura el body de la respuesta
+  5. Log: status code, body de respuesta
+  ```
 
-- **Logging estructurado (Serilog):**  
-  Permite registrar eventos de manera organizada y fácil de analizar, mejorando la capacidad de diagnóstico y monitoreo de la aplicación.  
-  Es indispensable para aplicaciones en producción y su integración con herramientas como ElasticSearch.
+#### ExceptionHandlerMiddleware
+- **Función**: Manejo centralizado de excepciones
+- **Funcionamiento**:
+  ```csharp
+  1. Try-Catch alrededor del pipeline
+  2. Captura excepciones según su tipo:
+     - InputException → 400 Bad Request
+     - BadRequestException → 400
+     - NotFoundException → 404 Not Found
+     - BusinessException → 422 Unprocessable Entity
+     - DataIntegrationException → 500
+     - TimeoutException → 503 Service Unavailable
+     - Exception → 500 Internal Server Error
+  3. Construye ErrorResponse estandarizado
+  4. Retorna JSON con detalles del error
+  ```
 
-- **Middlewares personalizados:**  
-  Implementados para manejar tareas transversales como el logging de solicitudes y respuestas, inserción de un correlation ID para trazabilidad y manejo global de errores.
+### 2. **Controllers (Capa de Presentación)**
 
-- **Convenciones de Controladores y Serialización:**  
-  Se siguen convenciones claras para la definición de controladores y la serialización de datos, asegurando consistencia entre los requests y responses de la aplicación.
+#### ProductsController
+**Endpoints:**
+- `GET /api/v1/products` - Lista paginada con filtros
+  - Query params: count, page, name (opcional), categoryId (opcional)
+- `GET /api/v1/products/{id}` - Detalle de un producto
+- `POST /api/v1/products` - Crear producto
+- `PUT /api/v1/products/{id}` - Actualizar producto
+- `DELETE /api/v1/products/{id}` - Eliminar producto
 
-- **Pruebas Unitarias e Integración:**  
-  Se implementaron pruebas unitarias e integración para asegurar la calidad del código y la correcta funcionalidad de los endpoints y la lógica de negocio.
+#### CategoriesController
+**Endpoints:**
+- `GET /api/v1/categories` - Lista paginada de categorías
+- `GET /api/v1/categories/{id}` - Detalle de categoría
+- `POST /api/v1/categories` - Crear categoría
+
+**Características:**
+- Rutas en minúsculas (LowercaseControllerModelConvention)
+- Versionado de API (v1)
+- Validación automática de ModelState
+- Respuestas estandarizadas (200, 201, 204, 400, 401, 422, 500)
+- Documentación Swagger integrada
+
+### 3. **Application Layer (Servicios)**
+
+#### ProductService
+**Responsabilidades:**
+- Implementa lógica de negocio de productos
+- Validaciones:
+  - Nombre único al crear
+  - Categoría existente
+  - Producto existe para operaciones
+  - Precio y stock válidos
+- Transformación: Domain Models ↔ DTOs
+
+**Flujo CreateAsync:**
+```csharp
+1. Recibe CreateProductInput (DTO)
+2. Valida que no exista producto con mismo nombre
+3. Verifica que la categoría exista
+4. Valida precio > 0 y stock >= 0
+5. Crea modelo de dominio (Product)
+6. Llama al repositorio para persistir
+7. Transforma resultado a ProductDetailOutput
+8. Retorna DTO de salida
+```
+
+#### CategoryService
+**Responsabilidades:**
+- Gestión de categorías
+- Validación de nombres únicos
+- Paginación de resultados
+
+### 4. **Domain Layer (Modelos de Dominio)**
+
+**Product Model:**
+```csharp
+- Id: long
+- Name: string
+- Description: string
+- Price: decimal
+- Stock: int
+- CategoryId: long
+```
+
+**Category Model:**
+```csharp
+- Id: long
+- Name: string
+```
+
+**Excepciones de Dominio:**
+- `BadRequestException` - Datos inválidos
+- `NotFoundException` - Recurso no encontrado
+- `BusinessException` - Reglas de negocio violadas
+- `DataIntegrationException` - Errores de persistencia
+
+### 5. **Persistence Layer (Infraestructura)**
+
+#### CustomContext
+- **Función**: Contexto de datos personalizado con persistencia en JSON
+- **Funcionamiento**:
+  ```csharp
+  1. Constructor inicializa ruta del archivo JSON
+  2. Si no existe, crea datos por defecto:
+     - 3 categorías: Electrónica, Hogar, Deportes
+     - 5 productos de ejemplo
+  3. Carga datos existentes desde JSON
+  4. SaveChanges() serializa en memoria a JSON
+  ```
+
+#### Repositories
+- **ProductRepository / CategoryRepository**
+- **Patrón**: Repository Pattern
+- **Thread-Safety**: Uso de `lock` para operaciones concurrentes
+- **Operaciones CRUD completas**
+- **Paginación implementada**: Skip/Take
+
+#### Adapters
+- **Función**: Conversión Entity ↔ Domain Model
+- **Patrón**: Adapter Pattern
+- **Implementa**: IAdapter<TEntity, TDomain>
+
+### 6. **Configuración y Servicios**
+
+#### Dependency Injection
+```csharp
+Program.cs:
+- AddApplicationServices() → Registra services y mappers
+- AddInfrastructureService() → Registra repositories y context
+- Singleton: CustomContext, Adapters
+- Scoped: Services, Repositories
+```
+
+#### Logging con Serilog
+```csharp
+- Configuración desde appsettings.json
+- Sinks: Console + File (rollingInterval: Day)
+- MinimumLevel: Information
+- Logs en: Logs/appYYYYMMDD.log
+```
+
+#### API Versioning
+```csharp
+- DefaultApiVersion: v1.0
+- AssumeDefaultVersionWhenUnspecified: true
+- ReportApiVersions: true
+- URL: /api/v1/[controller]
+```
+
+#### Swagger/OpenAPI
+```csharp
+- Solo en Development
+- SwaggerUI en raíz (/)
+- Muestra todas las versiones
+- SwaggerDefaultValues para descripciones
+- SwaggerOperation attributes en controllers
+```
+
+### 7. **Health Checks**
+
+#### AppInfoHealthCheck
+- **Endpoint**: `/health`
+- **Respuesta JSON**:
+  ```json
+  {
+    "status": "Healthy",
+    "checks": [
+      {
+        "name": "app_info",
+        "status": "Healthy",
+        "description": "Application Information"
+      }
+    ]
+  }
+  ```
+
+## 🛠️ Tecnologías Utilizadas
+
+| Tecnología | Versión | Propósito |
+|-----------|---------|-----------|
+| .NET | 8.0 | Framework principal |
+| ASP.NET Core | 8.0 | Web API |
+| Serilog | 9.0.0 | Logging estructurado |
+| Mapster | 7.4.0 | Object mapping |
+| Swashbuckle | 9.0.3 | Documentación OpenAPI |
+| Asp.Versioning | 8.1.0 | Versionado de API |
+| xUnit | - | Testing framework |
+| FluentAssertions | - | Assertions para tests |
+| Moq | - | Mocking framework |
+
+## 🚀 Instalación y Ejecución
+
+### Requisitos Previos
+- .NET 8.0 SDK o superior
+- IDE: Visual Studio 2022, Rider, o VS Code
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone <repository-url>
+   cd Products.Api
+   ```
+
+2. **Restaurar dependencias**
+   ```powershell
+   dotnet restore
+   ```
+
+3. **Compilar la solución**
+   ```powershell
+   dotnet build
+   ```
+
+4. **Ejecutar la aplicación**
+   ```powershell
+   dotnet run --project Products.Api.csproj
+   ```
+
+5. **Acceder a Swagger UI**
+   ```
+   http://localhost:5000
+   o
+   https://localhost:5001
+   ```
+
+### Ejecutar Tests
+
+```powershell
+# Todos los tests
+dotnet test
+
+# Tests de un proyecto específico
+dotnet test Products.Api.Application.Test
+dotnet test Products.Api.Persistence.Test
+
+# Con cobertura
+dotnet test --collect:"XPlat Code Coverage"
+```
+
+## 📁 Estructura de Archivos
+
+```
+Products.Api/
+├── Controllers/
+│   ├── BaseApiController.cs           # Controlador base con [ApiVersion]
+│   ├── ProductsController.cs          # Endpoints de productos
+│   ├── CategoriesController.cs        # Endpoints de categorías
+│   └── Requests/                      # DTOs de entrada
+│       ├── CreateProductRequest.cs
+│       ├── UpdateProductRequest.cs
+│       └── CreateCategoryRequest.cs
+├── Middlewares/
+│   ├── CorrelationIdMiddleware.cs     # Trazabilidad de requests
+│   ├── RequestResponseLoggingMiddleware.cs  # Logging HTTP
+│   └── ExceptionHandlerMiddleware.cs  # Manejo de errores
+├── Configs/
+│   └── LowercaseControllerModelConvention.cs  # Rutas lowercase
+├── Handlers/
+│   └── InvalidModelStateHandler.cs    # Validación de modelos
+├── HealthChecks/
+│   └── AppInfoHealthCheck.cs          # Health check personalizado
+├── Swagger/
+│   ├── ConfigureSwaggerOptions.cs     # Configuración Swagger
+│   └── SwaggerDefaultValues.cs        # Valores por defecto
+├── Common/
+│   └── ErrorResponse.cs               # Modelo de respuesta de error
+├── Exceptions/
+│   └── InputException.cs              # Excepciones de entrada
+├── Logs/                              # Archivos de log de Serilog
+├── Data/                              # Base de datos JSON
+│   └── data.json                      # Persistencia de datos
+├── Program.cs                         # Configuración y bootstrap
+├── appsettings.json                   # Configuración general
+└── appsettings.Development.json       # Configuración desarrollo
+```
+
+## 📊 Modelo de Datos
+
+### Estructura del archivo data.json
+
+```json
+{
+  "Categories": [
+    {
+      "Id": 1,
+      "Name": "Electrónica"
+    }
+  ],
+  "Products": [
+    {
+      "Id": 1,
+      "Name": "Smartphone",
+      "Description": "Teléfono inteligente de última generación",
+      "Price": 999.99,
+      "Stock": 10,
+      "CategoryId": 1
+    }
+  ]
+}
+```
+
+## 🔐 Formato de Respuestas
+
+### Respuesta Exitosa (200/201)
+```json
+{
+  "id": 1,
+  "name": "Smartphone",
+  "description": "Teléfono inteligente",
+  "price": 999.99,
+  "stock": 10,
+  "categoryId": 1
+}
+```
+
+### Respuesta Paginada (200)
+```json
+{
+  "items": [...],
+  "total": 100
+}
+```
+
+### Respuesta de Error (4xx/5xx)
+```json
+{
+  "status": 400,
+  "code": "400",
+  "detail": "El producto ya existe",
+  "instance": "/api/v1/products",
+  "traceId": "00-abc123-def456-00"
+}
+```
+
+## 📝 Ejemplos de Uso
+
+### Crear un Producto
+
+```http
+POST /api/v1/products
+Content-Type: application/json
+
+{
+  "name": "Laptop Gaming",
+  "description": "Laptop de alta gama para gaming",
+  "price": 1500.00,
+  "stock": 5,
+  "categoryId": 1
+}
+```
+
+### Obtener Productos con Filtros
+
+```http
+GET /api/v1/products?count=10&page=1&name=laptop&categoryId=1
+```
+
+### Actualizar un Producto
+
+```http
+PUT /api/v1/products/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Gaming Pro",
+  "description": "Versión mejorada",
+  "price": 1800.00,
+  "stock": 3,
+  "categoryId": 1
+}
+```
+
+## 🧪 Testing
+
+La solución incluye tests unitarios completos:
+
+### Products.Api.Application.Test
+- **ProductServiceTests**: Tests de lógica de negocio
+- **CategoryServiceTests**: Tests de servicios de categorías
+- Cobertura: CreateAsync, UpdateAsync, DeleteAsync, GetAllAsync, GetByIdAsync
+
+### Products.Api.Persistence.Test
+- **ProductRepositoryTests**: Tests de repositorio de productos
+- **CategoryRepositoryTests**: Tests de repositorio de categorías
+- **CustomContextTests**: Tests de contexto de datos
+- **AdapterTests**: Tests de adaptadores
+
+**Frameworks de Testing:**
+- xUnit para estructura de tests
+- FluentAssertions para assertions expresivas
+- Moq para mocking de dependencias
+
+## 📈 Características Avanzadas
+
+### 1. **Thread Safety**
+- Operaciones de repositorio protegidas con `lock`
+- Acceso concurrente seguro al archivo JSON
+
+### 2. **Correlation ID**
+- Trazabilidad completa de peticiones
+- Header `X-Correlation-ID` en request/response
+- Integrado con logging
+
+### 3. **Logging Estructurado**
+- Serilog con múltiples sinks
+- Logs rotativos por día
+- Context information en cada log
+
+### 4. **Validación Robusta**
+- Data Annotations en DTOs
+- Validación de ModelState automática
+- Validaciones de negocio en Services
+- Respuestas de error detalladas
+
+### 5. **Documentación Auto-generada**
+- Swagger UI interactivo
+- Documentación de todos los endpoints
+- Ejemplos de peticiones/respuestas
+- Soporte para múltiples versiones
+
+## 🔧 Configuración
+
+### appsettings.json
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "UseSerilog": true,
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      { "Name": "Console" },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "Logs/app.log",
+          "rollingInterval": "Day"
+        }
+      }
+    ]
+  }
+}
+```
+
+## 🤝 Buenas Prácticas Implementadas
+
+1. ✅ **Clean Architecture**: Separación clara de responsabilidades
+2. ✅ **Repository Pattern**: Abstracción de acceso a datos
+3. ✅ **Dependency Injection**: Inversión de control completa
+4. ✅ **DTO Pattern**: Separación entre modelos internos y externos
+5. ✅ **Exception Handling**: Manejo centralizado de errores
+6. ✅ **Logging**: Trazabilidad completa de operaciones
+7. ✅ **API Versioning**: Soporte para evolución de API
+8. ✅ **Unit Testing**: Tests exhaustivos con alta cobertura
+9. ✅ **Documentation**: Swagger/OpenAPI completo
+10. ✅ **Thread Safety**: Operaciones concurrentes seguras
+
+## 📞 Soporte y Contacto
+
+Para preguntas, problemas o sugerencias, por favor contacta al equipo de desarrollo.
 
 ---
 
-> **Nota:**  
-> Aunque se han implementado varias buenas prácticas y patrones de diseño, este proyecto es una demostración sencilla basada en experiencias del día a día.  
-> En un proyecto real, se debería profundizar más en los modelos de dominio, repositorios y servicios, e incorporar patrones adicionales como Event Sourcing o CQRS avanzado con Event Bus, según la necesidad.  
-> En cuanto a la seguridad, no se implementaron medidas como autenticación y autorización, ya que suelen ser responsabilidad de un gateway o capa adicional.
-
-> **Nota sobre Seguridad:**  
-> En este proyecto de ejemplo no se implementaron mecanismos de autenticación ni autorización directamente en la API.  
-> 
-> En entornos productivos, el acceso a las APIs suele estar gestionado por plataformas especializadas como **IBM API Connect**, que actúan como gateway y punto de entrada seguro para todos los servicios. Estas plataformas no solo restringen el acceso a los endpoints y la documentación (como Swagger), sino que también validan la identidad y los permisos de los consumidores antes de permitir cualquier interacción.
-> 
-> Un ejemplo común es el uso de un identificador como `IbmClientId`, que se gestiona como un secreto en herramientas como Consul y es validado por IBM API Connect antes de redirigir la solicitud a la API interna. De esta forma, solo sistemas o aplicaciones autorizadas pueden interactuar con la API, centralizando y estandarizando la seguridad para todos los servicios.
-> 
-> Por este motivo, en este proyecto la seguridad no se implementa a nivel de la propia API, ya que en escenarios reales esta responsabilidad recae en una capa superior gestionada por el gateway.
-
-## Tecnologías Utilizadas
-
-El proyecto está construido sobre **.NET 8** y C# 12, utilizando MediatR para la mediación de comandos y consultas, Mapster para el mapeo de DTOs y Swagger para la documentación interactiva.
-
-Copilot también fue utilizado para acelerar el desarrollo y mejorar la calidad del código.
-
-## Uso de Copilot
-
-Copilot, integrado en el IDE Visual Studio, fue una herramienta fundamental para acelerar el desarrollo de esta API. Facilitó la autocompletación de código, la configuración inicial de las distintas dependencias utilizadas, la detección de bugs y la identificación de posibles mejoras en el diseño.  
-Además, contribuyó a la automatización de pruebas unitarias e integración, generando ejemplos de tests para los diferentes casos de uso y optimizando la redacción de esta documentación.
-En mi dia a dia lo utilizo constantemente como apoyo para mejorar la productividad, la calidad del código, detectar posibles fallos y como herramienta de aprendizaje continuo.
-
-## ¿Por qué elegí .NET para esta API?
-
-La elección de **.NET** para el desarrollo de una API orientada a un marketplace como MercadoLibre se basa en varios motivos:
-
-- **Alto rendimiento y escalabilidad:**  
-  .NET ofrece un excelente desempeño y permite escalar aplicaciones de manera eficiente, manteniendo siempre buenas prácticas de desarrollo.
-
-- **Ecosistema y soporte:**  
-  Cuenta con una comunidad muy activa y un sólido respaldo por parte de Microsoft, lo que facilita la resolución de problemas y el acceso a recursos actualizados.
-
-- **Seguridad y buenas prácticas:**  
-  El framework incorpora mecanismos integrados para la seguridad y promueve el uso de patrones de diseño modernos, como la inyección de dependencias y la separación de responsabilidades.
-
-- **Herramientas y facilidad de configuración:**  
-  .NET proporciona herramientas robustas para testing, profiling y despliegue, así como una configuración sencilla y flexible para adaptarse a distintos entornos.
-
-- **Experiencia personal:**  
-  Además, tengo amplia experiencia trabajando con esta tecnología, lo que me permite aprovechar al máximo sus capacidades y mejores prácticas.
-
----
-
-## Puntos de mejoras
-
-Al ser un proyecto de ejemplo, hay varios puntos que podrían mejorarse o ampliarse en un entorno real, por ejemplo el apartado de seguridad, la implementación de una base de datos real, la optimización del patrón CQRS con Event Sourcing, entre otros.
-
-## Principales Endpoints
-
-Los endpoints principales de la API son los siguientes:
-
-### Productos (`/api/v1/products`)
-
-- **GET `/api/v1/products`**
-- **GET `/api/v1/products/{id}`**
-- **POST `/api/v1/products`**
-- **PUT `/api/v1/products/{id}`**
-- **DELETE `/api/v1/products/{id}`**
-
-### Categorías (`/api/v1/categories`)
-
-- **GET `/api/v1/categories`**
-- **GET `/api/v1/categories/{id}`**
-- **POST `/api/v1/categories`**
-
-Si bien, me pidiero un fetch de los productos, también implementé los endpoints de categorías para mostrar un ejemplo más completo de la API.
-
----
-
-## Otros archivos .md
-
-prompts.md : Contiene los prompts utilizados para generar partes del código y esta documentación.
-diagrams.md : Contiene diagramas de arquitectura y diseño del sistema.
-run.md : Instrucciones para ejecutar la API localmente.
-
-## Agradecimientos
-
-Agradezco la oportunidad que me dieron y espero que este proyecto cumpla con sus expectativas. Quedo a disposición para cualquier consulta, saludos.
+**Versión de la API**: 1.0  
+**Última actualización**: 2026-02-12  
+**Estado**: ✅ Producción
