@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "WebApiTest.Domain/1.0.0": {
+        "runtime": {
+          "WebApiTest.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WebApiTest.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

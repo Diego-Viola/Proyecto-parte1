@@ -1,0 +1,19 @@
+2025-08-22 16:54:37.350 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost/api/v1/categories?count=1&page=1 - null null
+2025-08-22 16:54:37.361 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-22 16:54:37.361 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-22 16:54:37.364 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-22 16:54:37.373 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListPartitionIterator`2[[WebApiTest.Persistence.Entities.CategoryEntity, WebApiTest.Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-22 16:54:37.376 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 8.2871ms
+2025-08-22 16:54:37.376 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-22 16:54:37.376 -03:00 [INF] Outgoing Response: 200 [{"id":1,"name":"Electrónica"}]
+2025-08-22 16:54:37.377 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost/api/v1/categories?count=1&page=1 - 200 null application/json; charset=utf-8 26.3914ms
+2025-08-22 16:58:53.993 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost/api/v1/categories/1 - null null
+2025-08-22 16:58:54.219 -03:00 [INF] Incoming Request: GET /api/v1/categories/1 
+2025-08-22 16:58:54.228 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-22 16:58:54.258 -03:00 [INF] Route matched with {action = "GetById", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int64) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-22 16:58:54.264 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-22 16:58:54.355 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput'.
+2025-08-22 16:58:54.385 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetById (WebApiTest) in 121.9668ms
+2025-08-22 16:58:54.391 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-22 16:58:54.391 -03:00 [INF] Outgoing Response: 200 {"id":1,"name":"Electrónica"}
+2025-08-22 16:58:54.413 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost/api/v1/categories/1 - 200 null application/json; charset=utf-8 427.4485ms

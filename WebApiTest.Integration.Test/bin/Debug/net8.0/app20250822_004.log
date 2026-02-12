@@ -1,0 +1,9 @@
+2025-08-22 16:58:54.793 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost/api/v1/categories?count=1&page=1 - null null
+2025-08-22 16:58:54.809 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-22 16:58:54.810 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-22 16:58:54.815 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-22 16:58:54.828 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListPartitionIterator`2[[WebApiTest.Persistence.Entities.CategoryEntity, WebApiTest.Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-22 16:58:54.833 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 14.8018ms
+2025-08-22 16:58:54.834 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-22 16:58:54.834 -03:00 [INF] Outgoing Response: 200 [{"id":1,"name":"Electrónica"}]
+2025-08-22 16:58:54.834 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost/api/v1/categories?count=1&page=1 - 200 null application/json; charset=utf-8 41.3533ms

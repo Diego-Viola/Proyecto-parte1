@@ -1,0 +1,27 @@
+2025-08-22 16:58:54.649 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost/api/v1/categories - application/json; charset=utf-8 23
+2025-08-22 16:58:54.679 -03:00 [INF] Incoming Request: POST /api/v1/categories {"name":"TestCategory"}
+2025-08-22 16:58:54.679 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.Create (WebApiTest)'
+2025-08-22 16:58:54.690 -03:00 [INF] Route matched with {action = "Create", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(WebApiTest.Controllers.Requests.CreateCategoryRequest) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-22 16:58:54.717 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.Create (WebApiTest) in 25.7352ms
+2025-08-22 16:58:54.718 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.Create (WebApiTest)'
+2025-08-22 16:58:54.720 -03:00 [ERR] Ya existe una categoria con el mismo nombre
+WebApiTest.Domain.Exceptions.BusinessException: Ya existe una categoria con el mismo nombre
+   at WebApiTest.Application.Features.Categories.Commands.CreateCategoryHandler.Handle(CreateCategory request, CancellationToken cancellationToken) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\Features\Categories\Commands\CreateCategory.cs:line 22
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0(CancellationToken t)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at WebApiTest.Controllers.CategoriesController.Create(CreateCategoryRequest request) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Controllers\CategoryController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApiTest.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Middlewares\ExceptionHandlerMiddleware.cs:line 30
+2025-08-22 16:58:54.741 -03:00 [INF] Outgoing Response: 422 {"type":"https://yourdomain.com/errors/business","status":422,"code":"ATI-CC-01","title":"Business rule violated","detail":"Ya existe una categoria con el mismo nombre","instance":"/api/v1/categories","traceId":"1ac876e9-6a0c-4f33-8462-58b446e4b3b9"}
+2025-08-22 16:58:54.749 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost/api/v1/categories - 422 null application/json 100.279ms

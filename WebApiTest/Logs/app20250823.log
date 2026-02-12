@@ -1,0 +1,439 @@
+2025-08-23 10:40:31.135 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 10:40:31.377 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 10:40:31.381 -03:00 [INF] Hosting environment: Development
+2025-08-23 10:40:31.383 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 10:40:31.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_vs/browserLink - null null
+2025-08-23 10:40:31.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-23 10:40:31.878 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 59.6503ms
+2025-08-23 10:40:31.989 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_vs/browserLink - 200 null text/javascript; charset=UTF-8 175.1406ms
+2025-08-23 10:40:32.114 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 10:40:32.218 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 104.4144ms
+2025-08-23 10:40:40.628 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - null null
+2025-08-23 10:40:40.715 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-23 10:40:40.730 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 10:40:40.801 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 10:40:40.821 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-23 10:40:41.002 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 10:40:41.036 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 216.6919ms
+2025-08-23 10:40:41.041 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 10:40:41.045 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Electrónica"},{"id":2,"name":"Hogar"},{"id":3,"name":"Deportes"}],"total":3}
+2025-08-23 10:40:41.059 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - 200 null application/json; charset=utf-8 431.9214ms
+2025-08-23 10:48:37.618 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 10:48:37.848 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 10:48:37.850 -03:00 [INF] Hosting environment: Development
+2025-08-23 10:48:37.851 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 10:48:38.796 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-23 10:48:38.798 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_vs/browserLink - null null
+2025-08-23 10:48:38.893 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 111.9992ms
+2025-08-23 10:48:39.160 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_vs/browserLink - 200 null text/javascript; charset=UTF-8 373.0701ms
+2025-08-23 10:48:39.251 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 10:48:39.428 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 176.6393ms
+2025-08-23 12:45:02.232 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 12:45:02.301 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 12:45:02.304 -03:00 [INF] Hosting environment: Development
+2025-08-23 12:45:02.306 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 12:45:16.425 -03:00 [INF] Application is shutting down...
+2025-08-23 12:45:27.940 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 12:45:28.075 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 12:45:28.085 -03:00 [INF] Hosting environment: Development
+2025-08-23 12:45:28.099 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 12:45:45.229 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_vs/browserLink - null null
+2025-08-23 12:45:45.227 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-23 12:45:45.440 -03:00 [INF] Incoming Request: GET /_vs/browserLink 
+2025-08-23 12:45:45.440 -03:00 [INF] Incoming Request: GET /_framework/aspnetcore-browser-refresh.js 
+2025-08-23 12:45:45.451 -03:00 [INF] Outgoing Response: 404 
+2025-08-23 12:45:45.451 -03:00 [INF] Outgoing Response: 404 
+2025-08-23 12:45:45.465 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_vs/browserLink - 404 0 null 246.0936ms
+2025-08-23 12:45:45.471 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - 404 0 null 252.3987ms
+2025-08-23 12:45:45.501 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5289/_vs/browserLink, Response status code: 404
+2025-08-23 12:45:45.517 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js, Response status code: 404
+2025-08-23 12:45:45.630 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 12:45:45.916 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 285.7323ms
+2025-08-23 12:45:55.974 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - null null
+2025-08-23 12:45:56.022 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-23 12:45:56.036 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 12:45:56.124 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 12:45:56.149 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-23 12:45:56.442 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 12:45:56.523 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 377.0397ms
+2025-08-23 12:45:56.534 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 12:45:56.541 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Electrónica"},{"id":2,"name":"Hogar"},{"id":3,"name":"Deportes"}],"total":3}
+2025-08-23 12:45:56.559 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - 200 null application/json; charset=utf-8 585.1238ms
+2025-08-23 13:31:55.670 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 13:31:55.806 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 13:31:55.812 -03:00 [INF] Hosting environment: Development
+2025-08-23 13:31:55.814 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 13:32:19.149 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/index.html - null null
+2025-08-23 13:32:19.465 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/index.html - 200 null text/html;charset=utf-8 318.5674ms
+2025-08-23 13:32:19.544 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/index.css - null null
+2025-08-23 13:32:19.544 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/index.js - null null
+2025-08-23 13:32:19.549 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger-ui-bundle.js - null null
+2025-08-23 13:32:19.550 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger-ui-standalone-preset.js - null null
+2025-08-23 13:32:19.560 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger-ui.css - null null
+2025-08-23 13:32:19.600 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/index.js - 200 null application/javascript;charset=utf-8 56.0588ms
+2025-08-23 13:32:19.636 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/index.css - 200 202 text/css 92.387ms
+2025-08-23 13:32:19.734 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger-ui-standalone-preset.js - 200 229223 text/javascript 183.7489ms
+2025-08-23 13:32:19.816 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger-ui.css - 200 155175 text/css 256.388ms
+2025-08-23 13:32:19.832 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger-ui-bundle.js - 200 1485750 text/javascript 282.4474ms
+2025-08-23 13:32:20.433 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 13:32:20.516 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/favicon-32x32.png - null null
+2025-08-23 13:32:20.617 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/favicon-32x32.png - 200 628 image/png 101.0793ms
+2025-08-23 13:32:20.802 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 368.9843ms
+2025-08-23 13:32:27.827 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - null null
+2025-08-23 13:32:27.927 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-23 13:32:27.935 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 13:32:27.977 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 13:32:27.985 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-23 13:32:28.148 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:32:28.176 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 189.0718ms
+2025-08-23 13:32:28.180 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 13:32:28.182 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Electrónica"},{"id":2,"name":"Hogar"},{"id":3,"name":"Deportes"}],"total":3}
+2025-08-23 13:32:28.189 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - 200 null application/json; charset=utf-8 362.3673ms
+2025-08-23 13:32:40.236 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5289/api/v1/categories - application/json 31
+2025-08-23 13:32:40.264 -03:00 [INF] Incoming Request: POST /api/v1/categories {
+  "name": "Nueva categoria"
+}
+2025-08-23 13:32:40.267 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.Create (WebApiTest)'
+2025-08-23 13:32:40.274 -03:00 [INF] Route matched with {action = "Create", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(WebApiTest.Controllers.Requests.CreateCategoryRequest) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 13:32:40.317 -03:00 [INF] Executing ObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput'.
+2025-08-23 13:32:40.321 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.Create (WebApiTest) in 44.2235ms
+2025-08-23 13:32:40.323 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.Create (WebApiTest)'
+2025-08-23 13:32:40.324 -03:00 [INF] Outgoing Response: 201 {"id":4,"name":"Nueva categoria"}
+2025-08-23 13:32:40.326 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5289/api/v1/categories - 201 null application/json; charset=utf-8 90.6408ms
+2025-08-23 13:32:49.204 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories/4 - null null
+2025-08-23 13:32:49.223 -03:00 [INF] Incoming Request: GET /api/v1/categories/4 
+2025-08-23 13:32:49.225 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-23 13:32:49.270 -03:00 [INF] Route matched with {action = "GetById", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int64) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 13:32:49.277 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput'.
+2025-08-23 13:32:49.285 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetById (WebApiTest) in 10.7639ms
+2025-08-23 13:32:49.287 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-23 13:32:49.289 -03:00 [INF] Outgoing Response: 200 {"id":4,"name":"Nueva categoria"}
+2025-08-23 13:32:49.291 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories/4 - 200 null application/json; charset=utf-8 86.8768ms
+2025-08-23 13:32:49.510 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories/4 - null null
+2025-08-23 13:32:49.538 -03:00 [INF] Incoming Request: GET /api/v1/categories/4 
+2025-08-23 13:32:49.544 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-23 13:32:49.545 -03:00 [INF] Route matched with {action = "GetById", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int64) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 13:32:49.558 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput'.
+2025-08-23 13:32:49.560 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetById (WebApiTest) in 3.2373ms
+2025-08-23 13:32:49.562 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-23 13:32:49.573 -03:00 [INF] Outgoing Response: 200 {"id":4,"name":"Nueva categoria"}
+2025-08-23 13:32:49.575 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories/4 - 200 null application/json; charset=utf-8 64.7859ms
+2025-08-23 13:32:54.280 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories/5 - null null
+2025-08-23 13:32:54.298 -03:00 [INF] Incoming Request: GET /api/v1/categories/5 
+2025-08-23 13:32:54.300 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-23 13:32:54.302 -03:00 [INF] Route matched with {action = "GetById", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int64) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 13:32:54.314 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetById (WebApiTest) in 4.7429ms
+2025-08-23 13:32:54.317 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetById (WebApiTest)'
+2025-08-23 13:32:54.323 -03:00 [ERR] La categoria solicitada no existe
+WebApiTest.Application.Exceptions.NotFoundException: La categoria solicitada no existe
+   at WebApiTest.Application.Features.Categories.Queries.GetCategoryDetailHandler.Handle(GetCategoryDetail request, CancellationToken cancellationToken) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\Features\Categories\Queries\GetCategoryDetail.cs:line 22
+   at WebApiTest.Controllers.CategoriesController.GetById(Int64 id) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Controllers\CategoriesController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApiTest.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Middlewares\ExceptionHandlerMiddleware.cs:line 29
+2025-08-23 13:32:54.368 -03:00 [INF] Outgoing Response: 404 {"type":"https://yourdomain.com/errors/not-found","status":404,"code":"404","title":"Not Found","detail":"La categoria solicitada no existe","instance":"/api/v1/categories/5","traceId":"8dfa8df8-6a85-4fca-8494-f020782ec2e6"}
+2025-08-23 13:32:54.374 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories/5 - 404 null application/json 93.7642ms
+2025-08-23 13:33:08.246 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - null null
+2025-08-23 13:33:08.278 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:33:08.281 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:33:08.295 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:33:08.312 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:33:08.323 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 25.4623ms
+2025-08-23 13:33:08.328 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:33:08.329 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Smartphone","price":999.99,"categoryId":1}],"total":1}
+2025-08-23 13:33:08.331 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - 200 null application/json; charset=utf-8 85.4676ms
+2025-08-23 13:33:42.529 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5289/api/v1/products - application/json 113
+2025-08-23 13:33:42.544 -03:00 [INF] Incoming Request: POST /api/v1/products {
+  "name": "Nuevo producto",
+  "description": "descripcion",
+  "price": 0.01,
+  "stock": 10,
+  "categoryId": 4
+}
+2025-08-23 13:33:42.553 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.Create (WebApiTest)'
+2025-08-23 13:33:42.584 -03:00 [INF] Route matched with {action = "Create", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(WebApiTest.Controllers.Requests.CreateProductRequest) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:33:42.729 -03:00 [INF] Executing ObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Products.ProductDetailOutput'.
+2025-08-23 13:33:42.735 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.Create (WebApiTest) in 144.7488ms
+2025-08-23 13:33:42.743 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.Create (WebApiTest)'
+2025-08-23 13:33:42.745 -03:00 [INF] Outgoing Response: 201 {"id":2,"name":"Nuevo producto","description":"descripcion","price":0.01,"stock":10,"category":{"id":4,"name":"Nueva categoria"}}
+2025-08-23 13:33:42.747 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5289/api/v1/products - 201 null application/json; charset=utf-8 217.4217ms
+2025-08-23 13:33:52.679 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - null null
+2025-08-23 13:33:52.700 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:33:52.702 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:33:52.704 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:33:52.713 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:33:52.716 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 5.0745ms
+2025-08-23 13:33:52.718 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:33:52.720 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Smartphone","price":999.99,"categoryId":1},{"id":2,"name":"Nuevo producto","price":0.01,"categoryId":4}],"total":2}
+2025-08-23 13:33:52.725 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - 200 null application/json; charset=utf-8 46.6308ms
+2025-08-23 13:33:58.801 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&name=nue - null null
+2025-08-23 13:33:58.806 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:33:58.837 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:33:58.839 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:33:58.850 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:33:58.854 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 12.1259ms
+2025-08-23 13:33:58.856 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:33:58.857 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":2,"name":"Nuevo producto","price":0.01,"categoryId":4}],"total":1}
+2025-08-23 13:33:58.859 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&name=nue - 200 null application/json; charset=utf-8 58.9425ms
+2025-08-23 13:34:02.231 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - null null
+2025-08-23 13:34:02.241 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:34:02.243 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:02.245 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:02.254 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:34:02.260 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 7.7438ms
+2025-08-23 13:34:02.261 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:02.263 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Smartphone","price":999.99,"categoryId":1},{"id":2,"name":"Nuevo producto","price":0.01,"categoryId":4}],"total":2}
+2025-08-23 13:34:02.264 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - 200 null application/json; charset=utf-8 32.8583ms
+2025-08-23 13:34:07.147 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=1 - null null
+2025-08-23 13:34:07.157 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:34:07.159 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:07.160 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:07.171 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:34:07.173 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 5.2187ms
+2025-08-23 13:34:07.175 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:07.176 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Smartphone","price":999.99,"categoryId":1}],"total":1}
+2025-08-23 13:34:07.178 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=1 - 200 null application/json; charset=utf-8 30.6391ms
+2025-08-23 13:34:11.215 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=4 - null null
+2025-08-23 13:34:11.237 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:34:11.260 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:11.262 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:11.276 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:34:11.279 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 10.8075ms
+2025-08-23 13:34:11.280 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:11.282 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":2,"name":"Nuevo producto","price":0.01,"categoryId":4}],"total":1}
+2025-08-23 13:34:11.283 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=4 - 200 null application/json; charset=utf-8 68.3576ms
+2025-08-23 13:34:14.175 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=2 - null null
+2025-08-23 13:34:14.185 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:34:14.188 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:14.191 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:14.235 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-08-23 13:34:14.239 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 36.3284ms
+2025-08-23 13:34:14.241 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:14.243 -03:00 [INF] Outgoing Response: 204 
+2025-08-23 13:34:14.246 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=2 - 204 null null 70.3885ms
+2025-08-23 13:34:19.806 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=1 - null null
+2025-08-23 13:34:19.862 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:34:19.864 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:19.867 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:19.934 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:34:19.950 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 48.1884ms
+2025-08-23 13:34:19.952 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:19.954 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Smartphone","price":999.99,"categoryId":1}],"total":1}
+2025-08-23 13:34:19.967 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1&categoryId=1 - 200 null application/json; charset=utf-8 161.2175ms
+2025-08-23 13:34:28.420 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - null null
+2025-08-23 13:34:28.435 -03:00 [INF] Incoming Request: GET /api/v1/products 
+2025-08-23 13:34:28.438 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:28.445 -03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int64]) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:28.449 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Products.ProductOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 13:34:28.451 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetAll (WebApiTest) in 3.0712ms
+2025-08-23 13:34:28.454 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetAll (WebApiTest)'
+2025-08-23 13:34:28.466 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Smartphone","price":999.99,"categoryId":1},{"id":2,"name":"Nuevo producto","price":0.01,"categoryId":4}],"total":2}
+2025-08-23 13:34:28.468 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products?count=10&page=1 - 200 null application/json; charset=utf-8 48.0997ms
+2025-08-23 13:34:49.704 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products/2 - null null
+2025-08-23 13:34:49.713 -03:00 [INF] Incoming Request: GET /api/v1/products/2 
+2025-08-23 13:34:49.717 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetById (WebApiTest)'
+2025-08-23 13:34:49.724 -03:00 [INF] Route matched with {action = "GetById", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int64) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:34:49.731 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Products.ProductDetailOutput'.
+2025-08-23 13:34:49.736 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetById (WebApiTest) in 10.8638ms
+2025-08-23 13:34:49.744 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetById (WebApiTest)'
+2025-08-23 13:34:49.758 -03:00 [INF] Outgoing Response: 200 {"id":2,"name":"Nuevo producto","description":"descripcion","price":0.01,"stock":10,"category":{"id":4,"name":"Nueva categoria"}}
+2025-08-23 13:34:49.791 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products/2 - 200 null application/json; charset=utf-8 87.7977ms
+2025-08-23 13:35:39.218 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - application/json 112
+2025-08-23 13:35:39.223 -03:00 [INF] Incoming Request: PUT /api/v1/products/2 {
+  "name": "Nuevo producto",
+  "description": "descripcion",
+  "price": -10,
+  "stock": 20,
+  "categoryId": 1
+}
+2025-08-23 13:35:39.230 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:35:39.236 -03:00 [INF] Route matched with {action = "Update", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int64, WebApiTest.Controllers.Requests.UpdateProductRequest) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:35:39.255 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.Update (WebApiTest) in 17.4403ms
+2025-08-23 13:35:39.258 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:35:39.265 -03:00 [ERR] El precio del producto debe ser mayor a cero.
+WebApiTest.Domain.Exceptions.BusinessException: El precio del producto debe ser mayor a cero.
+   at WebApiTest.Application.Features.Products.Commands.UpdateProductHandler.Handle(UpdateProduct request, CancellationToken cancellationToken) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\Features\Products\Commands\UpdateProduct.cs:line 24
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at WebApiTest.Controllers.ProductsController.Update(Int64 id, UpdateProductRequest request) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Controllers\ProductsController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApiTest.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Middlewares\ExceptionHandlerMiddleware.cs:line 29
+2025-08-23 13:35:39.284 -03:00 [INF] Outgoing Response: 422 {"type":"https://yourdomain.com/errors/business","status":422,"code":"API-UP-01","title":"Business rule violated","detail":"El precio del producto debe ser mayor a cero.","instance":"/api/v1/products/2","traceId":"8d419bdb-c2f9-4119-af14-bd00b05f0230"}
+2025-08-23 13:35:39.286 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - 422 null application/json 67.9165ms
+2025-08-23 13:35:46.855 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - application/json 112
+2025-08-23 13:35:46.894 -03:00 [INF] Incoming Request: PUT /api/v1/products/2 {
+  "name": "Nuevo producto",
+  "description": "descripcion",
+  "price": 10,
+  "stock": -20,
+  "categoryId": 1
+}
+2025-08-23 13:35:46.896 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:35:46.897 -03:00 [INF] Route matched with {action = "Update", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int64, WebApiTest.Controllers.Requests.UpdateProductRequest) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:35:46.901 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.Update (WebApiTest) in 1.4774ms
+2025-08-23 13:35:46.903 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:35:46.905 -03:00 [ERR] El stock del producto no puede ser negativo.
+WebApiTest.Domain.Exceptions.BusinessException: El stock del producto no puede ser negativo.
+   at WebApiTest.Application.Features.Products.Commands.UpdateProductHandler.Handle(UpdateProduct request, CancellationToken cancellationToken) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\Features\Products\Commands\UpdateProduct.cs:line 27
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at WebApiTest.Controllers.ProductsController.Update(Int64 id, UpdateProductRequest request) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Controllers\ProductsController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApiTest.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Middlewares\ExceptionHandlerMiddleware.cs:line 29
+2025-08-23 13:35:46.915 -03:00 [INF] Outgoing Response: 422 {"type":"https://yourdomain.com/errors/business","status":422,"code":"API-UP-02","title":"Business rule violated","detail":"El stock del producto no puede ser negativo.","instance":"/api/v1/products/2","traceId":"5a6a6fc9-bd45-4948-8ff3-baaedd23e155"}
+2025-08-23 13:35:46.917 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - 422 null application/json 62.6329ms
+2025-08-23 13:35:55.024 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - application/json 111
+2025-08-23 13:35:55.039 -03:00 [INF] Incoming Request: PUT /api/v1/products/2 {
+  "name": "Nuevo producto",
+  "description": "descripcion",
+  "price": 10,
+  "stock": 20,
+  "categoryId": 6
+}
+2025-08-23 13:35:55.041 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:35:55.052 -03:00 [INF] Route matched with {action = "Update", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int64, WebApiTest.Controllers.Requests.UpdateProductRequest) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:35:55.059 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.Update (WebApiTest) in 1.7783ms
+2025-08-23 13:35:55.080 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:35:55.086 -03:00 [ERR] La categoría del producto no fue encontrada
+WebApiTest.Application.Exceptions.BadRequestException: La categoría del producto no fue encontrada
+   at WebApiTest.Application.Features.Products.Commands.UpdateProductHandler.Handle(UpdateProduct request, CancellationToken cancellationToken) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\Features\Products\Commands\UpdateProduct.cs:line 34
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`1.<>c__DisplayClass1_0.<<Handle>g__Handler|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at WebApiTest.Controllers.ProductsController.Update(Int64 id, UpdateProductRequest request) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Controllers\ProductsController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at WebApiTest.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest\Middlewares\ExceptionHandlerMiddleware.cs:line 29
+2025-08-23 13:35:55.099 -03:00 [INF] Outgoing Response: 400 {"type":"https://yourdomain.com/errors/bad-request","status":400,"code":"400","title":"Bad Request","detail":"La categoría del producto no fue encontrada","instance":"/api/v1/products/2","traceId":"8c2da51d-4941-48b6-957c-d3d89b79d8b2"}
+2025-08-23 13:35:55.101 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - 400 null application/json 76.95ms
+2025-08-23 13:36:04.161 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - application/json 111
+2025-08-23 13:36:04.171 -03:00 [INF] Incoming Request: PUT /api/v1/products/2 {
+  "name": "Nuevo producto",
+  "description": "descripcion",
+  "price": 10,
+  "stock": 20,
+  "categoryId": 2
+}
+2025-08-23 13:36:04.179 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:36:04.182 -03:00 [INF] Route matched with {action = "Update", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int64, WebApiTest.Controllers.Requests.UpdateProductRequest) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:36:04.201 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-08-23 13:36:04.203 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.Update (WebApiTest) in 7.3607ms
+2025-08-23 13:36:04.205 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.Update (WebApiTest)'
+2025-08-23 13:36:04.207 -03:00 [INF] Outgoing Response: 204 
+2025-08-23 13:36:04.214 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5289/api/v1/products/2 - 204 null null 53.015ms
+2025-08-23 13:36:10.276 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/products/2 - null null
+2025-08-23 13:36:10.423 -03:00 [INF] Incoming Request: GET /api/v1/products/2 
+2025-08-23 13:36:10.485 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.GetById (WebApiTest)'
+2025-08-23 13:36:10.489 -03:00 [INF] Route matched with {action = "GetById", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int64) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:36:10.522 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Products.ProductDetailOutput'.
+2025-08-23 13:36:10.567 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.GetById (WebApiTest) in 46.0138ms
+2025-08-23 13:36:10.583 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.GetById (WebApiTest)'
+2025-08-23 13:36:10.586 -03:00 [INF] Outgoing Response: 200 {"id":2,"name":"Nuevo producto","description":"descripcion","price":10,"stock":20,"category":{"id":2,"name":"Hogar"}}
+2025-08-23 13:36:10.612 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/products/2 - 200 null application/json; charset=utf-8 335.834ms
+2025-08-23 13:36:18.993 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5289/api/v1/products/2 - null null
+2025-08-23 13:36:19.006 -03:00 [INF] Incoming Request: DELETE /api/v1/products/2 
+2025-08-23 13:36:19.009 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.ProductsController.Delete (WebApiTest)'
+2025-08-23 13:36:19.017 -03:00 [INF] Route matched with {action = "Delete", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int64) on controller WebApiTest.Controllers.ProductsController (WebApiTest).
+2025-08-23 13:36:19.032 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-08-23 13:36:19.034 -03:00 [INF] Executed action WebApiTest.Controllers.ProductsController.Delete (WebApiTest) in 8.0342ms
+2025-08-23 13:36:19.044 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.ProductsController.Delete (WebApiTest)'
+2025-08-23 13:36:19.046 -03:00 [INF] Outgoing Response: 204 
+2025-08-23 13:36:19.049 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5289/api/v1/products/2 - 204 null null 56.1917ms
+2025-08-23 13:37:29.391 -03:00 [INF] Application is shutting down...
+2025-08-23 16:06:14.486 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 16:06:14.847 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 16:06:14.868 -03:00 [INF] Hosting environment: Development
+2025-08-23 16:06:14.915 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 16:06:16.120 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_vs/browserLink - null null
+2025-08-23 16:06:16.126 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-23 16:06:16.391 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 273.5474ms
+2025-08-23 16:06:16.644 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_vs/browserLink - 200 null text/javascript; charset=UTF-8 544.8213ms
+2025-08-23 16:06:16.930 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 16:06:17.133 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 202.5326ms
+2025-08-23 16:06:25.430 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - null null
+2025-08-23 16:06:25.550 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-23 16:06:25.563 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 16:06:25.630 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 16:06:25.648 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-23 16:06:25.848 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 16:06:25.874 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 233.3335ms
+2025-08-23 16:06:25.877 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 16:06:25.880 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Electrónica"},{"id":2,"name":"Hogar"},{"id":3,"name":"Deportes"}],"total":3}
+2025-08-23 16:06:25.901 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - 200 null application/json; charset=utf-8 470.5959ms
+2025-08-23 16:28:16.985 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 16:28:17.329 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 16:28:17.376 -03:00 [INF] Hosting environment: Development
+2025-08-23 16:28:17.414 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest
+2025-08-23 16:28:17.878 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_vs/browserLink - null null
+2025-08-23 16:28:17.878 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-23 16:28:18.018 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 155.8768ms
+2025-08-23 16:28:18.203 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_vs/browserLink - 200 null text/javascript; charset=UTF-8 341.5692ms
+2025-08-23 16:28:18.401 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 16:28:18.577 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 176.0841ms
+2025-08-23 16:28:35.572 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - null null
+2025-08-23 16:28:35.717 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-23 16:28:35.742 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 16:28:35.796 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 16:28:35.808 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-23 16:28:35.958 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 16:28:35.992 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 185.7127ms
+2025-08-23 16:28:35.996 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 16:28:35.998 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Electrónica"},{"id":2,"name":"Hogar"},{"id":3,"name":"Deportes"}],"total":3}
+2025-08-23 16:28:36.005 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - 200 null application/json; charset=utf-8 433.1065ms
+2025-08-23 16:32:51.129 -03:00 [INF] Now listening on: http://localhost:5289
+2025-08-23 16:32:51.804 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-23 16:32:51.809 -03:00 [INF] Hosting environment: Development
+2025-08-23 16:32:51.812 -03:00 [INF] Content root path: C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest
+2025-08-23 16:32:53.035 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-23 16:32:53.043 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/_vs/browserLink - null null
+2025-08-23 16:32:53.189 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_framework/aspnetcore-browser-refresh.js - 200 13756 application/javascript; charset=utf-8 184.9119ms
+2025-08-23 16:32:53.661 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/_vs/browserLink - 200 null text/javascript; charset=UTF-8 658.9773ms
+2025-08-23 16:32:53.923 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - null null
+2025-08-23 16:32:54.168 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 244.86ms
+2025-08-23 16:33:00.422 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - null null
+2025-08-23 16:33:00.685 -03:00 [INF] Incoming Request: GET /api/v1/categories 
+2025-08-23 16:33:00.804 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 16:33:00.898 -03:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
+2025-08-23 16:33:00.945 -03:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-08-23 16:33:01.264 -03:00 [INF] Executing OkObjectResult, writing value of type 'WebApiTest.Application.DTOs.Generics.PaginationResult`1[[WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput, WebApiTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-23 16:33:01.395 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest) in 457.4786ms
+2025-08-23 16:33:01.400 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.GetAll (WebApiTest)'
+2025-08-23 16:33:01.404 -03:00 [INF] Outgoing Response: 200 {"items":[{"id":1,"name":"Electrónica"},{"id":2,"name":"Hogar"},{"id":3,"name":"Deportes"}],"total":3}
+2025-08-23 16:33:01.416 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5289/api/v1/categories?count=10&page=1 - 200 null application/json; charset=utf-8 993.9626ms

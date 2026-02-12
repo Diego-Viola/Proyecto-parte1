@@ -1,0 +1,58 @@
+{
+  "Products": [
+    {
+      "Id": 1,
+      "Name": "Smartphone",
+      "Description": "Tel\u00E9fono inteligente de \u00FAltima generaci\u00F3n",
+      "Price": 999.99,
+      "Stock": 10,
+      "CategoryId": 1
+    },
+    {
+      "Id": 2,
+      "Name": "TestProduct_a1c9a6fd-f5ba-4d71-9917-6d5ed4042208",
+      "Description": "Test Description",
+      "Price": 10.5,
+      "Stock": 5,
+      "CategoryId": 1
+    },
+    {
+      "Id": 3,
+      "Name": "TestProduct_21e7bd9a-01c8-4f38-9ccf-2834b53791ea",
+      "Description": "Test Description",
+      "Price": 10.5,
+      "Stock": 5,
+      "CategoryId": 1
+    },
+    {
+      "Id": 4,
+      "Name": "Updated Name",
+      "Description": "Updated Description",
+      "Price": 20.0,
+      "Stock": 10,
+      "CategoryId": 1
+    }
+  ],
+  "Categories": [
+    {
+      "Id": 1,
+      "Name": "Electr\u00F3nica"
+    },
+    {
+      "Id": 2,
+      "Name": "Hogar"
+    },
+    {
+      "Id": 3,
+      "Name": "Deportes"
+    },
+    {
+      "Id": 4,
+      "Name": "TestCat_d6ea17ac-496a-43a7-a638-3c2784b6635a"
+    },
+    {
+      "Id": 5,
+      "Name": "TestCat_d23638b3-50f5-4ba4-88e5-6183c8f5cb73"
+    }
+  ]
+}

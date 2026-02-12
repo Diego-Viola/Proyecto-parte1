@@ -1,0 +1,22 @@
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\bin\Debug\net8.0\WebApiTest.Domain.deps.json
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\bin\Debug\net8.0\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\bin\Debug\net8.0\WebApiTest.Domain.pdb
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.AssemblyInfoInputs.cache
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.AssemblyInfo.cs
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\refint\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.pdb
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Domain\obj\Debug\net8.0\ref\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\bin\Debug\net8.0\WebApiTest.Domain.deps.json
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\bin\Debug\net8.0\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\bin\Debug\net8.0\WebApiTest.Domain.pdb
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.AssemblyInfoInputs.cache
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.AssemblyInfo.cs
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\refint\WebApiTest.Domain.dll
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\WebApiTest.Domain.pdb
+C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Domain\obj\Debug\net8.0\ref\WebApiTest.Domain.dll
