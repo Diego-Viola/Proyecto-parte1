@@ -1,82 +1,26 @@
 {
-  "Products": [
+  "products": [
     {
-      "Id": 1,
-      "Name": "Smartphone",
-      "Description": "Tel\u00E9fono inteligente de \u00FAltima generaci\u00F3n",
-      "Price": 999.99,
-      "Stock": 10,
-      "CategoryId": 1
-    },
-    {
-      "Id": 2,
-      "Name": "TestProduct_62b674b0-4330-4c19-a19c-92a490d7b016",
-      "Description": "Test Description",
-      "Price": 10.5,
-      "Stock": 5,
-      "CategoryId": 1
-    },
-    {
-      "Id": 3,
-      "Name": "TestProduct_927e4dd9-b87b-4544-8c6d-a047fe7ecdfc",
-      "Description": "Test Description",
-      "Price": 10.5,
-      "Stock": 5,
-      "CategoryId": 1
-    },
-    {
-      "Id": 4,
-      "Name": "Updated Name",
-      "Description": "Updated Description",
-      "Price": 20.0,
-      "Stock": 10,
-      "CategoryId": 1
-    },
-    {
-      "Id": 5,
-      "Name": "TestProduct_3c273233-5438-42db-a515-84c3911baaed",
-      "Description": "Test Description",
-      "Price": 10.5,
-      "Stock": 5,
-      "CategoryId": 1
-    },
-    {
-      "Id": 6,
-      "Name": "TestProduct_7d42cad4-662b-4814-8288-1a21763c1cd0",
-      "Description": "Test Description",
-      "Price": 10.5,
-      "Stock": 5,
-      "CategoryId": 1
-    },
-    {
-      "Id": 7,
-      "Name": "TestProduct_0e8f3858-656a-4beb-b97d-f40c15159443",
-      "Description": "Test Description",
-      "Price": 10.5,
-      "Stock": 5,
-      "CategoryId": 1
-    },
-    {
-      "Id": 8,
-      "Name": "Updated Name",
-      "Description": "Updated Description",
-      "Price": 20.0,
-      "Stock": 10,
-      "CategoryId": 1
+      "id": 1,
+      "name": "Smartphone",
+      "description": "Teléfono inteligente de última generación",
+      "price": 999.99,
+      "stock": 10,
+      "categoryId": 1
     }
   ],
-  "Categories": [
+  "categories": [
     {
-      "Id": 1,
-      "Name": "Electr\u00F3nica"
+      "id": 1,
+      "name": "Electrónica"
     },
     {
-      "Id": 2,
-      "Name": "Hogar"
+      "id": 2,
+      "name": "Hogar"
     },
     {
-      "Id": 3,
-      "Name": "Deportes"
+      "id": 3,
+      "name": "Deportes"
     }
   ]
 }
