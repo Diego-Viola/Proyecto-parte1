@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj": {}
+    "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj": {
+    "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj",
+        "projectUniqueName": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj",
         "projectName": "WebApiTest.Application.Test",
-        "projectPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj",
-        "packagesPath": "C:\\Users\\User-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application.Test\\obj\\",
+        "projectPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application.Test\\WebApiTest.Application.Test.csproj",
+        "packagesPath": "C:\\Users\\DV84056\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DV84056\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application\\WebApiTest.Application.csproj": {
-                "projectPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application\\WebApiTest.Application.csproj"
+              "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application\\WebApiTest.Application.csproj": {
+                "projectPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application\\WebApiTest.Application.csproj"
               },
-              "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj": {
-                "projectPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj"
+              "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj": {
+                "projectPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj"
               }
             }
           }
@@ -46,13 +46,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -103,25 +97,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application\\WebApiTest.Application.csproj": {
+    "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application\\WebApiTest.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application\\WebApiTest.Application.csproj",
+        "projectUniqueName": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application\\WebApiTest.Application.csproj",
         "projectName": "WebApiTest.Application",
-        "projectPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application\\WebApiTest.Application.csproj",
-        "packagesPath": "C:\\Users\\User-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Application\\obj\\",
+        "projectPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application\\WebApiTest.Application.csproj",
+        "packagesPath": "C:\\Users\\DV84056\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DV84056\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -130,14 +123,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj": {
-                "projectPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj"
+              "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj": {
+                "projectPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj"
               }
             }
           }
@@ -146,22 +140,12 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MediatR": {
-              "target": "Package",
-              "version": "[13.0.0, )"
-            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[9.0.8, )"
@@ -183,25 +167,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj": {
+    "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj",
         "projectName": "WebApiTest.Domain",
-        "projectPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\WebApiTest.Domain.csproj",
-        "packagesPath": "C:\\Users\\User-PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User-PC\\Documents\\CLIENTES\\SUPERVIELLE\\CAPACITACIONES\\Bazan Gerardo - Prueba Tecnica ML\\WebApiTest.Domain\\obj\\",
+        "projectPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\WebApiTest.Domain.csproj",
+        "packagesPath": "C:\\Users\\DV84056\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DV84056\\Desktop\\Repos\\Proyecto-parte1\\WebApiTest.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DV84056\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -210,6 +193,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -222,13 +206,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -249,7 +227,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,4 @@
-﻿using WebApiTest.Application.DTOs.Generics;
+﻿﻿using WebApiTest.Application.DTOs.Generics;
 using WebApiTest.Application.Interfaces.IRepositories;
 using WebApiTest.Domain.Models;
 using WebApiTest.Persistence.Entities;
@@ -18,12 +18,12 @@ public class ProductRepository : IProductRepository
         _adapter = adapter;
     }
 
-    public Task<PaginationResult<Product>> GetAllAsync(int page, int count, string name, long? categoryId)
+    public Task<PaginationResult<Product>> GetAllAsync(int page, int count, string? name, long? categoryId)
     {
         var query = _context.Products.AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(name))
-            query = query.Where(p => p.Name != null && p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            query = query.Where(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
         if (categoryId.HasValue)
             query = query.Where(p => p.CategoryId == categoryId.Value);

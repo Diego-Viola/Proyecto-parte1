@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"xdebgjwI/Bp+qD85QUGbTxupzbtBbs0j7Wv6vXsZOvU=","Source":"WebApiTest","BasePath":"_content/WebApiTest","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "ptnCLR5akC1Bsqmm43M16XGG8/sIxh32k8NckuXfIo0=",
+  "Source": "WebApiTest",
+  "BasePath": "_content/WebApiTest",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

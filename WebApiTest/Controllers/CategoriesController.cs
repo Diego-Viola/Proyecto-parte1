@@ -1,4 +1,3 @@
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
@@ -6,19 +5,18 @@ using System.Net.Mime;
 using WebApiTest.Application.DTOs.Generics;
 using WebApiTest.Application.DTOs.Outputs.Categories;
 using WebApiTest.Application.DTOs.Outputs.Products;
-using WebApiTest.Application.Features.Categories.Commands;
-using WebApiTest.Application.Features.Categories.Queries;
+using WebApiTest.Application.Interfaces.IServices;
 using WebApiTest.Controllers.Requests;
 
 namespace WebApiTest.Controllers
 {
     public class CategoriesController : BaseApiController
     {
-        private readonly IMediator _mediator;
+        private readonly ICategoryService _categoryService;
 
-        public CategoriesController(IMediator mediator)
+        public CategoriesController(ICategoryService categoryService)
         {
-            _mediator = mediator;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -30,9 +28,9 @@ namespace WebApiTest.Controllers
             [FromQuery, Required, Range(1, int.MaxValue)] int page
         )
         {
-            var categories = await _mediator.Send(new GetCategories(count, page));
+            var categories = await _categoryService.GetAllAsync(count, page);
 
-            return categories == null || !categories.Items.Any() ? NoContent() : Ok(categories);
+            return !categories.Items.Any() ? NoContent() : Ok(categories);
         }
 
 
@@ -41,7 +39,7 @@ namespace WebApiTest.Controllers
         [ProducesResponseType(typeof(CategoryOutput), StatusCodes.Status200OK)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
         public async Task<IActionResult> GetById(long id)
-            => Ok(await _mediator.Send(new GetCategoryDetail(id)));
+            => Ok(await _categoryService.GetByIdAsync(id));
 
 
         [HttpPost]
@@ -49,7 +47,7 @@ namespace WebApiTest.Controllers
         [ProducesResponseType(typeof(ProductDetailOutput), StatusCodes.Status201Created)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
         public async Task<IActionResult> Create([FromBody] CreateCategoryRequest request)
-            => StatusCode(201, await _mediator.Send(new CreateCategory(request.Name)));
+            => StatusCode(201, await _categoryService.CreateAsync(request.Name));
 
     }
 }

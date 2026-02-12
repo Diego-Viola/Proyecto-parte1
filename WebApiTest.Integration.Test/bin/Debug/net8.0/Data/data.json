@@ -10,7 +10,7 @@
     },
     {
       "Id": 2,
-      "Name": "TestProduct_a1c9a6fd-f5ba-4d71-9917-6d5ed4042208",
+      "Name": "TestProduct_62b674b0-4330-4c19-a19c-92a490d7b016",
       "Description": "Test Description",
       "Price": 10.5,
       "Stock": 5,
@@ -18,7 +18,7 @@
     },
     {
       "Id": 3,
-      "Name": "TestProduct_21e7bd9a-01c8-4f38-9ccf-2834b53791ea",
+      "Name": "TestProduct_927e4dd9-b87b-4544-8c6d-a047fe7ecdfc",
       "Description": "Test Description",
       "Price": 10.5,
       "Stock": 5,
@@ -26,6 +26,38 @@
     },
     {
       "Id": 4,
+      "Name": "Updated Name",
+      "Description": "Updated Description",
+      "Price": 20.0,
+      "Stock": 10,
+      "CategoryId": 1
+    },
+    {
+      "Id": 5,
+      "Name": "TestProduct_3c273233-5438-42db-a515-84c3911baaed",
+      "Description": "Test Description",
+      "Price": 10.5,
+      "Stock": 5,
+      "CategoryId": 1
+    },
+    {
+      "Id": 6,
+      "Name": "TestProduct_7d42cad4-662b-4814-8288-1a21763c1cd0",
+      "Description": "Test Description",
+      "Price": 10.5,
+      "Stock": 5,
+      "CategoryId": 1
+    },
+    {
+      "Id": 7,
+      "Name": "TestProduct_0e8f3858-656a-4beb-b97d-f40c15159443",
+      "Description": "Test Description",
+      "Price": 10.5,
+      "Stock": 5,
+      "CategoryId": 1
+    },
+    {
+      "Id": 8,
       "Name": "Updated Name",
       "Description": "Updated Description",
       "Price": 20.0,
@@ -45,14 +77,6 @@
     {
       "Id": 3,
       "Name": "Deportes"
-    },
-    {
-      "Id": 4,
-      "Name": "TestCat_d6ea17ac-496a-43a7-a638-3c2784b6635a"
-    },
-    {
-      "Id": 5,
-      "Name": "TestCat_d23638b3-50f5-4ba4-88e5-6183c8f5cb73"
     }
   ]
 }

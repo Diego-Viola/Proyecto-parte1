@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+using WebApiTest.Application.Interfaces.IServices;
+using WebApiTest.Application.Services;
 
 namespace WebApiTest.Application;
 
@@ -7,6 +8,7 @@ public static class ServiceRegistration
 {
     public static void AddApplicationServices(this IServiceCollection services)
     {
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<ICategoryService, CategoryService>();
     }
 }

@@ -1,30 +1,16 @@
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.deps.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Domain.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Domain.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.csproj.AssemblyReference.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.AssemblyInfoInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.AssemblyInfo.cs
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.csproj.CoreCompileInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTe.64D9C62E.Up2Date
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\refint\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Application\obj\Debug\net8.0\ref\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.deps.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Domain.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Domain.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.csproj.AssemblyReference.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.AssemblyInfoInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.AssemblyInfo.cs
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.csproj.CoreCompileInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTe.64D9C62E.Up2Date
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\refint\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Application\obj\Debug\net8.0\ref\WebApiTest.Application.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.deps.json
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Application.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Domain.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\bin\Debug\net8.0\WebApiTest.Domain.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.csproj.AssemblyReference.cache
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.AssemblyInfoInputs.cache
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.AssemblyInfo.cs
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.csproj.CoreCompileInputs.cache
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.sourcelink.json
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTe.64D9C62E.Up2Date
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\refint\WebApiTest.Application.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\WebApiTest.Application.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Application\obj\Debug\net8.0\ref\WebApiTest.Application.dll

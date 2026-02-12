@@ -1,9 +1,0 @@
-2025-08-22 16:54:37.258 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost/api/v1/categories - application/json; charset=utf-8 23
-2025-08-22 16:54:37.281 -03:00 [INF] Incoming Request: POST /api/v1/categories {"name":"TestCategory"}
-2025-08-22 16:54:37.282 -03:00 [INF] Executing endpoint 'WebApiTest.Controllers.CategoriesController.Create (WebApiTest)'
-2025-08-22 16:54:37.287 -03:00 [INF] Route matched with {action = "Create", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(WebApiTest.Controllers.Requests.CreateCategoryRequest) on controller WebApiTest.Controllers.CategoriesController (WebApiTest).
-2025-08-22 16:54:37.317 -03:00 [INF] Executing ObjectResult, writing value of type 'WebApiTest.Application.DTOs.Outputs.Categories.CategoryOutput'.
-2025-08-22 16:54:37.317 -03:00 [INF] Executed action WebApiTest.Controllers.CategoriesController.Create (WebApiTest) in 29.9007ms
-2025-08-22 16:54:37.317 -03:00 [INF] Executed endpoint 'WebApiTest.Controllers.CategoriesController.Create (WebApiTest)'
-2025-08-22 16:54:37.317 -03:00 [INF] Outgoing Response: 201 {"id":11,"name":"TestCategory"}
-2025-08-22 16:54:37.319 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost/api/v1/categories - 201 null application/json; charset=utf-8 61.4427ms

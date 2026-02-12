@@ -1,54 +1,19 @@
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\Data\data.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Persistence.deps.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Persistence.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Domain.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\bin\Debug\net8.0\WebApiTest.Domain.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.csproj.AssemblyReference.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfoInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfo.cs
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.csproj.CoreCompileInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTe.821E7201.Up2Date
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\refint\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\WebApiTest.Persistence.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.EntityFrameworkCore\obj\Debug\net8.0\ref\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\Data\data.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.deps.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Domain.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Domain.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.csproj.AssemblyReference.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfoInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfo.cs
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.csproj.CoreCompileInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTe.821E7201.Up2Date
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\refint\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\WebApiTest.Persistence\obj\Debug\net8.0\ref\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\Data\data.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.deps.json
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Application.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Domain.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Application.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Domain.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.csproj.AssemblyReference.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfoInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfo.cs
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.csproj.CoreCompileInputs.cache
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTe.821E7201.Up2Date
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\refint\WebApiTest.Persistence.dll
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.pdb
-C:\Users\User-PC\Documents\CLIENTES\SUPERVIELLE\CAPACITACIONES\Bazan Gerardo - Prueba Tecnica ML\WebApiTest.Persistence\obj\Debug\net8.0\ref\WebApiTest.Persistence.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\Data\data.json
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.deps.json
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Persistence.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Application.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Domain.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Application.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\bin\Debug\net8.0\WebApiTest.Domain.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.csproj.AssemblyReference.cache
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfoInputs.cache
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.AssemblyInfo.cs
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.sourcelink.json
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTe.821E7201.Up2Date
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\refint\WebApiTest.Persistence.dll
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\WebApiTest.Persistence.pdb
+C:\Users\DV84056\Desktop\Repos\Proyecto-parte1\WebApiTest.Persistence\obj\Debug\net8.0\ref\WebApiTest.Persistence.dll

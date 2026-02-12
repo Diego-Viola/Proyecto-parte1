@@ -97,7 +97,7 @@ public class ProductRepositoryTests : IDisposable
 
         var repository = new ProductRepository(context, _adapterMock.Object);
 
-        var result = await repository.GetAllAsync(1, 2, "", null);
+        var result = await repository.GetAllAsync(1, 2, null, null);
 
         result.Items.Should().HaveCount(2);
         result.Items.ElementAt(0).Id.Should().Be(products[0].Id);
@@ -109,7 +109,7 @@ public class ProductRepositoryTests : IDisposable
         filtered.Items.First().Name.Should().Be("C");
         filtered.Total.Should().Be(1);
 
-        var filteredByCategory = await repository.GetAllAsync(1, 5, "", 1);
+        var filteredByCategory = await repository.GetAllAsync(1, 5, null, 1);
         filteredByCategory.Items.Should().OnlyContain(p => p.CategoryId == 1);
         filteredByCategory.Total.Should().Be(2);
     }
