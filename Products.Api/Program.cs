@@ -17,7 +17,7 @@ using Products.Api.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var useSerilog = builder.Configuration.GetValue<bool>("UseSerilog", true);
+var useSerilog = builder.Configuration.GetValue("UseSerilog", true);
 if (useSerilog)
 {
     builder.Host.UseSerilog((context, services, configuration) =>
