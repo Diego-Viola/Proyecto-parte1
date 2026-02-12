@@ -1,4 +1,4 @@
-﻿# Products API - Sistema de Gestión de Productos y Categorías
+﻿﻿﻿# Products API - Sistema de Gestión de Productos y Categorías
 
 ## 📋 Descripción General
 
@@ -158,16 +158,20 @@ La aplicación sigue los principios de **Clean Architecture** y **Domain-Driven 
 
 #### ProductsController
 **Endpoints:**
-- `GET /api/v1/products` - Lista paginada con filtros
+- `GET /api/v1/products` - Lista paginada con filtros (count=20, page=1 por defecto)
   - Query params: count, page, name (opcional), categoryId (opcional)
-- `GET /api/v1/products/{id}` - Detalle de un producto
+- `GET /api/v1/products/{id}` - Detalle básico de un producto
+- `GET /api/v1/products/{id}/detail` - **🆕 Detalle completo estilo marketplace**
+  - Incluye: imágenes, vendedor, envío, variantes, atributos, ratings, productos relacionados
+- `GET /api/v1/products/{id}/related` - **🆕 Productos relacionados**
+  - Query params: limit (default: 6)
 - `POST /api/v1/products` - Crear producto
 - `PUT /api/v1/products/{id}` - Actualizar producto
 - `DELETE /api/v1/products/{id}` - Eliminar producto
 
 #### CategoriesController
 **Endpoints:**
-- `GET /api/v1/categories` - Lista paginada de categorías
+- `GET /api/v1/categories` - Lista paginada de categorías (count=20, page=1 por defecto)
 - `GET /api/v1/categories/{id}` - Detalle de categoría
 - `POST /api/v1/categories` - Crear categoría
 
@@ -384,10 +388,12 @@ Products.Api/
 │   ├── BaseApiController.cs           # Controlador base con [ApiVersion]
 │   ├── ProductsController.cs          # Endpoints de productos
 │   ├── CategoriesController.cs        # Endpoints de categorías
-│   └── Requests/                      # DTOs de entrada
-│       ├── CreateProductRequest.cs
-│       ├── UpdateProductRequest.cs
-│       └── CreateCategoryRequest.cs
+│   ├── Requests/                      # DTOs de entrada
+│   │   ├── CreateProductRequest.cs
+│   │   ├── UpdateProductRequest.cs
+│   │   └── CreateCategoryRequest.cs
+│   └── Responses/                     # 🆕 DTOs de salida enriquecidos
+│       └── ProductDetailEnrichedResponse.cs  # Modelo completo de marketplace
 ├── Middlewares/
 │   ├── CorrelationIdMiddleware.cs     # Trazabilidad de requests
 │   ├── RequestResponseLoggingMiddleware.cs  # Logging HTTP
@@ -396,6 +402,8 @@ Products.Api/
 │   └── LowercaseControllerModelConvention.cs  # Rutas lowercase
 ├── Handlers/
 │   └── InvalidModelStateHandler.cs    # Validación de modelos
+├── Helpers/
+│   └── ProductEnricherHelper.cs       # 🆕 Enriquecedor de productos para marketplace
 ├── HealthChecks/
 │   └── AppInfoHealthCheck.cs          # Health check personalizado
 ├── Swagger/
@@ -405,6 +413,8 @@ Products.Api/
 │   └── ErrorResponse.cs               # Modelo de respuesta de error
 ├── Exceptions/
 │   └── InputException.cs              # Excepciones de entrada
+├── docs/
+│   └── DECISIONS.md                   # 🆕 Registro de decisiones arquitectónicas (ADR)
 ├── Logs/                              # Archivos de log de Serilog
 ├── Data/                              # Base de datos JSON
 │   └── data.json                      # Persistencia de datos
@@ -472,6 +482,97 @@ Products.Api/
 ```
 
 ## 📝 Ejemplos de Uso
+
+### 🆕 Obtener Detalle Completo de Producto (Marketplace)
+
+```http
+GET /api/v1/products/1/detail
+```
+
+**Respuesta:**
+```json
+{
+  "id": 1,
+  "name": "Smartphone",
+  "description": "Teléfono inteligente de última generación",
+  "sku": "SKU-001-000001",
+  "condition": "new",
+  "price": {
+    "amount": 999.99,
+    "currency": "ARS",
+    "originalAmount": 1299.99,
+    "discountPercentage": 23,
+    "paymentMethods": [
+      {
+        "type": "credit_card",
+        "name": "Visa, Mastercard",
+        "installments": 12,
+        "installmentAmount": 83.33,
+        "interestFree": true
+      }
+    ]
+  },
+  "stock": {
+    "availableQuantity": 10,
+    "status": "available",
+    "maxPurchaseQuantity": 6
+  },
+  "images": [
+    {
+      "id": "img-1-1",
+      "url": "https://cdn.marketplace.com/products/1/image-1.jpg",
+      "thumbnailUrl": "https://cdn.marketplace.com/products/1/thumb-1.jpg",
+      "order": 1,
+      "isPrimary": true
+    }
+  ],
+  "category": { "id": 1, "name": "Electrónica" },
+  "breadcrumbs": [
+    { "id": 1, "name": "Inicio", "level": 0 },
+    { "id": 100, "name": "Categorías", "level": 1 },
+    { "id": 1, "name": "Electrónica", "level": 2 }
+  ],
+  "seller": {
+    "id": 1,
+    "name": "TechStore Oficial",
+    "reputation": {
+      "level": "gold",
+      "totalSales": 15000,
+      "positiveRating": 98.5
+    },
+    "location": { "city": "Buenos Aires", "country": "Argentina" }
+  },
+  "attributes": [
+    { "id": "brand", "name": "Marca", "value": "Generic Brand" },
+    { "id": "model", "name": "Modelo", "value": "Model-1" }
+  ],
+  "shipping": {
+    "freeShipping": true,
+    "options": [
+      {
+        "id": "standard",
+        "name": "Envío estándar",
+        "cost": 0,
+        "estimatedDeliveryDays": 5
+      }
+    ]
+  },
+  "rating": {
+    "average": 4.5,
+    "totalReviews": 150,
+    "distribution": { "5": 82, "4": 37, "3": 18, "2": 8, "1": 5 }
+  },
+  "relatedProducts": [
+    { "id": 2, "name": "Producto Relacionado", "price": 500.00 }
+  ]
+}
+```
+
+### 🆕 Obtener Productos Relacionados
+
+```http
+GET /api/v1/products/1/related?limit=6
+```
 
 ### Crear un Producto
 

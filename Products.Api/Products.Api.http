@@ -58,6 +58,27 @@ Accept: application/json
 
 ###
 
+# =========================
+# NUEVOS ENDPOINTS MARKETPLACE
+# =========================
+
+# Obtener detalle COMPLETO de un producto (estilo marketplace)
+# Incluye: imágenes, vendedor, envío, variantes, atributos, ratings, productos relacionados
+GET {{Products.Api_HostAddress}}/api/v1/products/1/detail
+Accept: application/json
+
+###
+
+# Obtener productos relacionados a un producto
+GET {{Products.Api_HostAddress}}/api/v1/products/1/related?limit=6
+Accept: application/json
+
+###
+
+# =========================
+# OPERACIONES CRUD
+# =========================
+
 # Actualizar un producto existente
 PUT {{Products.Api_HostAddress}}/api/v1/products/1
 Content-Type: application/json
@@ -78,3 +99,14 @@ DELETE {{Products.Api_HostAddress}}/api/v1/products/1
 Accept: application/json
 
 ###
+
+# =========================
+# HEALTH CHECK
+# =========================
+
+# Verificar estado de la aplicación
+GET {{Products.Api_HostAddress}}/health
+Accept: application/json
+
+###
+
