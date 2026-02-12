@@ -65,7 +65,7 @@ namespace Products.Api.Controllers
 
         /// <summary>
         /// Obtiene el detalle completo y enriquecido de un producto para una página de detalle
-        /// estilo marketplace (MercadoLibre, Amazon).
+        /// estilo marketplace (MercadoLibre).
         /// Incluye: imágenes, vendedor, envío, variantes, atributos, ratings, productos relacionados.
         /// </summary>
         /// <param name="id">ID del producto</param>

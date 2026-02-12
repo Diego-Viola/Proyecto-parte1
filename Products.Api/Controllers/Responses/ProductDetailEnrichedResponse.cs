@@ -3,7 +3,7 @@
 /// <summary>
 /// Respuesta enriquecida para la página de detalle de producto estilo marketplace.
 /// Esta estructura simula la información completa que necesitaría un frontend
-/// para renderizar una página de detalle similar a MercadoLibre/Amazon.
+/// para renderizar una página de detalle similar a MercadoLibre.
 /// </summary>
 public class ProductDetailEnrichedResponse
 {

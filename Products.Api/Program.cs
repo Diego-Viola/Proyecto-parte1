@@ -1,6 +1,5 @@
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Text.Json;
@@ -109,28 +108,9 @@ app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 
-// Mapeo de endpoints de controladores
+// Mapeo de endpoints de controladores (incluye HealthController)
 app.MapControllers();
 
-// Endpoint de health check con respuesta personalizada
-app.MapHealthChecks("/health", new HealthCheckOptions
-{
-    ResponseWriter = async (context, report) =>
-    {
-        context.Response.ContentType = "application/json";
-        var result = JsonSerializer.Serialize(new
-        {
-            status = report.Status.ToString(),
-            checks = report.Entries.Select(e => new
-            {
-                name = e.Key,
-                status = e.Value.Status.ToString(),
-                description = e.Value.Description
-            })
-        });
-        await context.Response.WriteAsync(result);
-    }
-});
 
 app.Run();
 
