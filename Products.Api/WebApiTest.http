@@ -1,0 +1,80 @@
+@Products.Api_HostAddress = http://localhost:5289
+
+# =========================
+# CATEGORIES ENDPOINTS
+# =========================
+
+# Obtener todas las categor�as (paginado)
+GET {{Products.Api_HostAddress}}/api/v1/categories?count=10&page=1
+Accept: application/json
+
+###
+
+# Obtener detalle de una categor�a por ID
+GET {{Products.Api_HostAddress}}/api/v1/categories/1
+Accept: application/json
+
+###
+
+# Crear una nueva categor�a
+POST {{Products.Api_HostAddress}}/api/v1/categories
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Nueva Categoria"
+}
+
+###
+
+# =========================
+# PRODUCTS ENDPOINTS
+# =========================
+
+# Obtener todos los productos (paginado, con filtros opcionales)
+GET {{Products.Api_HostAddress}}/api/v1/products?count=10&page=1&name=S&categoryId=1
+Accept: application/json
+
+###
+
+# Obtener detalle de un producto por ID
+GET {{Products.Api_HostAddress}}/api/v1/products/1
+Accept: application/json
+
+###
+
+# Crear un nuevo producto
+POST {{Products.Api_HostAddress}}/api/v1/products
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Nuevo Producto",
+  "description": "Descripci�n del producto",
+  "price": 100.50,
+  "stock": 10,
+  "categoryId": 1
+}
+
+###
+
+# Actualizar un producto existente
+PUT {{Products.Api_HostAddress}}/api/v1/products/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Producto Actualizado",
+  "description": "Descripci�n actualizada",
+  "price": 120.00,
+  "stock": 15,
+  "categoryId": 1
+}
+
+###
+
+# Eliminar un producto
+DELETE {{Products.Api_HostAddress}}/api/v1/products/1
+Accept: application/json
+
+###
