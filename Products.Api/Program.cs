@@ -1,5 +1,7 @@
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Text.Json;
@@ -11,6 +13,7 @@ using Products.Api.HealthChecks;
 using Products.Api.Middlewares;
 using Products.Api.Persistence;
 using Products.Api.Swagger;
+using Products.Api.Validators;
 
 #region Configuración de builder y logging
 
@@ -72,6 +75,10 @@ builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 // Servicios de aplicación e infraestructura
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureService();
+
+// FluentValidation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateProductRequestValidator>();
 
 // Health Checks personalizados
 builder.Services.AddHealthChecks()
