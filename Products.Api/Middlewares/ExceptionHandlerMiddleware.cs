@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.Json;
+﻿﻿using Microsoft.AspNetCore.Http.Json;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Text.Json;
@@ -96,7 +96,8 @@ public class ExceptionHandlerMiddleware
             Code = string.IsNullOrEmpty(code) ? status.ToString() : code,
             Detail = detail,
             Instance = instance,
-            TraceId = traceId
+            TraceId = traceId,
+            Errors = errors
         };
 
         switch (ex)

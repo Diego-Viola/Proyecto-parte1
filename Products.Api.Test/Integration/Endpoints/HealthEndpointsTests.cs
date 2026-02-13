@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿﻿using System.Net;
+using System.Net.Http.Json;
+using System.Text.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 
@@ -10,6 +12,7 @@ namespace Products.Api.Test.Integration.Endpoints;
 public class HealthEndpointsTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;
+    private readonly JsonSerializerOptions _jsonOptions;
 
     public HealthEndpointsTests(CustomWebApplicationFactory factory)
     {
@@ -17,14 +20,12 @@ public class HealthEndpointsTests : IClassFixture<CustomWebApplicationFactory>
         {
             AllowAutoRedirect = false
         });
+        _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     }
 
     [Fact]
     public async Task HealthCheck_ReturnsHealthy()
     {
-        // Arrange
-        // TODO: Implementar test
-
         // Act
         var response = await _client.GetAsync("/health");
 
@@ -33,15 +34,69 @@ public class HealthEndpointsTests : IClassFixture<CustomWebApplicationFactory>
     }
 
     [Fact]
-    public async Task HealthCheck_ReturnsAppInfo()
+    public async Task HealthCheck_ReturnsCorrectContentType()
     {
-        // Arrange
-        // TODO: Implementar test
-
         // Act
-        await Task.CompletedTask; // Placeholder
+        var response = await _client.GetAsync("/health");
 
         // Assert
-        Assert.True(true); // Placeholder
+        response.Content.Headers.ContentType?.MediaType.Should().Be("application/json");
+    }
+
+    [Fact]
+    public async Task HealthCheck_ReturnsAppInfo()
+    {
+        // Act
+        var response = await _client.GetAsync("/health");
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        content.Should().Contain("Healthy");
+        content.Should().Contain("app_info");
+    }
+
+    [Fact]
+    public async Task HealthCheck_ReturnsStatusField()
+    {
+        // Act
+        var response = await _client.GetAsync("/health");
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        content.Should().Contain("status");
+    }
+
+    [Fact]
+    public async Task HealthCheck_ReturnsChecksArray()
+    {
+        // Act
+        var response = await _client.GetAsync("/health");
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        content.Should().Contain("checks");
+    }
+
+    [Fact]
+    public async Task HealthCheck_IncludesAppVersion()
+    {
+        // Act
+        var response = await _client.GetAsync("/health");
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        content.Should().Contain("appVersion");
+    }
+
+    [Fact]
+    public async Task HealthCheck_IncludesServerTime()
+    {
+        // Act
+        var response = await _client.GetAsync("/health");
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        content.Should().Contain("serverTimeUtc");
     }
 }
