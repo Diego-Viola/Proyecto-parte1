@@ -25,4 +25,10 @@
     <ProjectReference Include="..\Products.Api.Persistence\Products.Api.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Products.Api.Test\obj\Products.Api.Test.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="Products.Api.Test\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="Products.Api.Test\obj\project.packagespec.json" />
+  </ItemGroup>
+
 </Project>

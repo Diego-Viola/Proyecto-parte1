@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36109.1
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Api.Integration.Test", "..\Products.Api.Integration.Test\Products.Api.Integration.Test.csproj", "{174C7DC6-6347-48FD-AEEB-8E154C010E37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Api.Persistence", "..\Products.Api.Persistence\Products.Api.Persistence.csproj", "{FDC36A8E-7B27-7579-3EF4-230ABA176DD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Api.Test", "..\Products.Api.Test\Products.Api.Test.csproj", "{D8B4F752-994B-4E4E-86B2-0F6E0FA26E36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{FDC36A8E-7B27-7579-3EF4-230ABA176DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDC36A8E-7B27-7579-3EF4-230ABA176DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDC36A8E-7B27-7579-3EF4-230ABA176DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B4F752-994B-4E4E-86B2-0F6E0FA26E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B4F752-994B-4E4E-86B2-0F6E0FA26E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B4F752-994B-4E4E-86B2-0F6E0FA26E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B4F752-994B-4E4E-86B2-0F6E0FA26E36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{93F5A353-B52A-4AFC-85D1-1D70B4679DD5} = {7C2D5A4C-A2D7-400B-9902-7BF752B8E6AE}
 		{174C7DC6-6347-48FD-AEEB-8E154C010E37} = {7C2D5A4C-A2D7-400B-9902-7BF752B8E6AE}
 		{FDC36A8E-7B27-7579-3EF4-230ABA176DD9} = {86687370-4FDB-4955-9435-691C70D8A73B}
+		{D8B4F752-994B-4E4E-86B2-0F6E0FA26E36} = {7C2D5A4C-A2D7-400B-9902-7BF752B8E6AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0BB7A31-C3F9-4DB4-829B-7E8A8D1CAACD}
