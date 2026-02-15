@@ -1,4 +1,4 @@
-﻿﻿# Products API - Prueba Técnica Backend
+﻿# Products API - Prueba Técnica Backend
 
 ## 📋 Descripción del Problema
 

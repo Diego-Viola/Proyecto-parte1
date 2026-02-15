@@ -1,4 +1,4 @@
-﻿﻿using Products.Api.Application.DTOs.Outputs.ProductDetail;
+﻿using Products.Api.Application.DTOs.Outputs.ProductDetail;
 using Products.Api.Application.DTOs.Outputs.Products;
 
 namespace Products.Api.Application.Helpers;

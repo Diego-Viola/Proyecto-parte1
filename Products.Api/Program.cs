@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System.Text.Json;
 using Products.Api.Application;
+using Products.Api.Application.DTOs.Inputs.Category;
+using Products.Api.Application.DTOs.Inputs.Products;
 using Products.Api.Common;
 using Products.Api.Configs;
 using Products.Api.Handlers;
@@ -76,9 +78,16 @@ builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureService();
 
-// FluentValidation
-builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddValidatorsFromAssemblyContaining<CreateProductInputValidator>();
+// FluentValidation - Registro de auto-validación
+builder.Services.AddFluentValidationAutoValidation(config =>
+{
+    // Deshabilitar validación con Data Annotations para evitar conflictos
+    config.DisableDataAnnotationsValidation = true;
+});
+
+builder.Services.AddScoped<IValidator<CreateProductInput>, CreateProductInputValidator>();
+builder.Services.AddScoped<IValidator<UpdateProductInput>, UpdateProductInputValidator>();
+builder.Services.AddScoped<IValidator<CreateCategoryInput>, CreateCategoryInputValidator>();
 
 // Health Checks personalizados
 builder.Services.AddHealthChecks()

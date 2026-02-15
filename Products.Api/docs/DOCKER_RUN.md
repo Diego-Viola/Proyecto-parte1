@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿# 🐳 Ejecución con Docker - Products.Api
+﻿# 🐳 Ejecución con Docker - Products.Api
 
 Esta guía permite ejecutar el proyecto con Docker usando una estrategia de compilación híbrida.
 

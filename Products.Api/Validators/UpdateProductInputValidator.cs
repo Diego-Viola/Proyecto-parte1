@@ -3,9 +3,6 @@ using Products.Api.Application.DTOs.Inputs.Products;
 
 namespace Products.Api.Validators;
 
-/// <summary>
-/// Validador FluentValidation para UpdateProductInput.
-/// </summary>
 public class UpdateProductInputValidator : AbstractValidator<UpdateProductInput>
 {
     public UpdateProductInputValidator()

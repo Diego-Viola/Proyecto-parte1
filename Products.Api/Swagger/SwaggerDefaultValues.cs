@@ -12,4 +12,3 @@ public class SwaggerDefaultValues : IOperationFilter
         operation.Deprecated = apiDescription.IsDeprecated();
     }
 }
-

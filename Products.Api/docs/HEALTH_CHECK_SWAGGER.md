@@ -1,4 +1,4 @@
-﻿﻿# Solución: Health Check visible en Swagger UI
+﻿# Solución: Health Check visible en Swagger UI
 
 ## 🔍 Análisis del Problema
 

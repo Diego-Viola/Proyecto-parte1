@@ -3,9 +3,6 @@ using Products.Api.Application.DTOs.Inputs.Category;
 
 namespace Products.Api.Validators;
 
-/// <summary>
-/// Validador FluentValidation para CreateCategoryInput.
-/// </summary>
 public class CreateCategoryInputValidator : AbstractValidator<CreateCategoryInput>
 {
     public CreateCategoryInputValidator()
