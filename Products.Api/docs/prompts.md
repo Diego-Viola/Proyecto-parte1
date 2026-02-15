@@ -5,10 +5,10 @@
 Este documento registra los prompts estratégicos utilizados durante el desarrollo de **Products.Api** con asistencia de herramientas de IA generativa (GitHub Copilot).
 
 **Principios seguidos:**
-- Validación humana de cada respuesta generada
-- Iteración sobre resultados para refinamiento
-- Pensamiento crítico sobre las sugerencias recibidas
-- Uso de IA como acelerador, no como reemplazo del criterio técnico
+- Validación humana de cada respuesta generada.
+- Iteración sobre resultados para refinamiento.
+- Pensamiento crítico sobre las sugerencias recibidas.
+- Uso de IA como acelerador, no como reemplazo del criterio técnico.
 
 ---
 
@@ -25,9 +25,9 @@ Dominio y Persistencia. Incluye inyección de dependencias y Repository Pattern.
 ```
 
 ### Resultado Esperado
-- Estructura de 4 proyectos separados con responsabilidades definidas
-- Inversión de dependencias correcta
-- Interfaces en capa de aplicación, implementaciones en persistencia
+- Estructura de 4 proyectos separados con responsabilidades definidas.
+- Inversión de dependencias correcta.
+- Interfaces en capa de aplicación, implementaciones en persistencia.
 
 ---
 
@@ -45,8 +45,8 @@ como en un marketplace.
 ```
 
 ### Resultado Esperado
-- Endpoint REST con respuesta enriquecida `ProductDetailEnrichedResponse`
-- Helper de enriquecimiento con datos simulados
+- Endpoint REST con respuesta enriquecida `ProductDetailEnrichedOutput`
+- Helper de enriquecimiento con datos simulados.
 - Estructura JSON completa para frontend
 
 ---
@@ -64,9 +64,9 @@ NotFoundException→404, BusinessException→422, excepciones genéricas→500.
 ```
 
 ### Resultado Esperado
-- `ExceptionHandlerMiddleware` con mapeo de códigos HTTP
-- `ErrorResponse` con campos: type, status, code, title, detail, traceId
-- Logging estructurado de errores
+- `ExceptionHandlerMiddleware` con mapeo de códigos HTTP.
+- `ErrorResponse` con campos: type, status, code, title, detail, traceId.
+- Logging estructurado de errores.
 
 ---
 
@@ -83,9 +83,8 @@ longitud de strings, valores numéricos positivos, y mensajes de error claros.
 ```
 
 ### Resultado Esperado
-- Validadores separados por request
-- Reglas expresivas con mensajes personalizados
-- Integración automática con el pipeline de ASP.NET Core
+- Validadores separados por request.
+- Reglas expresivas con mensajes personalizados.
 
 ---
 
@@ -101,9 +100,9 @@ versión, nombre del servicio, entorno, y timestamp. Exponerlo en /api/v1/health
 ```
 
 ### Resultado Esperado
-- `AppInfoHealthCheck` con información del sistema
-- `HealthController` con endpoint documentado en Swagger
-- Respuesta estructurada con status y checks
+- `AppInfoHealthCheck` con información del sistema.
+- `HealthController` con endpoint documentado en Swagger.
+- Respuesta estructurada con status y checks.
 
 ---
 
@@ -120,38 +119,8 @@ exitosos, errores 404, validaciones, y casos de borde.
 ```
 
 ### Resultado Esperado
-- Tests de controllers con mocks de servicios
-- Tests de middlewares con HttpContext simulado
-- Tests de integración con WebApplicationFactory
+- Tests de controllers con mocks de servicios.
+- Tests de middlewares con HttpContext simulado.
+- Tests de integración con WebApplicationFactory.
 
 ---
-
-## 7. Refactor Final y Evaluación
-
-### Objetivo
-Revisar y mejorar el proyecto para alcanzar nivel senior.
-
-### Prompt
-```
-Actúa como Staff Backend Engineer evaluando esta prueba técnica. Analiza: arquitectura, 
-manejo de errores, testing, y documentación. Identifica debilidades y aplica mejoras 
-para dejarlo en nivel senior. Incluye README profesional con instrucciones de ejecución 
-y cobertura de tests.
-```
-
-### Resultado Esperado
-- Identificación de gaps y mejoras aplicadas
-- README completo con instrucciones de ejecución
-- Documentación de decisiones arquitectónicas (ADR)
-- Informe de cobertura de tests
-
----
-
-## Conclusión
-
-El uso de IA generativa aceleró significativamente el desarrollo, especialmente en:
-- Generación de boilerplate estructurado
-- Creación de tests exhaustivos
-- Documentación técnica
-
-**Todas las respuestas fueron revisadas y adaptadas** al contexto específico del proyecto antes de su implementación final.
