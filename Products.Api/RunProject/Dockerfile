@@ -1,14 +1,19 @@
 ﻿# ============================================
 # Products.Api - Dockerfile Multi-Stage
 # ============================================
-# Optimizado para producción con imagen mínima
-# Contexto de build: Proyecto-parte1/ (directorio raíz)
-# Comando desde RunProject: docker build -t products-api:latest -f Dockerfile ../..
+# Este Dockerfile funciona SOLO con Docker instalado + acceso a internet.
+# No requiere .NET SDK en la máquina host.
+# Toda la compilación se hace dentro del contenedor.
 # ============================================
 
 # Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+
+# Configurar NuGet para reintentar en caso de fallos temporales
+ENV NUGET_XMLDOC_MODE=skip
+ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Copiar archivos de proyecto para restaurar dependencias (cache de capas)
 COPY Products.Api/Products.Api.csproj Products.Api/
@@ -16,8 +21,12 @@ COPY Products.Api.Application/Products.Api.Application.csproj Products.Api.Appli
 COPY Products.Api.Domain/Products.Api.Domain.csproj Products.Api.Domain/
 COPY Products.Api.Persistence/Products.Api.Persistence.csproj Products.Api.Persistence/
 
-# Restaurar cada proyecto individualmente (no usa .sln)
-RUN dotnet restore Products.Api/Products.Api.csproj --disable-parallel || true
+# Restaurar dependencias con reintentos (3 intentos)
+RUN for i in 1 2 3; do \
+        dotnet restore Products.Api/Products.Api.csproj \
+        --disable-parallel \
+        --verbosity minimal && break || sleep 5; \
+    done
 
 # Copiar código fuente
 COPY Products.Api/ Products.Api/
@@ -25,13 +34,13 @@ COPY Products.Api.Application/ Products.Api.Application/
 COPY Products.Api.Domain/ Products.Api.Domain/
 COPY Products.Api.Persistence/ Products.Api.Persistence/
 
-# Compilar solo el proyecto principal (sin .sln que incluye tests)
+# Compilar solo el proyecto principal
 WORKDIR /src/Products.Api
-RUN dotnet build Products.Api.csproj -c Release -o /app/build
+RUN dotnet build Products.Api.csproj -c Release -o /app/build --no-restore
 
 # Stage 2: Publish
 FROM build AS publish
-RUN dotnet publish Products.Api.csproj -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish Products.Api.csproj -c Release -o /app/publish /p:UseAppHost=false --no-restore
 
 # Stage 3: Runtime (imagen mínima)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
