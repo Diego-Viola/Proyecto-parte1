@@ -48,55 +48,6 @@
 
 ---
 
-## 🎯 Endpoint Principal: Detalle de Producto
-
-El endpoint principal que cumple la consigna es:
-
-```http
-GET /api/v1/products/{id}/detail
-```
-
-### Respuesta Completa Estilo Marketplace
-
-```json
-{
-  "id": 1,
-  "name": "Smartphone",
-  "description": "Teléfono inteligente de última generación",
-  "sku": "SKU-001-000001",
-  "permalink": "https://marketplace.com/products/smartphone-1",
-  "condition": "new",
-  "price": {
-    "amount": 999.99,
-    "currency": "ARS",
-    "originalAmount": 1299.99,
-    "discountPercentage": 23,
-    "paymentMethods": [...]
-  },
-  "stock": {
-    "availableQuantity": 10,
-    "status": "available",
-    "maxPurchaseQuantity": 6
-  },
-  "images": [...],
-  "category": { "id": 1, "name": "Electrónica" },
-  "breadcrumbs": [...],
-  "seller": {
-    "id": 1,
-    "name": "TechStore Oficial",
-    "reputation": { "level": "gold", "totalSales": 15000, "positiveRating": 98.5 }
-  },
-  "attributes": [...],
-  "shipping": { "freeShipping": true, "options": [...] },
-  "rating": { "average": 4.5, "totalReviews": 150 },
-  "relatedProducts": [...]
-}
-```
-
-Este endpoint proporciona **toda la información** que un frontend necesitaría para renderizar una página de detalle de producto completa.
-
----
-
 ## 🏗️ Arquitectura de la Solución
 
 La aplicación sigue los principios de **Clean Architecture** y **Domain-Driven Design (DDD)**, separando las responsabilidades en capas bien definidas:
