@@ -1,0 +1,31 @@
+﻿# ============================================
+# Products.Api - Dockerfile para Tests
+# ============================================
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS test
+
+WORKDIR /src
+
+# Copiar archivos de proyecto
+COPY Products.Api/Products.Api.csproj Products.Api/
+COPY Products.Api.Application/Products.Api.Application.csproj Products.Api.Application/
+COPY Products.Api.Domain/Products.Api.Domain.csproj Products.Api.Domain/
+COPY Products.Api.Persistence/Products.Api.Persistence.csproj Products.Api.Persistence/
+COPY Products.Api.Test/Products.Api.Test.csproj Products.Api.Test/
+COPY Products.Api.Application.Test/Products.Api.Application.Test.csproj Products.Api.Application.Test/
+COPY Products.Api.Persistence.Test/Products.Api.Persistence.Test.csproj Products.Api.Persistence.Test/
+COPY Products.Api.Integration.Test/Products.Api.Integration.Test.csproj Products.Api.Integration.Test/
+
+# Restaurar dependencias
+RUN dotnet restore Products.Api/Products.Api.csproj || true
+RUN dotnet restore Products.Api.Test/Products.Api.Test.csproj || true
+RUN dotnet restore Products.Api.Application.Test/Products.Api.Application.Test.csproj || true
+RUN dotnet restore Products.Api.Persistence.Test/Products.Api.Persistence.Test.csproj || true
+RUN dotnet restore Products.Api.Integration.Test/Products.Api.Integration.Test.csproj || true
+
+# Copiar código fuente
+COPY . .
+
+# Ejecutar tests
+WORKDIR /src/Products.Api
+ENTRYPOINT ["dotnet", "test", "../", "--verbosity", "normal"]

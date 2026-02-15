@@ -1,0 +1,35 @@
+﻿# Build artifacts
+**/bin/
+**/obj/
+**/out/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Test results
+**/TestResults/
+**/CoverageReport/
+
+# Logs
+**/Logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation (no needed in runtime)
+*.md
+docs/
+
+# Temporary
+*.tmp
+*.temp
