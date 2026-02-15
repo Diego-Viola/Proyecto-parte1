@@ -10,11 +10,11 @@ namespace Products.Api.Test.Unit.Validators;
 /// </summary>
 public class CreateProductInputValidatorTests
 {
-    private readonly CreateProductRequestValidator _validator;
+    private readonly CreateProductInputValidator _validator;
 
     public CreateProductInputValidatorTests()
     {
-        _validator = new CreateProductRequestValidator();
+        _validator = new CreateProductInputValidator();
     }
 
     #region Name Validation

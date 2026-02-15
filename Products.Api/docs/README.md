@@ -1,4 +1,4 @@
-﻿﻿# Products API - Sistema de Detalle de Productos estilo Marketplace
+﻿Products API - Sistema de Detalle de Productos estilo Marketplace
 
 ## 📋 Descripción General
 
