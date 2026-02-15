@@ -1,4 +1,4 @@
-﻿﻿﻿# RunProject - Ejecución con Docker
+﻿# RunProject - Ejecución con Docker
 
 Esta carpeta contiene todos los archivos necesarios para ejecutar el proyecto Products.Api con Docker.
 
@@ -46,10 +46,24 @@ chmod +x run.sh
 
 ### Opción 2: Docker Compose
 
+**Requiere compilación local previa:**
+
 ```bash
-cd RunProject
+# Paso 1: Compilar localmente
+cd ../..
+dotnet publish Products.Api/Products.Api.csproj -c Release -o ./publish
+
+# Paso 2: Volver a RunProject y ejecutar compose
+cd Products.Api/RunProject
 docker-compose up --build
 ```
+
+**Detener:**
+```bash
+docker-compose down
+```
+
+> **Nota**: Los scripts automatizados (`run.ps1`, `run.bat`, `run.sh`) hacen todo esto automáticamente. Se recomienda usarlos en lugar de docker-compose manual.
 
 ### Opción 3: Docker manual
 
