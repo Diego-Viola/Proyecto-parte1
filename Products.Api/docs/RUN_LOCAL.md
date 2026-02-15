@@ -154,6 +154,8 @@ dotnet tool install -g dotnet-reportgenerator-globaltool
 reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:"./CoverageReport" -reporttypes:Html
 ```
 
+### ✨ Se deja un reporte preparado en CoverageReport con la cobertrua a la fecha de entrega del proyecto.
+
 ### Paso 4: Abrir reporte
 - Windows: `start ./CoverageReport/index.html`
 - macOS: `open ./CoverageReport/index.html`
