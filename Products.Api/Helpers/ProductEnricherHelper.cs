@@ -1,5 +1,5 @@
 ﻿using Products.Api.Application.DTOs.Outputs.Products;
-using Products.Api.Controllers.Responses;
+using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 
 namespace Products.Api.Helpers;
 
@@ -14,11 +14,11 @@ public static class ProductEnricherHelper
     /// Enriquece un producto básico con toda la información necesaria
     /// para una página de detalle de marketplace.
     /// </summary>
-    public static ProductDetailEnrichedResponse EnrichProduct(ProductDetailOutput basicProduct)
+    public static ProductDetailEnrichedOutput EnrichProduct(ProductDetailOutput basicProduct)
     {
         var random = new Random((int)basicProduct.Id); // Seed para consistencia
         
-        return new ProductDetailEnrichedResponse
+        return new ProductDetailEnrichedOutput
         {
             // Datos base del producto existente
             Id = basicProduct.Id,
@@ -37,7 +37,7 @@ public static class ProductEnricherHelper
             Images = GenerateImages(basicProduct.Id, basicProduct.Name),
             
             // Categoría enriquecida
-            Category = new CategoryInfoResponse
+            Category = new CategoryInfoOutput
             {
                 Id = basicProduct.Category.Id,
                 Name = basicProduct.Category.Name,
@@ -82,19 +82,19 @@ public static class ProductEnricherHelper
         return $"SKU-{product.Category.Id:D3}-{product.Id:D6}";
     }
     
-    private static PriceInfoResponse GeneratePriceInfo(decimal price, Random random)
+    private static PriceInfoOutput GeneratePriceInfo(decimal price, Random random)
     {
         var hasDiscount = random.Next(100) < 30; // 30% de productos con descuento
         var discountPercentage = hasDiscount ? random.Next(10, 50) : (int?)null;
         var originalPrice = hasDiscount ? price * (1 + discountPercentage!.Value / 100m) : (decimal?)null;
         
-        return new PriceInfoResponse
+        return new PriceInfoOutput
         {
             Amount = price,
             Currency = "ARS",
             OriginalAmount = originalPrice.HasValue ? Math.Round(originalPrice.Value, 2) : null,
             DiscountPercentage = discountPercentage,
-            PaymentMethods = new List<PaymentMethodResponse>
+            PaymentMethods = new List<PaymentMethodOutput>
             {
                 new()
                 {
@@ -124,9 +124,9 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static StockInfoResponse GenerateStockInfo(int stock)
+    private static StockInfoOutput GenerateStockInfo(int stock)
     {
-        return new StockInfoResponse
+        return new StockInfoOutput
         {
             AvailableQuantity = stock,
             Status = stock switch
@@ -139,9 +139,9 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static List<ProductImageResponse> GenerateImages(long productId, string productName)
+    private static List<ProductImageOutput> GenerateImages(long productId, string productName)
     {
-        return Enumerable.Range(1, 5).Select(i => new ProductImageResponse
+        return Enumerable.Range(1, 5).Select(i => new ProductImageOutput
         {
             Id = $"img-{productId}-{i}",
             Url = $"https://cdn.marketplace.com/products/{productId}/image-{i}.jpg",
@@ -152,10 +152,10 @@ public static class ProductEnricherHelper
         }).ToList();
     }
     
-    private static List<BreadcrumbResponse> GenerateBreadcrumbs(
+    private static List<BreadcrumbOutput> GenerateBreadcrumbs(
         Application.DTOs.Outputs.Categories.CategoryOutput category)
     {
-        return new List<BreadcrumbResponse>
+        return new List<BreadcrumbOutput>
         {
             new() { Id = 1, Name = "Inicio", Level = 0 },
             new() { Id = 100, Name = "Categorías", Level = 1 },
@@ -163,7 +163,7 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static SellerInfoResponse GenerateSellerInfo(long productId, Random random)
+    private static SellerInfoOutput GenerateSellerInfo(long productId, Random random)
     {
         var sellerId = (productId % 10) + 1; // Simular diferentes vendedores
         var sellerNames = new[] 
@@ -175,21 +175,21 @@ public static class ProductEnricherHelper
         
         var levels = new[] { "yellow", "orange", "green", "gold", "platinum" };
         
-        return new SellerInfoResponse
+        return new SellerInfoOutput
         {
             Id = sellerId,
             Name = sellerNames[sellerId - 1],
             LogoUrl = $"https://cdn.marketplace.com/sellers/{sellerId}/logo.png",
             IsOfficialStore = random.Next(100) < 20,
             YearsInPlatform = random.Next(1, 10),
-            Reputation = new SellerReputationResponse
+            Reputation = new SellerReputationOutput
             {
                 Level = levels[random.Next(levels.Length)],
                 TotalSales = random.Next(100, 50000),
                 PositiveRating = (decimal)Math.Round(85 + random.NextDouble() * 15, 1),
                 CompletedTransactions = random.Next(50, 10000)
             },
-            Location = new SellerLocationResponse
+            Location = new SellerLocationOutput
             {
                 City = "Buenos Aires",
                 State = "Buenos Aires",
@@ -198,9 +198,9 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static List<ProductAttributeResponse> GenerateAttributes(ProductDetailOutput product)
+    private static List<ProductAttributeOutput> GenerateAttributes(ProductDetailOutput product)
     {
-        var attributes = new List<ProductAttributeResponse>
+        var attributes = new List<ProductAttributeOutput>
         {
             new() { Id = "brand", Name = "Marca", Value = "Generic Brand", Group = "main" },
             new() { Id = "model", Name = "Modelo", Value = $"Model-{product.Id}", Group = "main" },
@@ -221,42 +221,42 @@ public static class ProductEnricherHelper
         return attributes;
     }
     
-    private static List<ProductVariantResponse> GenerateVariants(ProductDetailOutput product, Random random)
+    private static List<ProductVariantOutput> GenerateVariants(ProductDetailOutput product, Random random)
     {
         // Simular variantes solo si el producto podría tenerlas
-        if (product.Stock < 5) return new List<ProductVariantResponse>();
+        if (product.Stock < 5) return new List<ProductVariantOutput>();
         
         var colors = new[] { "Negro", "Blanco", "Azul", "Rojo" };
         var selectedColors = colors.Take(random.Next(1, 4)).ToList();
         
-        return selectedColors.Select((color, index) => new ProductVariantResponse
+        return selectedColors.Select((color, index) => new ProductVariantOutput
         {
             Id = product.Id * 100 + index,
             Sku = $"SKU-{product.Id:D6}-{color[..1]}",
             Price = product.Price + (index * 100), // Ligera variación de precio
             Stock = Math.Max(1, product.Stock / selectedColors.Count),
             ThumbnailUrl = $"https://cdn.marketplace.com/products/{product.Id}/variant-{color.ToLower()}.jpg",
-            Attributes = new List<VariantAttributeResponse>
+            Attributes = new List<VariantAttributeOutput>
             {
                 new() { Name = "Color", Value = color }
             }
         }).ToList();
     }
     
-    private static ShippingInfoResponse GenerateShippingInfo(Random random)
+    private static ShippingInfoOutput GenerateShippingInfo(Random random)
     {
         var freeShipping = random.Next(100) < 40; // 40% envío gratis
         
-        return new ShippingInfoResponse
+        return new ShippingInfoOutput
         {
             FreeShipping = freeShipping,
             LocalPickupAvailable = random.Next(100) < 30,
-            Origin = new ShippingOriginResponse
+            Origin = new ShippingOriginOutput
             {
                 City = "Buenos Aires",
                 State = "Buenos Aires"
             },
-            Options = new List<ShippingOptionResponse>
+            Options = new List<ShippingOptionOutput>
             {
                 new()
                 {
@@ -280,7 +280,7 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static RatingSummaryResponse GenerateRatingInfo(Random random)
+    private static RatingSummaryOutput GenerateRatingInfo(Random random)
     {
         var totalReviews = random.Next(10, 500);
         
@@ -298,7 +298,7 @@ public static class ProductEnricherHelper
         var weightedSum = dist.Sum(kvp => kvp.Key * kvp.Value);
         var average = totalReviews > 0 ? (decimal)weightedSum / totalReviews : 0;
         
-        return new RatingSummaryResponse
+        return new RatingSummaryOutput
         {
             Average = Math.Round(average, 1),
             TotalReviews = totalReviews,
@@ -306,9 +306,9 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static WarrantyInfoResponse GenerateWarrantyInfo()
+    private static WarrantyInfoOutput GenerateWarrantyInfo()
     {
-        return new WarrantyInfoResponse
+        return new WarrantyInfoOutput
         {
             Type = "seller",
             DurationMonths = 12,
@@ -316,7 +316,7 @@ public static class ProductEnricherHelper
         };
     }
     
-    private static List<ProductSummaryResponse> GenerateRelatedProducts(long productId, Random random)
+    private static List<ProductSummaryOutput> GenerateRelatedProducts(long productId, Random random)
     {
         // Generar 4-6 productos relacionados (IDs diferentes al actual)
         var relatedCount = random.Next(4, 7);
@@ -325,7 +325,7 @@ public static class ProductEnricherHelper
             .Select(i =>
             {
                 var relatedId = ((productId + i) % 100) + 1;
-                return new ProductSummaryResponse
+                return new ProductSummaryOutput
                 {
                     Id = relatedId,
                     Name = $"Producto Relacionado {relatedId}",

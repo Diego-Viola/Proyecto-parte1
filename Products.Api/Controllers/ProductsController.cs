@@ -1,14 +1,12 @@
-using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Mime;
-using Products.Api.Application.DTOs.Generics;
 using Products.Api.Application.DTOs.Inputs.Products;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.DTOs.Outputs.Products;
+using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 using Products.Api.Application.Interfaces.IServices;
-using Products.Api.Controllers.Requests;
-using Products.Api.Controllers.Responses;
 using Products.Api.Helpers;
 
 namespace Products.Api.Controllers
@@ -64,17 +62,16 @@ namespace Products.Api.Controllers
             => Ok(await _productService.GetByIdAsync(id));
 
         /// <summary>
-        /// Obtiene el detalle completo y enriquecido de un producto para una página de detalle
-        /// estilo marketplace (MercadoLibre).
+        /// Obtiene el detalle completo y enriquecido de un producto para una página de detalle de marketplace.
         /// Incluye: imágenes, vendedor, envío, variantes, atributos, ratings, productos relacionados.
         /// </summary>
         /// <param name="id">ID del producto</param>
         [HttpGet("{id}/detail")]
         [SwaggerOperation(
-            Summary = "Obtiene detalle completo del producto para página de marketplace",
+            Summary = "Obtiene detalle completo del producto",
             Description = "Retorna toda la información necesaria para renderizar una página de detalle de producto completa, incluyendo imágenes, vendedor, envío, variantes, atributos técnicos, ratings y productos relacionados.",
             Tags = new[] { "Products" })]
-        [ProducesResponseType(typeof(ProductDetailEnrichedResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProductDetailEnrichedOutput), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
         public async Task<IActionResult> GetDetailById(long id)
@@ -99,7 +96,7 @@ namespace Products.Api.Controllers
             Summary = "Obtiene productos relacionados",
             Description = "Retorna una lista de productos relacionados basados en la categoría y comportamiento de otros usuarios.",
             Tags = new[] { "Products" })]
-        [ProducesResponseType(typeof(List<ProductSummaryResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<ProductSummaryOutput>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
         public async Task<IActionResult> GetRelatedProducts(long id, [FromQuery, Range(1, 20)] int limit = 6)
@@ -116,7 +113,7 @@ namespace Products.Api.Controllers
                     // Evitar retornar el mismo producto
                     if (relatedId == id) relatedId = ((id + i + 1) % 100) + 1;
 
-                    return new ProductSummaryResponse
+                    return new ProductSummaryOutput
                     {
                         Id = relatedId,
                         Name = $"Producto Relacionado {relatedId}",
@@ -140,8 +137,8 @@ namespace Products.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public async Task<IActionResult> Create([FromBody] CreateProductRequest request)
-            => StatusCode(201, await _productService.CreateAsync(request.Adapt<CreateProductInput>()));
+        public async Task<IActionResult> Create([FromBody] CreateProductInput request)
+            => StatusCode(201, await _productService.CreateAsync(request));
 
         /// <summary>
         /// Actualiza un producto existente.
@@ -154,9 +151,9 @@ namespace Products.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public async Task<IActionResult> Update(long id, [FromBody] UpdateProductRequest request)
+        public async Task<IActionResult> Update(long id, [FromBody] UpdateProductInput request)
         {
-            await _productService.UpdateAsync(id, request.Adapt<UpdateProductInput>());
+            await _productService.UpdateAsync(id, request);
             return NoContent();
         }
 

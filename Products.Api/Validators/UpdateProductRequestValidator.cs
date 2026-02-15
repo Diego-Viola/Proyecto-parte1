@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
-using Products.Api.Controllers.Requests;
+using Products.Api.Application.DTOs.Inputs.Products;
 
 namespace Products.Api.Validators;
 
 /// <summary>
 /// Validador FluentValidation para UpdateProductRequest.
 /// </summary>
-public class UpdateProductRequestValidator : AbstractValidator<UpdateProductRequest>
+public class UpdateProductRequestValidator : AbstractValidator<UpdateProductInput>
 {
     public UpdateProductRequestValidator()
     {

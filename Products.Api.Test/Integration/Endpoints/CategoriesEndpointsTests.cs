@@ -1,11 +1,11 @@
-﻿﻿using System.Net;
+﻿using System.Net;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Products.Api.Application.DTOs.Generics;
 using Products.Api.Application.DTOs.Outputs.Categories;
+using Products.Api.Application.DTOs.Outputs.Generics;
 
 namespace Products.Api.Test.Integration.Endpoints;
 

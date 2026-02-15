@@ -4,8 +4,8 @@ using FluentAssertions;
 using Products.Api.Controllers;
 using Products.Api.Application.Interfaces.IServices;
 using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Application.DTOs.Generics;
-using Products.Api.Controllers.Requests;
+using Products.Api.Application.DTOs.Inputs.Category;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.Exceptions;
 using Products.Api.Domain.Exceptions;
 
@@ -147,7 +147,7 @@ public class CategoriesControllerTests
     public async Task Create_WithValidRequest_ReturnsCreatedWithCategory()
     {
         // Arrange
-        var request = new CreateCategoryRequest { Name = "New Category" };
+        var request = new CreateCategoryInput() { Name = "New Category" };
         var createdCategory = new CategoryOutput { Id = 10, Name = "New Category" };
 
         _categoryServiceMock
@@ -170,7 +170,7 @@ public class CategoriesControllerTests
     public async Task Create_WithDuplicateName_ServiceThrowsBusinessException()
     {
         // Arrange
-        var request = new CreateCategoryRequest { Name = "Existing Category" };
+        var request = new CreateCategoryInput { Name = "Existing Category" };
 
         _categoryServiceMock
             .Setup(x => x.CreateAsync(request.Name))

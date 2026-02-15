@@ -1,4 +1,4 @@
-﻿﻿namespace Products.Api.Common;
+﻿namespace Products.Api.Common;
 
 /// <summary>
 /// Modelo de respuesta de error estandarizado siguiendo RFC 7807 (Problem Details).

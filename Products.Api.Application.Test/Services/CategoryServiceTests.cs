@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Moq;
 using System.ComponentModel;
-using Products.Api.Application.DTOs.Generics;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.Exceptions;
 using Products.Api.Application.Interfaces.IRepositories;
 using Products.Api.Application.Services;

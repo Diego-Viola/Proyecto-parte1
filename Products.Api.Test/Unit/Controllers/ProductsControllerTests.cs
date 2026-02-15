@@ -1,13 +1,13 @@
-﻿﻿﻿﻿﻿﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using FluentAssertions;
 using Products.Api.Controllers;
 using Products.Api.Application.Interfaces.IServices;
 using Products.Api.Application.DTOs.Outputs.Products;
 using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Application.DTOs.Generics;
 using Products.Api.Application.DTOs.Inputs.Products;
-using Products.Api.Controllers.Responses;
+using Products.Api.Application.DTOs.Outputs.Generics;
+using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 using Products.Api.Application.Exceptions;
 
 namespace Products.Api.Test.Unit.Controllers;
@@ -155,7 +155,7 @@ public class ProductsControllerTests
 
         // Assert
         var okResult = result.Should().BeOfType<OkObjectResult>().Subject;
-        var enrichedProduct = okResult.Value.Should().BeOfType<ProductDetailEnrichedResponse>().Subject;
+        var enrichedProduct = okResult.Value.Should().BeOfType<ProductDetailEnrichedOutput>().Subject;
         
         enrichedProduct.Id.Should().Be(1);
         enrichedProduct.Name.Should().Be("Test Product 1");
@@ -198,7 +198,7 @@ public class ProductsControllerTests
 
         // Assert
         var okResult = result.Should().BeOfType<OkObjectResult>().Subject;
-        var relatedProducts = okResult.Value.Should().BeAssignableTo<List<ProductSummaryResponse>>().Subject;
+        var relatedProducts = okResult.Value.Should().BeAssignableTo<List<ProductSummaryOutput>>().Subject;
         
         relatedProducts.Should().HaveCount(6);
         relatedProducts.Should().AllSatisfy(p =>

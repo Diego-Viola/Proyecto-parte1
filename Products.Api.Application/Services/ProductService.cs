@@ -1,12 +1,13 @@
-﻿﻿using Products.Api.Application.DTOs.Outputs.Categories;
- using Products.Api.Application.DTOs.Generics;
+﻿using Products.Api.Application.DTOs.Outputs.Categories;
 using Products.Api.Application.DTOs.Inputs.Products;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.DTOs.Outputs.Products;
 using Products.Api.Application.Exceptions;
 using Products.Api.Application.Interfaces.IRepositories;
 using Products.Api.Application.Interfaces.IServices;
 using Products.Api.Domain.Exceptions;
 using Products.Api.Domain.Models;
+using Products.Api.Application.DTOs.Outputs.Products;
 
 namespace Products.Api.Application.Services;
 

@@ -1,5 +1,5 @@
 ﻿using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Application.DTOs.Generics;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.Exceptions;
 using Products.Api.Application.Interfaces.IRepositories;
 using Products.Api.Application.Interfaces.IServices;

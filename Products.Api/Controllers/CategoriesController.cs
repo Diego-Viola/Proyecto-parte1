@@ -3,9 +3,9 @@ using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Mime;
 using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Application.DTOs.Generics;
+using Products.Api.Application.DTOs.Inputs.Category;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.Interfaces.IServices;
-using Products.Api.Controllers.Requests;
 
 namespace Products.Api.Controllers
 {
@@ -59,7 +59,7 @@ namespace Products.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public async Task<IActionResult> Create([FromBody] CreateCategoryRequest request)
+        public async Task<IActionResult> Create([FromBody] CreateCategoryInput request)
             => StatusCode(201, await _categoryService.CreateAsync(request.Name));
 
     }

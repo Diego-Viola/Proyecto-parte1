@@ -1,14 +1,14 @@
-﻿﻿using FluentAssertions;
+﻿using FluentAssertions;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
+using Products.Api.Application.DTOs.Inputs.Products;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Integration.Test.Support;
-using Products.Api.Application.DTOs.Generics;
 using Products.Api.Application.DTOs.Outputs.Products;
+using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 using Products.Api.Common;
-using Products.Api.Controllers.Requests;
-using Products.Api.Controllers.Responses;
 
 namespace Products.Api.Integration.Test.Controllers;
 
@@ -58,7 +58,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     [Fact]
     public async Task Create_ReturnsCreated_AndCanBeRetrieved()
     {
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Test Description",
@@ -89,7 +89,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     [Fact]
     public async Task GetById_ReturnsProductDetails_WhenProductExists()
     {
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Test Description",
@@ -119,7 +119,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     [Fact]
     public async Task Update_ReturnsNoContent()
     {
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Test Description",
@@ -137,7 +137,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         var created = await postResponse.Content.ReadFromJsonAsync<ProductDetailOutput>(_camelCaseOptions);
         created.Should().NotBeNull();
 
-        var updateRequest = new UpdateProductRequest
+        var updateRequest = new CreateProductInput
         {
             Name = "Updated Name",
             Description = "Updated Description",
@@ -166,7 +166,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     [Fact]
     public async Task Delete_ReturnsNoContent()
     {
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Test Description",
@@ -197,7 +197,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetDetailById_ReturnsEnrichedProductDetails_WhenProductExists()
     {
         // Arrange: Crear un producto primero
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Test Description for Enriched Detail",
@@ -218,7 +218,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var enrichedProduct = await response.Content.ReadFromJsonAsync<ProductDetailEnrichedResponse>(_camelCaseOptions);
+        var enrichedProduct = await response.Content.ReadFromJsonAsync<ProductDetailEnrichedOutput>(_camelCaseOptions);
         enrichedProduct.Should().NotBeNull();
         enrichedProduct!.Id.Should().Be(created.Id);
         enrichedProduct.Name.Should().Be(createRequest.Name);
@@ -278,7 +278,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetDetailById_ReturnsConsistentDataStructure()
     {
         // Arrange: Crear producto
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Consistency Test",
@@ -299,7 +299,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var enrichedProduct = await response.Content.ReadFromJsonAsync<ProductDetailEnrichedResponse>(_camelCaseOptions);
+        var enrichedProduct = await response.Content.ReadFromJsonAsync<ProductDetailEnrichedOutput>(_camelCaseOptions);
         enrichedProduct.Should().NotBeNull();
 
         // Con stock 0 el status debería ser out_of_stock
@@ -322,7 +322,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetRelatedProducts_ReturnsListOfProducts_WhenProductExists()
     {
         // Arrange: Crear un producto
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Product for Related Test",
@@ -343,7 +343,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryResponse>>(_camelCaseOptions);
+        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryOutput>>(_camelCaseOptions);
         relatedProducts.Should().NotBeNull();
         relatedProducts.Should().NotBeEmpty();
         relatedProducts.Should().HaveCount(6); // Default limit
@@ -364,7 +364,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetRelatedProducts_RespectsLimitParameter()
     {
         // Arrange: Crear un producto
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Product for Limit Test",
@@ -385,7 +385,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryResponse>>(_camelCaseOptions);
+        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryOutput>>(_camelCaseOptions);
         relatedProducts.Should().NotBeNull();
         relatedProducts.Should().HaveCount(3);
     }
@@ -408,7 +408,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetRelatedProducts_ValidatesLimitRange()
     {
         // Arrange: Crear un producto
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Product for Validation Test",
@@ -434,7 +434,7 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     public async Task GetRelatedProducts_ReturnsConsistentResultsForSameProduct()
     {
         // Arrange: Crear un producto
-        var createRequest = new CreateProductRequest
+        var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
             Description = "Product for Consistency Test",
@@ -457,8 +457,8 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         response1.StatusCode.Should().Be(HttpStatusCode.OK);
         response2.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var relatedProducts1 = await response1.Content.ReadFromJsonAsync<List<ProductSummaryResponse>>(_camelCaseOptions);
-        var relatedProducts2 = await response2.Content.ReadFromJsonAsync<List<ProductSummaryResponse>>(_camelCaseOptions);
+        var relatedProducts1 = await response1.Content.ReadFromJsonAsync<List<ProductSummaryOutput>>(_camelCaseOptions);
+        var relatedProducts2 = await response2.Content.ReadFromJsonAsync<List<ProductSummaryOutput>>(_camelCaseOptions);
 
         // Los resultados deberían ser consistentes (mismos IDs debido al seed basado en ID de producto)
         relatedProducts1.Should().HaveCount(5);

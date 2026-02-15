@@ -1,5 +1,4 @@
-﻿﻿
-using Products.Api.Application.DTOs.Generics;
+﻿using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Domain.Models;
 
 namespace Products.Api.Application.Interfaces.IRepositories;

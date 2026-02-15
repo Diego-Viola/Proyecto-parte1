@@ -1,5 +1,5 @@
-﻿using Products.Api.Application.DTOs.Generics;
-using Products.Api.Application.DTOs.Inputs.Products;
+﻿using Products.Api.Application.DTOs.Inputs.Products;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.DTOs.Outputs.Products;
 
 namespace Products.Api.Application.Interfaces.IServices;

@@ -1,7 +1,6 @@
-﻿﻿using FluentAssertions;
+﻿using FluentAssertions;
 using Products.Api.Application.DTOs.Outputs.Products;
 using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Controllers.Responses;
 using Products.Api.Helpers;
 
 namespace Products.Api.Test.Unit.Helpers;
@@ -12,7 +11,7 @@ namespace Products.Api.Test.Unit.Helpers;
 public class ProductEnricherHelperTests
 {
     [Fact]
-    public void EnrichProduct_WithValidProduct_ReturnsEnrichedResponse()
+    public void EnrichProduct_WithValidProduct_ReturnsEnrichedOutput()
     {
         // Arrange
         var basicProduct = CreateTestProduct(1);

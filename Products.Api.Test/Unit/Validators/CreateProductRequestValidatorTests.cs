@@ -1,18 +1,18 @@
 ﻿using FluentAssertions;
 using FluentValidation.TestHelper;
-using Products.Api.Controllers.Requests;
+using Products.Api.Application.DTOs.Inputs.Products;
 using Products.Api.Validators;
 
 namespace Products.Api.Test.Unit.Validators;
 
 /// <summary>
-/// Tests unitarios para CreateProductRequestValidator.
+/// Tests unitarios para CreateProductInputValidator.
 /// </summary>
-public class CreateProductRequestValidatorTests
+public class CreateProductInputValidatorTests
 {
     private readonly CreateProductRequestValidator _validator;
 
-    public CreateProductRequestValidatorTests()
+    public CreateProductInputValidatorTests()
     {
         _validator = new CreateProductRequestValidator();
     }
@@ -23,7 +23,7 @@ public class CreateProductRequestValidatorTests
     public void Name_WhenEmpty_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Name = "" };
+        var request = new CreateProductInput { Name = "" };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -37,7 +37,7 @@ public class CreateProductRequestValidatorTests
     public void Name_WhenTooShort_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Name = "A" };
+        var request = new CreateProductInput { Name = "A" };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -51,7 +51,7 @@ public class CreateProductRequestValidatorTests
     public void Name_WhenTooLong_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Name = new string('a', 201) };
+        var request = new CreateProductInput { Name = new string('a', 201) };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -65,7 +65,7 @@ public class CreateProductRequestValidatorTests
     public void Name_WhenValid_ShouldNotHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Name = "Valid Product Name" };
+        var request = new CreateProductInput { Name = "Valid Product Name" };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -82,7 +82,7 @@ public class CreateProductRequestValidatorTests
     public void Description_WhenEmpty_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Description = "" };
+        var request = new CreateProductInput { Description = "" };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -96,7 +96,7 @@ public class CreateProductRequestValidatorTests
     public void Description_WhenTooLong_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Description = new string('a', 4001) };
+        var request = new CreateProductInput { Description = new string('a', 4001) };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -110,7 +110,7 @@ public class CreateProductRequestValidatorTests
     public void Description_WhenValid_ShouldNotHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Description = "Valid description" };
+        var request = new CreateProductInput { Description = "Valid description" };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -127,7 +127,7 @@ public class CreateProductRequestValidatorTests
     public void Price_WhenZero_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Price = 0 };
+        var request = new CreateProductInput { Price = 0 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -141,7 +141,7 @@ public class CreateProductRequestValidatorTests
     public void Price_WhenNegative_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Price = -10 };
+        var request = new CreateProductInput { Price = -10 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -155,7 +155,7 @@ public class CreateProductRequestValidatorTests
     public void Price_WhenValid_ShouldNotHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Price = 99.99m };
+        var request = new CreateProductInput { Price = 99.99m };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -172,7 +172,7 @@ public class CreateProductRequestValidatorTests
     public void Stock_WhenNegative_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Stock = -1 };
+        var request = new CreateProductInput { Stock = -1 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -186,7 +186,7 @@ public class CreateProductRequestValidatorTests
     public void Stock_WhenZero_ShouldNotHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Stock = 0 };
+        var request = new CreateProductInput { Stock = 0 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -199,7 +199,7 @@ public class CreateProductRequestValidatorTests
     public void Stock_WhenPositive_ShouldNotHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { Stock = 100 };
+        var request = new CreateProductInput { Stock = 100 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -216,7 +216,7 @@ public class CreateProductRequestValidatorTests
     public void CategoryId_WhenZero_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { CategoryId = 0 };
+        var request = new CreateProductInput { CategoryId = 0 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -230,7 +230,7 @@ public class CreateProductRequestValidatorTests
     public void CategoryId_WhenNegative_ShouldHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { CategoryId = -1 };
+        var request = new CreateProductInput { CategoryId = -1 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -244,7 +244,7 @@ public class CreateProductRequestValidatorTests
     public void CategoryId_WhenValid_ShouldNotHaveError()
     {
         // Arrange
-        var request = new CreateProductRequest { CategoryId = 1 };
+        var request = new CreateProductInput { CategoryId = 1 };
 
         // Act
         var result = _validator.TestValidate(request);
@@ -261,7 +261,7 @@ public class CreateProductRequestValidatorTests
     public void ValidRequest_ShouldNotHaveErrors()
     {
         // Arrange
-        var request = new CreateProductRequest
+        var request = new CreateProductInput
         {
             Name = "Valid Product",
             Description = "Valid Description",
@@ -281,7 +281,7 @@ public class CreateProductRequestValidatorTests
     public void InvalidRequest_ShouldHaveMultipleErrors()
     {
         // Arrange
-        var request = new CreateProductRequest
+        var request = new CreateProductInput
         {
             Name = "",
             Description = "",

@@ -1,4 +1,4 @@
-﻿﻿using Microsoft.AspNetCore.Http.Json;
+﻿using Microsoft.AspNetCore.Http.Json;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Text.Json;

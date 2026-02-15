@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Json;
 using Products.Api.Integration.Test.Support;
-using Products.Api.Application.DTOs.Generics;
+using Products.Api.Application.DTOs.Inputs.Category;
 using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Controllers.Requests;
+using Products.Api.Application.DTOs.Outputs.Generics;
 
 namespace Products.Api.Integration.Test.Controllers;
 
@@ -43,7 +43,7 @@ public class CategoryControllerTests : IClassFixture<CustomWebApplicationFactory
     [Fact]
     public async Task Create_ReturnsCreated_AndCanBeRetrieved()
     {
-        var request = new CreateCategoryRequest { Name = $"TestCat_{Guid.NewGuid()}" };
+        var request = new CreateCategoryInput() { Name = $"TestCat_{Guid.NewGuid()}" };
         var postResponse = await _client.PostAsJsonAsync("/api/v1/categories", request);
         postResponse.StatusCode.Should().Be(HttpStatusCode.Created);
 
@@ -63,7 +63,7 @@ public class CategoryControllerTests : IClassFixture<CustomWebApplicationFactory
     [Fact]
     public async Task GetById_ReturnsCategoryDetails_WhenCategoryExists()
     {
-        var request = new CreateCategoryRequest { Name = $"TestCat_{Guid.NewGuid()}" };
+        var request = new CreateCategoryInput() { Name = $"TestCat_{Guid.NewGuid()}" };
         var postResponse = await _client.PostAsJsonAsync("/api/v1/categories", request);
         postResponse.StatusCode.Should().Be(HttpStatusCode.Created);
 

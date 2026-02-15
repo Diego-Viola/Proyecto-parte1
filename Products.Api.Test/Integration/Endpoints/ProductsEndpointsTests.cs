@@ -4,10 +4,9 @@ using System.Text;
 using System.Text.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Products.Api.Application.DTOs.Generics;
+using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.DTOs.Outputs.Products;
-using Products.Api.Controllers.Responses;
-using Products.Api.Common;
+using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 
 namespace Products.Api.Test.Integration.Endpoints;
 
@@ -125,7 +124,7 @@ public class ProductsEndpointsTests : IClassFixture<CustomWebApplicationFactory>
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
         
-        var enrichedProduct = await response.Content.ReadFromJsonAsync<ProductDetailEnrichedResponse>(_jsonOptions);
+        var enrichedProduct = await response.Content.ReadFromJsonAsync<ProductDetailEnrichedOutput>(_jsonOptions);
         enrichedProduct.Should().NotBeNull();
         enrichedProduct!.Id.Should().Be(1);
         enrichedProduct.Images.Should().NotBeEmpty();
@@ -178,7 +177,7 @@ public class ProductsEndpointsTests : IClassFixture<CustomWebApplicationFactory>
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
         
-        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryResponse>>(_jsonOptions);
+        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryOutput>>(_jsonOptions);
         relatedProducts.Should().NotBeNull();
         relatedProducts!.Should().HaveCount(6);
     }

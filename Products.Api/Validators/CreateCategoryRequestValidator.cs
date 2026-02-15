@@ -1,12 +1,12 @@
-﻿﻿using FluentValidation;
-using Products.Api.Controllers.Requests;
+﻿using FluentValidation;
+using Products.Api.Application.DTOs.Inputs.Category;
 
 namespace Products.Api.Validators;
 
 /// <summary>
 /// Validador FluentValidation para CreateCategoryRequest.
 /// </summary>
-public class CreateCategoryRequestValidator : AbstractValidator<CreateCategoryRequest>
+public class CreateCategoryRequestValidator : AbstractValidator<CreateCategoryInput>
 {
     public CreateCategoryRequestValidator()
     {

@@ -1,4 +1,4 @@
-﻿namespace Products.Api.Application.DTOs.Generics;
+﻿namespace Products.Api.Application.DTOs.Outputs.Generics;
 
 public class PaginationResult<T>
 {

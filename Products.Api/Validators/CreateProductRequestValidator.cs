@@ -1,13 +1,13 @@
 ﻿using FluentValidation;
-using Products.Api.Controllers.Requests;
+ using Products.Api.Application.DTOs.Inputs.Products;
 
-namespace Products.Api.Validators;
+ namespace Products.Api.Validators;
 
 /// <summary>
 /// Validador FluentValidation para CreateProductRequest.
 /// Proporciona validaciones más expresivas y mantenibles que Data Annotations.
 /// </summary>
-public class CreateProductRequestValidator : AbstractValidator<CreateProductRequest>
+public class CreateProductRequestValidator : AbstractValidator<CreateProductInput>
 {
     public CreateProductRequestValidator()
     {
