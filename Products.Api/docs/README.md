@@ -1,4 +1,4 @@
-﻿Products API - Sistema de Detalle de Productos estilo Marketplace
+﻿﻿Products API - Sistema de Detalle de Productos estilo Marketplace
 
 ## 📋 Descripción General
 
@@ -794,9 +794,16 @@ La solución incluye tests unitarios completos:
 9. ✅ **Documentation**: Swagger/OpenAPI completo
 10. ✅ **Thread Safety**: Operaciones concurrentes seguras
 
-## 🐳 Ejecución sin .NET SDK (Docker)
+## 🐳 Ejecución con Docker
 
-El proyecto puede ejecutarse **sin tener .NET instalado** utilizando Docker.
+El proyecto puede ejecutarse usando Docker con una **estrategia de compilación híbrida**.
+
+### Requisitos
+- **Docker** 20.10+
+- **.NET 8 SDK** (para compilación local antes del build de Docker)
+
+### ¿Por qué se requiere .NET SDK?
+Los scripts compilan localmente primero para evitar problemas de conectividad (`NU1301`) dentro de Docker. Esto garantiza builds más rápidos y confiables.
 
 ### Ejecución Rápida
 
@@ -820,13 +827,19 @@ chmod +x run.sh && ./run.sh
 docker-compose up --build
 ```
 
+**Los scripts ejecutan:**
+1. ✅ Compilación local (usando .NET SDK)
+2. ✅ Construcción de imagen Docker
+3. ✅ Ejecución del contenedor
+4. ✅ Verificación de health
+
 ### Acceso
 - **Swagger UI**: http://localhost:5000
 - **Health Check**: http://localhost:5000/api/v1/health
 
 > 📖 Ver guía completa en: [`DOCKER_RUN.md`](./DOCKER_RUN.md)
-> 
-> 🔧 **Problemas con Docker?** Ver: [`DOCKER_TROUBLESHOOTING.md`](./DOCKER_TROUBLESHOOTING.md)
+
+> ⚠️ **Sin .NET SDK?** Ejecuta localmente con `dotnet run` o consulta [`RUN_LOCAL.md`](./RUN_LOCAL.md)
 
 ---
 
@@ -900,11 +913,11 @@ public class CreateProductRequestValidator : AbstractValidator<CreateProductRequ
 | Documento | Descripción |
 |-----------|-------------|
 | [`RUN_LOCAL.md`](./RUN_LOCAL.md) | Guía de ejecución local con .NET SDK |
-| [`DOCKER_RUN.md`](./DOCKER_RUN.md) | Guía de ejecución con Docker |
-| [`DOCKER_TROUBLESHOOTING.md`](./DOCKER_TROUBLESHOOTING.md) | Solución a problemas comunes de Docker |
-| [`docs/DECISIONS.md`](./docs/DECISIONS.md) | Registro de Decisiones Arquitectónicas (ADR) |
+| [`DOCKER_RUN.md`](./DOCKER_RUN.md) | Guía de ejecución con Docker (incluye troubleshooting) |
+| [`DECISIONS.md`](./DECISIONS.md) | Registro de Decisiones Arquitectónicas (ADR) |
 | [`prompts.md`](./prompts.md) | Prompts de GenAI utilizados en el desarrollo |
 | [`INFORME_FINAL_EVALUACION.md`](./INFORME_FINAL_EVALUACION.md) | Evaluación y mejoras aplicadas |
+| [`MIGRATION_RUNPROJECT.md`](./MIGRATION_RUNPROJECT.md) | Guía de migración de archivos Docker a RunProject |
 
 ---
 

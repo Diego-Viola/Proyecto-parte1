@@ -1,6 +1,6 @@
-﻿﻿# 🐳 Ejecución con Docker - Products.Api
+﻿﻿﻿﻿﻿# 🐳 Ejecución con Docker - Products.Api
 
-Esta guía permite ejecutar el proyecto **sin necesidad de tener .NET SDK instalado**.
+Esta guía permite ejecutar el proyecto con Docker usando una estrategia de compilación híbrida.
 
 ## Requisitos
 
@@ -44,8 +44,16 @@ Esto automáticamente:
 ## Opción 2: Docker Compose
 
 **Desde la carpeta RunProject:**
+
 ```bash
 cd RunProject
+
+# Paso 1: Compilar localmente
+cd ../..
+dotnet publish Products.Api/Products.Api.csproj -c Release -o ./publish
+cd Products.Api/RunProject
+
+# Paso 2: Ejecutar con compose
 docker-compose up --build
 ```
 
@@ -53,6 +61,8 @@ Para detener:
 ```bash
 docker-compose down
 ```
+
+> **Nota**: Docker Compose usa `Dockerfile.prebuilt` que requiere compilación local previa.
 
 ---
 
@@ -161,10 +171,28 @@ docker run -d -p 5000:8080 \
 
 ## Troubleshooting
 
-### Error: Unable to load service index for NuGet
-Si ves errores de tipo `NU1301: Unable to load the service index for source https://api.nuget.org/v3/index.json`:
+### Error: .NET SDK no instalado
 
-**Opción 1: Configurar DNS de Docker**
+**Síntoma**: Los scripts (`run.ps1`, `run.bat`, `run.sh`) fallan con "dotnet not found"
+
+**Solución 1**: Instala .NET 8 SDK desde https://dotnet.microsoft.com/download
+
+**Solución 2**: Ejecutar sin Docker
+```bash
+cd Products.Api
+dotnet run --project Products.Api.csproj
+```
+
+### Error: Unable to load service index for NuGet (NU1301)
+
+**Causa**: Docker no puede acceder a NuGet para descargar paquetes durante el build.
+
+**Solución aplicada**: Los scripts ya manejan esto compilando localmente primero. Si aún ves este error, asegúrate de:
+1. Tener .NET SDK instalado
+2. Poder ejecutar `dotnet restore` exitosamente fuera de Docker
+3. Usar los scripts (`run.ps1`, `run.bat`, `run.sh`) en lugar de comandos Docker manuales
+
+**Alternativa - Configurar DNS de Docker**:
 ```bash
 # Windows: Docker Desktop > Settings > Docker Engine > Agregar:
 {
@@ -172,13 +200,35 @@ Si ves errores de tipo `NU1301: Unable to load the service index for source http
 }
 ```
 
-**Opción 2: Usar red del host (Linux/macOS)**
+### Sin .NET SDK instalado
+
+Si no puedes instalar .NET SDK, tienes dos opciones:
+
+**Opción 1**: Usar imagen Docker pre-construida (si está disponible en registro)
+
+**Opción 2**: Configurar DNS en Docker y usar `Dockerfile` estándar:
+1. Docker Desktop → Settings → Docker Engine
+2. Agregar DNS públicos:
+```json
+{
+  "dns": ["8.8.8.8", "8.8.4.4"]
+}
+```
+3. Construir manualmente:
 ```bash
-docker build --network=host -t products-api:latest -f Dockerfile ..
+cd RunProject
+docker build -t products-api:latest -f Dockerfile ../..
+docker run -d -p 5000:8080 --name products-api products-api:latest
 ```
 
-**Opción 3: Build sin Docker (usar .NET local)**
-Ver [`RUN_LOCAL.md`](./RUN_LOCAL.md) para ejecutar con .NET SDK instalado.
+### Error: file with no instructions (Dockerfile.prebuilt)
+
+**Causa**: Problema de BOM (Byte Order Mark) en el Dockerfile.
+
+**Solución**: Los scripts `run.ps1`, `run.bat`, `run.sh` generan automáticamente `Dockerfile.prebuilt` sin BOM. Si usas comandos manuales, ejecuta primero:
+```powershell
+.\fix-dockerfile.ps1
+```
 
 ### Error: Puerto 5000 en uso
 ```bash

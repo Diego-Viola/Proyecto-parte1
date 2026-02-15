@@ -1,4 +1,4 @@
-﻿# Products API - Prueba Técnica Backend
+﻿﻿# Products API - Prueba Técnica Backend
 
 ## 📋 Descripción del Problema
 
@@ -282,7 +282,11 @@ coveragereport/
 
 3. **Testing**:
    - Tests de integración usan la misma persistencia JSON
-   - No hay contenedores Docker para aislamiento
+   - Aislamiento mediante datos de prueba independientes
+
+4. **Docker**:
+   - Requiere .NET SDK localmente para compilación híbrida
+   - Evita problemas de conectividad NU1301
 
 ### Mejoras Futuras (Fuera del Alcance)
 
@@ -290,8 +294,9 @@ coveragereport/
 - [ ] Rate limiting
 - [ ] Caché distribuido (Redis)
 - [ ] Base de datos real (PostgreSQL/MongoDB)
-- [ ] Containerización (Docker)
+- [x] Containerización (Docker) ✅ **Implementado**
 - [ ] CI/CD pipeline
+- [ ] Kubernetes deployment
 
 ---
 
