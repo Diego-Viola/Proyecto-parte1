@@ -1,4 +1,4 @@
-﻿# 🐳 Ejecución con Docker - Products.Api
+﻿﻿# 🐳 Ejecución con Docker - Products.Api
 
 Esta guía permite ejecutar el proyecto **sin necesidad de tener .NET SDK instalado**.
 
@@ -12,6 +12,11 @@ Esta guía permite ejecutar el proyecto **sin necesidad de tener .NET SDK instal
 ---
 
 ## Opción 1: Ejecución Rápida (Recomendada)
+
+**Primero, navega a la carpeta RunProject:**
+```bash
+cd RunProject
+```
 
 ### Linux / macOS / Git Bash
 ```bash
@@ -38,7 +43,9 @@ Esto automáticamente:
 
 ## Opción 2: Docker Compose
 
+**Desde la carpeta RunProject:**
 ```bash
+cd RunProject
 docker-compose up --build
 ```
 
@@ -51,14 +58,12 @@ docker-compose down
 
 ## Opción 3: Comandos Manuales
 
-### Construir imagen (con multi-stage optimizado)
-```bash
-docker build -t products-api:latest -f Dockerfile ..
-```
+**Desde la carpeta RunProject:**
 
-### Construir imagen (simplificado - para problemas de red)
+### Construir imagen
 ```bash
-docker build -t products-api:latest -f Dockerfile.simple ..
+cd RunProject
+docker build -t products-api:latest -f Dockerfile ..\..
 ```
 
 ### Ejecutar contenedor
@@ -109,8 +114,10 @@ curl http://localhost:5000/api/v1/products/1/detail
 
 ## Ejecutar Tests en Docker
 
+**Desde la carpeta RunProject:**
 ```bash
-docker build -t products-api-test:latest -f Dockerfile.test ..
+cd RunProject
+docker build -t products-api-test:latest -f Dockerfile.test ..\..
 docker run --rm products-api-test:latest
 ```
 
@@ -120,17 +127,18 @@ docker run --rm products-api-test:latest
 
 ```
 Products.Api/
-├── Dockerfile           # Imagen de producción multi-stage optimizada
-├── Dockerfile.simple    # Imagen simplificada (fallback para problemas de red)
-├── Dockerfile.test      # Imagen para ejecutar tests
-├── docker-compose.yml   # Orquestación
-├── run.sh              # Script Linux/macOS
-├── run.ps1             # Script PowerShell
-├── run.bat             # Script Windows CMD
-└── .dockerignore       # Archivos a excluir
+├── RunProject/                # ← Todos los archivos Docker y scripts aquí
+│   ├── Dockerfile            # Imagen de producción multi-stage optimizada
+│   ├── Dockerfile.test       # Imagen para ejecutar tests
+│   ├── docker-compose.yml    # Orquestación
+│   ├── run.sh               # Script Linux/macOS
+│   ├── run.ps1              # Script PowerShell
+│   ├── run.bat              # Script Windows CMD
+│   └── README.md            # Documentación de ejecución
+└── Products.Api.csproj
 ```
 
-> **Nota**: Los scripts intentan usar `Dockerfile` primero. Si falla (problemas de red), automáticamente usan `Dockerfile.simple` como fallback.
+> **Contexto de Build**: Todos los Dockerfiles usan `Proyecto-parte1/` como contexto para acceder a todos los proyectos (Application, Domain, Persistence).
 
 ---
 

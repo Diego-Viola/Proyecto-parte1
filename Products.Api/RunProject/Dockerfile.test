@@ -1,6 +1,9 @@
 ﻿# ============================================
 # Products.Api - Dockerfile para Tests
 # ============================================
+# Contexto de build: Proyecto-parte1/ (directorio raíz)
+# Comando desde RunProject: docker build -t products-api-test:latest -f Dockerfile.test ../..
+# ============================================
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS test
 

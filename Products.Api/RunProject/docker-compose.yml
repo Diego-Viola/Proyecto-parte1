@@ -5,8 +5,8 @@
 services:
   products-api:
     build:
-      context: ..
-      dockerfile: Products.Api/Dockerfile
+      context: ../..
+      dockerfile: Products.Api/RunProject/Dockerfile
     image: products-api:latest
     container_name: products-api
     ports:

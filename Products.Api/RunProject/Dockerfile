@@ -2,8 +2,8 @@
 # Products.Api - Dockerfile Multi-Stage
 # ============================================
 # Optimizado para producción con imagen mínima
-# Contexto de build: Proyecto-parte1/ (directorio padre)
-# Comando: docker build -t products-api:latest -f Products.Api/Dockerfile .
+# Contexto de build: Proyecto-parte1/ (directorio raíz)
+# Comando desde RunProject: docker build -t products-api:latest -f Dockerfile ../..
 # ============================================
 
 # Stage 1: Build

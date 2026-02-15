@@ -800,6 +800,11 @@ El proyecto puede ejecutarse **sin tener .NET instalado** utilizando Docker.
 
 ### Ejecución Rápida
 
+**Navega a la carpeta RunProject:**
+```bash
+cd RunProject
+```
+
 **Windows (PowerShell):**
 ```powershell
 .\run.ps1
