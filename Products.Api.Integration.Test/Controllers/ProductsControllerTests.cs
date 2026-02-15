@@ -5,9 +5,9 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using Products.Api.Application.DTOs.Inputs.Products;
 using Products.Api.Application.DTOs.Outputs.Generics;
+using Products.Api.Application.DTOs.Outputs.ProductDetail;
 using Products.Api.Integration.Test.Support;
 using Products.Api.Application.DTOs.Outputs.Products;
-using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 using Products.Api.Common;
 
 namespace Products.Api.Integration.Test.Controllers;

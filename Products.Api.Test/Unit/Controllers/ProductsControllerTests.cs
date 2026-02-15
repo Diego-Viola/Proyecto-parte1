@@ -7,7 +7,7 @@ using Products.Api.Application.DTOs.Outputs.Products;
 using Products.Api.Application.DTOs.Outputs.Categories;
 using Products.Api.Application.DTOs.Inputs.Products;
 using Products.Api.Application.DTOs.Outputs.Generics;
-using Products.Api.Application.DTOs.Outputs.ProductsDetail;
+using Products.Api.Application.DTOs.Outputs.ProductDetail;
 using Products.Api.Application.Exceptions;
 
 namespace Products.Api.Test.Unit.Controllers;

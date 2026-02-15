@@ -1,5 +1,5 @@
-﻿using Products.Api.Application.DTOs.Outputs.Products;
-using Products.Api.Application.DTOs.Outputs.ProductsDetail;
+﻿using Products.Api.Application.DTOs.Outputs.ProductDetail;
+using Products.Api.Application.DTOs.Outputs.Products;
 
 namespace Products.Api.Helpers;
 

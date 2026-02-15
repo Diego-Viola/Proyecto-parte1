@@ -5,8 +5,8 @@ using System.Text.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Products.Api.Application.DTOs.Outputs.Generics;
+using Products.Api.Application.DTOs.Outputs.ProductDetail;
 using Products.Api.Application.DTOs.Outputs.Products;
-using Products.Api.Application.DTOs.Outputs.ProductsDetail;
 
 namespace Products.Api.Test.Integration.Endpoints;
 

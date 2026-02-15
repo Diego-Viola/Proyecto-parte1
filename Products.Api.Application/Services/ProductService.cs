@@ -7,7 +7,6 @@ using Products.Api.Application.Interfaces.IRepositories;
 using Products.Api.Application.Interfaces.IServices;
 using Products.Api.Domain.Exceptions;
 using Products.Api.Domain.Models;
-using Products.Api.Application.DTOs.Outputs.Products;
 
 namespace Products.Api.Application.Services;
 

@@ -49,7 +49,7 @@ public class CategoryService : ICategoryService
     public async Task<CategoryOutput> CreateAsync(string name)
     {
         if (await _categoryRepository.GetByNameAsync(name) is not null)
-            throw new BusinessException("Ya existe una categoria con el mismo nombre", "ATI-CC-01");
+            throw new BusinessException("Ya existe una categoria con el mismo nombre", "CAT-XC-99");
 
         var category = await _categoryRepository.AddAsync(new Category { Name = name });
 

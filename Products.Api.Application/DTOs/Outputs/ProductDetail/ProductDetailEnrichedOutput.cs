@@ -1,10 +1,5 @@
-﻿namespace Products.Api.Application.DTOs.Outputs.ProductsDetail;
+﻿namespace Products.Api.Application.DTOs.Outputs.ProductDetail;
 
-/// <summary>
-/// Respuesta enriquecida para la página de detalle de producto estilo marketplace.
-/// Esta estructura simula la información completa que necesitaría un frontend
-/// para renderizar una página de detalle similar a MercadoLibre.
-/// </summary>
 public class ProductDetailEnrichedOutput
 {
     // === Información básica del producto ===
