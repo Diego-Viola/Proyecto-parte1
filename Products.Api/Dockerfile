@@ -2,6 +2,8 @@
 # Products.Api - Dockerfile Multi-Stage
 # ============================================
 # Optimizado para producción con imagen mínima
+# Contexto de build: Proyecto-parte1/ (directorio padre)
+# Comando: docker build -t products-api:latest -f Products.Api/Dockerfile .
 # ============================================
 
 # Stage 1: Build
@@ -14,8 +16,8 @@ COPY Products.Api.Application/Products.Api.Application.csproj Products.Api.Appli
 COPY Products.Api.Domain/Products.Api.Domain.csproj Products.Api.Domain/
 COPY Products.Api.Persistence/Products.Api.Persistence.csproj Products.Api.Persistence/
 
-# Restaurar dependencias
-RUN dotnet restore Products.Api/Products.Api.csproj
+# Restaurar cada proyecto individualmente (no usa .sln)
+RUN dotnet restore Products.Api/Products.Api.csproj --disable-parallel || true
 
 # Copiar código fuente
 COPY Products.Api/ Products.Api/
@@ -23,13 +25,13 @@ COPY Products.Api.Application/ Products.Api.Application/
 COPY Products.Api.Domain/ Products.Api.Domain/
 COPY Products.Api.Persistence/ Products.Api.Persistence/
 
-# Compilar en modo Release
+# Compilar solo el proyecto principal (sin .sln que incluye tests)
 WORKDIR /src/Products.Api
-RUN dotnet build -c Release -o /app/build
+RUN dotnet build Products.Api.csproj -c Release -o /app/build
 
 # Stage 2: Publish
 FROM build AS publish
-RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish Products.Api.csproj -c Release -o /app/publish /p:UseAppHost=false
 
 # Stage 3: Runtime (imagen mínima)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime

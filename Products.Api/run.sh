@@ -32,6 +32,9 @@ IMAGE_NAME="products-api"
 CONTAINER_NAME="products-api"
 PORT="5000"
 
+# Cambiar al directorio padre (Proyecto-parte1)
+cd ..
+
 # Detener contenedor existente si existe
 if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
     echo -e "${YELLOW}→ Deteniendo contenedor existente...${NC}"
@@ -41,7 +44,24 @@ fi
 
 # Construir imagen
 echo -e "${YELLOW}→ Construyendo imagen Docker...${NC}"
-docker build -t $IMAGE_NAME:latest -f Dockerfile .. 
+if ! docker build -t $IMAGE_NAME:latest -f Products.Api/Dockerfile . ; then
+    echo -e "${YELLOW}⚠ Error con Dockerfile principal, intentando con Dockerfile.simple...${NC}"
+    
+    if ! docker build -t $IMAGE_NAME:latest -f Products.Api/Dockerfile.simple . ; then
+        echo -e "${RED}Error al construir la imagen${NC}"
+        echo ""
+        echo -e "${YELLOW}Soluciones alternativas:${NC}"
+        echo "1. Configura DNS en Docker:"
+        echo '   { "dns": ["8.8.8.8", "8.8.4.4"] }'
+        echo ""
+        echo "2. O ejecuta sin Docker:"
+        echo "   cd Products.Api"
+        echo "   dotnet run --project Products.Api.csproj"
+        echo ""
+        cd Products.Api
+        exit 1
+    fi
+fi
 
 echo -e "${GREEN}✓ Imagen construida exitosamente${NC}"
 

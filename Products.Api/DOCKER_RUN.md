@@ -51,9 +51,14 @@ docker-compose down
 
 ## Opción 3: Comandos Manuales
 
-### Construir imagen
+### Construir imagen (con multi-stage optimizado)
 ```bash
 docker build -t products-api:latest -f Dockerfile ..
+```
+
+### Construir imagen (simplificado - para problemas de red)
+```bash
+docker build -t products-api:latest -f Dockerfile.simple ..
 ```
 
 ### Ejecutar contenedor
@@ -115,7 +120,8 @@ docker run --rm products-api-test:latest
 
 ```
 Products.Api/
-├── Dockerfile           # Imagen de producción multi-stage
+├── Dockerfile           # Imagen de producción multi-stage optimizada
+├── Dockerfile.simple    # Imagen simplificada (fallback para problemas de red)
 ├── Dockerfile.test      # Imagen para ejecutar tests
 ├── docker-compose.yml   # Orquestación
 ├── run.sh              # Script Linux/macOS
@@ -123,6 +129,8 @@ Products.Api/
 ├── run.bat             # Script Windows CMD
 └── .dockerignore       # Archivos a excluir
 ```
+
+> **Nota**: Los scripts intentan usar `Dockerfile` primero. Si falla (problemas de red), automáticamente usan `Dockerfile.simple` como fallback.
 
 ---
 
@@ -144,6 +152,25 @@ docker run -d -p 5000:8080 \
 ---
 
 ## Troubleshooting
+
+### Error: Unable to load service index for NuGet
+Si ves errores de tipo `NU1301: Unable to load the service index for source https://api.nuget.org/v3/index.json`:
+
+**Opción 1: Configurar DNS de Docker**
+```bash
+# Windows: Docker Desktop > Settings > Docker Engine > Agregar:
+{
+  "dns": ["8.8.8.8", "8.8.4.4"]
+}
+```
+
+**Opción 2: Usar red del host (Linux/macOS)**
+```bash
+docker build --network=host -t products-api:latest -f Dockerfile ..
+```
+
+**Opción 3: Build sin Docker (usar .NET local)**
+Ver [`RUN_LOCAL.md`](./RUN_LOCAL.md) para ejecutar con .NET SDK instalado.
 
 ### Error: Puerto 5000 en uso
 ```bash

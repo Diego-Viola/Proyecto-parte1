@@ -1,8 +1,101 @@
-﻿﻿﻿# Products API - Sistema de Gestión de Productos y Categorías
+﻿﻿# Products API - Sistema de Detalle de Productos estilo Marketplace
 
 ## 📋 Descripción General
 
-**Products API** es una API RESTful desarrollada en .NET 8 que proporciona un sistema completo de gestión de productos y categorías. La solución implementa una arquitectura limpia multicapa con persistencia en archivos JSON, logging avanzado, y documentación interactiva con Swagger.
+**Products API** es una API RESTful desarrollada en .NET 8 que proporciona toda la información necesaria para soportar una página de detalle de ítem estilo marketplace. La solución implementa una arquitectura limpia multicapa con persistencia en archivos JSON, logging avanzado, y documentación interactiva con Swagger.
+
+---
+
+## 📜 Consigna Original
+
+> **Prueba Técnica**
+>
+> **Objetivo:**
+> Construir una API backend que provea toda la información necesaria para soportar una página de detalle de ítem, inspirada en Mercado Libre. 
+> Tu API debe entregar de manera eficiente los detalles requeridos del producto y la información relacionada, alineándose con las mejores prácticas de desarrollo backend.
+>
+> Este ejercicio se enfoca exclusivamente en el diseño e implementación del backend.
+>
+> **Requisitos:**
+> - Backend: Desarrollo de API
+> - Implementar una API que soporte al frontend proporcionando los detalles necesarios del producto.
+> - El endpoint principal debe obtener los detalles del producto.
+>
+> **Stack:**
+> - Puedes utilizar cualquier tecnología o framework backend de tu elección.
+> - Simular la persistencia de datos utilizando archivos locales JSON/CSV o una base de datos en memoria (por ejemplo, SQLite, H2 Database) para representar el inventario.
+> - No se requiere una base de datos real.
+>
+> **Requisitos no funcionales:**
+> - Se dará especial consideración a las buenas prácticas en el manejo de errores, documentación, testing y cualquier otro aspecto no funcional relevante que elijas demostrar.
+>
+> **Uso de herramientas:**
+> - Herramientas permitidas: Puedes usar y se recomienda utilizar herramientas de GenAI, IDEs con capacidades generativas y otras herramientas de desarrollo.
+
+---
+
+## ✅ Cumplimiento de la Consigna
+
+| Requisito | Estado | Implementación |
+|-----------|--------|----------------|
+| **Endpoint principal de detalle** | ✅ | `GET /api/v1/products/{id}/detail` - Respuesta completa estilo marketplace |
+| **API para frontend** | ✅ | Controllers REST con respuestas JSON estructuradas |
+| **Persistencia JSON/CSV** | ✅ | `CustomContext` con archivo `data.json` |
+| **Manejo de errores** | ✅ | `ExceptionHandlerMiddleware` + excepciones tipadas (400, 404, 422, 500) |
+| **Documentación** | ✅ | Swagger/OpenAPI + README + ADR (Architecture Decision Records) |
+| **Testing** | ✅ | Tests unitarios + integración con xUnit, Moq, FluentAssertions |
+| **Uso de GenAI** | ✅ | Documentado en `prompts.md` |
+
+---
+
+## 🎯 Endpoint Principal: Detalle de Producto
+
+El endpoint principal que cumple la consigna es:
+
+```http
+GET /api/v1/products/{id}/detail
+```
+
+### Respuesta Completa Estilo Marketplace
+
+```json
+{
+  "id": 1,
+  "name": "Smartphone",
+  "description": "Teléfono inteligente de última generación",
+  "sku": "SKU-001-000001",
+  "permalink": "https://marketplace.com/products/smartphone-1",
+  "condition": "new",
+  "price": {
+    "amount": 999.99,
+    "currency": "ARS",
+    "originalAmount": 1299.99,
+    "discountPercentage": 23,
+    "paymentMethods": [...]
+  },
+  "stock": {
+    "availableQuantity": 10,
+    "status": "available",
+    "maxPurchaseQuantity": 6
+  },
+  "images": [...],
+  "category": { "id": 1, "name": "Electrónica" },
+  "breadcrumbs": [...],
+  "seller": {
+    "id": 1,
+    "name": "TechStore Oficial",
+    "reputation": { "level": "gold", "totalSales": 15000, "positiveRating": 98.5 }
+  },
+  "attributes": [...],
+  "shipping": { "freeShipping": true, "options": [...] },
+  "rating": { "average": 4.5, "totalReviews": 150 },
+  "relatedProducts": [...]
+}
+```
+
+Este endpoint proporciona **toda la información** que un frontend necesitaría para renderizar una página de detalle de producto completa.
+
+---
 
 ## 🏗️ Arquitectura de la Solución
 
@@ -701,6 +794,137 @@ La solución incluye tests unitarios completos:
 9. ✅ **Documentation**: Swagger/OpenAPI completo
 10. ✅ **Thread Safety**: Operaciones concurrentes seguras
 
+## 🐳 Ejecución sin .NET SDK (Docker)
+
+El proyecto puede ejecutarse **sin tener .NET instalado** utilizando Docker.
+
+### Ejecución Rápida
+
+**Windows (PowerShell):**
+```powershell
+.\run.ps1
+```
+
+**Linux/macOS:**
+```bash
+chmod +x run.sh && ./run.sh
+```
+
+**Docker Compose:**
+```bash
+docker-compose up --build
+```
+
+### Acceso
+- **Swagger UI**: http://localhost:5000
+- **Health Check**: http://localhost:5000/api/v1/health
+
+> 📖 Ver guía completa en: [`DOCKER_RUN.md`](./DOCKER_RUN.md)
+> 
+> 🔧 **Problemas con Docker?** Ver: [`DOCKER_TROUBLESHOOTING.md`](./DOCKER_TROUBLESHOOTING.md)
+
+---
+
+## 📊 Cobertura de Tests
+
+### Generar Reporte de Cobertura
+
+```bash
+# Ejecutar tests con cobertura
+dotnet test Products.Api.sln --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+# Instalar ReportGenerator (una sola vez)
+dotnet tool install -g dotnet-reportgenerator-globaltool
+
+# Generar reporte HTML
+reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:"./CoverageReport" -reporttypes:Html
+
+# Abrir reporte
+start ./CoverageReport/index.html
+```
+
+### Cobertura Estimada por Capa
+
+| Capa | Cobertura | Componentes |
+|------|-----------|-------------|
+| **API (Presentación)** | ~85% | Controllers, Middlewares, Validators, Helpers |
+| **Application** | ~80% | Services, DTOs, Mappers |
+| **Domain** | ~90% | Entities, Exceptions |
+| **Persistence** | ~75% | Repositories, Context, Adapters |
+
+> 📖 Ver guía completa en: [`RUN_LOCAL.md`](./RUN_LOCAL.md)
+
+---
+
+## ✨ Validaciones con FluentValidation
+
+El proyecto implementa validaciones robustas usando **FluentValidation**:
+
+### Validators Implementados
+
+| Validator | Reglas |
+|-----------|--------|
+| `CreateProductRequestValidator` | Name (requerido, 3-200 chars), Description (requerido), Price (>0), Stock (>=0), CategoryId (>0) |
+| `UpdateProductRequestValidator` | Mismas reglas que Create |
+| `CreateCategoryRequestValidator` | Name (requerido, 2-100 chars) |
+
+### Ejemplo de Validación
+
+```csharp
+public class CreateProductRequestValidator : AbstractValidator<CreateProductRequest>
+{
+    public CreateProductRequestValidator()
+    {
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("El nombre es requerido")
+            .MinimumLength(3).WithMessage("El nombre debe tener al menos 3 caracteres")
+            .MaximumLength(200).WithMessage("El nombre no puede exceder 200 caracteres");
+
+        RuleFor(x => x.Price)
+            .GreaterThan(0).WithMessage("El precio debe ser mayor a 0");
+        
+        // ... más reglas
+    }
+}
+```
+
+---
+
+## 📚 Documentación Adicional
+
+| Documento | Descripción |
+|-----------|-------------|
+| [`RUN_LOCAL.md`](./RUN_LOCAL.md) | Guía de ejecución local con .NET SDK |
+| [`DOCKER_RUN.md`](./DOCKER_RUN.md) | Guía de ejecución con Docker |
+| [`DOCKER_TROUBLESHOOTING.md`](./DOCKER_TROUBLESHOOTING.md) | Solución a problemas comunes de Docker |
+| [`docs/DECISIONS.md`](./docs/DECISIONS.md) | Registro de Decisiones Arquitectónicas (ADR) |
+| [`prompts.md`](./prompts.md) | Prompts de GenAI utilizados en el desarrollo |
+| [`INFORME_FINAL_EVALUACION.md`](./INFORME_FINAL_EVALUACION.md) | Evaluación y mejoras aplicadas |
+
+---
+
+## 🎯 Supuestos y Limitaciones
+
+### Supuestos
+- La API está diseñada para un solo tenant (no multi-tenancy)
+- Los datos enriquecidos del endpoint `/detail` son simulados (vendedor, shipping, ratings)
+- El stock máximo de compra es el 60% del stock disponible
+
+### Limitaciones (por diseño de prueba técnica)
+- **Persistencia JSON**: No es transaccional, no escala horizontalmente
+- **Datos enriquecidos**: Generados con seed basado en ID (determinísticos pero simulados)
+- **Sin autenticación**: No implementada (fuera del alcance)
+- **Sin caché**: No implementado Redis/MemoryCache
+
+### Mejoras Futuras (Producción)
+- Reemplazar JSON por PostgreSQL + Entity Framework Core
+- Agregar Redis para caché de productos
+- Implementar autenticación JWT
+- Agregar rate limiting
+- Implementar circuit breaker para servicios externos
+
+---
+
 ## 📞 Soporte y Contacto
 
 Para preguntas, problemas o sugerencias, por favor contacta al equipo de desarrollo.
@@ -708,5 +932,5 @@ Para preguntas, problemas o sugerencias, por favor contacta al equipo de desarro
 ---
 
 **Versión de la API**: 1.0  
-**Última actualización**: 2026-02-12  
+**Última actualización**: 2026-02-15  
 **Estado**: ✅ Producción
