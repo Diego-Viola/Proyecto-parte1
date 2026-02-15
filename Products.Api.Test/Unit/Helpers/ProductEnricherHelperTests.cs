@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Products.Api.Application.DTOs.Outputs.Products;
 using Products.Api.Application.DTOs.Outputs.Categories;
-using Products.Api.Helpers;
+using Products.Api.Application.Helpers;
 
 namespace Products.Api.Test.Unit.Helpers;
 

@@ -53,7 +53,7 @@ public class CategoryServiceTests
         await act.Should()
             .ThrowAsync<BusinessException>()
             .WithMessage("*Ya existe una categoria con el mismo nombre*")
-            .Where(e => e.Code == "ATI-CC-01");
+            .Where(e => e.Code == "CAT-XC-99");
     }
 
     #endregion

@@ -6,8 +6,8 @@ using Products.Api.Application.DTOs.Inputs.Products;
 using Products.Api.Application.DTOs.Outputs.Generics;
 using Products.Api.Application.DTOs.Outputs.ProductDetail;
 using Products.Api.Application.DTOs.Outputs.Products;
+using Products.Api.Application.Helpers;
 using Products.Api.Application.Interfaces.IServices;
-using Products.Api.Helpers;
 
 namespace Products.Api.Controllers
 {

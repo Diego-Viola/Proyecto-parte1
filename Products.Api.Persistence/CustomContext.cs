@@ -76,4 +76,3 @@ public class JsonData
     public List<ProductEntity> Products { get; set; } = new();
     public List<CategoryEntity> Categories { get; set; } = new();
 }
-

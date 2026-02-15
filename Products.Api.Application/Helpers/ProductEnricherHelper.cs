@@ -1,7 +1,7 @@
-﻿using Products.Api.Application.DTOs.Outputs.ProductDetail;
+﻿﻿using Products.Api.Application.DTOs.Outputs.ProductDetail;
 using Products.Api.Application.DTOs.Outputs.Products;
 
-namespace Products.Api.Helpers;
+namespace Products.Api.Application.Helpers;
 
 /// <summary>
 /// Helper para enriquecer un ProductDetailOutput básico con datos simulados
@@ -351,3 +351,4 @@ public static class ProductEnricherHelper
             .Replace("ñ", "n");
     }
 }
+
