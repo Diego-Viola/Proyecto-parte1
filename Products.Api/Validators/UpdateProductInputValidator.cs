@@ -4,11 +4,11 @@ using Products.Api.Application.DTOs.Inputs.Products;
 namespace Products.Api.Validators;
 
 /// <summary>
-/// Validador FluentValidation para UpdateProductRequest.
+/// Validador FluentValidation para UpdateProductInput.
 /// </summary>
-public class UpdateProductRequestValidator : AbstractValidator<UpdateProductInput>
+public class UpdateProductInputValidator : AbstractValidator<UpdateProductInput>
 {
-    public UpdateProductRequestValidator()
+    public UpdateProductInputValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("El nombre es requerido")

@@ -4,11 +4,11 @@ using Products.Api.Application.DTOs.Inputs.Category;
 namespace Products.Api.Validators;
 
 /// <summary>
-/// Validador FluentValidation para CreateCategoryRequest.
+/// Validador FluentValidation para CreateCategoryInput.
 /// </summary>
-public class CreateCategoryRequestValidator : AbstractValidator<CreateCategoryInput>
+public class CreateCategoryInputValidator : AbstractValidator<CreateCategoryInput>
 {
-    public CreateCategoryRequestValidator()
+    public CreateCategoryInputValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("El nombre es requerido")

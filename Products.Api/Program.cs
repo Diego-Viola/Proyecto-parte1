@@ -78,7 +78,7 @@ builder.Services.AddInfrastructureService();
 
 // FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddValidatorsFromAssemblyContaining<CreateProductRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateProductInputValidator>();
 
 // Health Checks personalizados
 builder.Services.AddHealthChecks()

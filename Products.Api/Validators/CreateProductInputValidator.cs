@@ -1,15 +1,15 @@
 ﻿using FluentValidation;
- using Products.Api.Application.DTOs.Inputs.Products;
+using Products.Api.Application.DTOs.Inputs.Products;
 
- namespace Products.Api.Validators;
+namespace Products.Api.Validators;
 
 /// <summary>
-/// Validador FluentValidation para CreateProductRequest.
+/// Validador FluentValidation para CreateProductInput.
 /// Proporciona validaciones más expresivas y mantenibles que Data Annotations.
 /// </summary>
-public class CreateProductRequestValidator : AbstractValidator<CreateProductInput>
+public class CreateProductInputValidator : AbstractValidator<CreateProductInput>
 {
-    public CreateProductRequestValidator()
+    public CreateProductInputValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("El nombre es requerido")
