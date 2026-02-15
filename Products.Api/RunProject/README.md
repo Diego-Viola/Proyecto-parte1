@@ -100,7 +100,7 @@ docker build -t products-api-test:latest -f Dockerfile.test ..\..
 docker run --rm products-api-test:latest
 ```
 
-## 📝 URLs del servicio
+## 📝 URLs del servicio en Docker
 
 Una vez iniciado el contenedor:
 

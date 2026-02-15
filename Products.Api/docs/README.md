@@ -1,6 +1,4 @@
-﻿Products API - Sistema de Detalle de Productos estilo Marketplace
-
-## 📋 Descripción General
+﻿## 📋 Descripción General
 
 **Products API** es una API RESTful desarrollada en .NET 8 que proporciona toda la información necesaria para soportar una página de detalle de ítem estilo marketplace. La solución implementa una arquitectura limpia multicapa con persistencia en archivos JSON, logging avanzado, y documentación interactiva con Swagger.
 
@@ -76,8 +74,10 @@ La aplicación sigue los principios de **Clean Architecture** y **Domain-Driven 
 │  Repositories | Adapters | CustomContext | Data Access          │
 └─────────────────────────────────────────────────────────────────┘
 ```
+---
 
-### Proyectos de la Solución
+
+## 🏗️ Proyectos de la Solución
 
 | Proyecto | Responsabilidad |
 |----------|-----------------|
@@ -89,6 +89,7 @@ La aplicación sigue los principios de **Clean Architecture** y **Domain-Driven 
 | `Products.Api.Application.Test` | Tests unitarios de servicios |
 | `Products.Api.Persistence.Test` | Tests unitarios de repositorios |
 | `Products.Api.Integration.Test` | Tests de integración end-to-end |
+---
 
 ## 🔄 Flujo de Funcionamiento del Sistema
 
@@ -158,6 +159,7 @@ La aplicación sigue los principios de **Clean Architecture** y **Domain-Driven 
 │  - Data/data.json                           │
 └─────────────────────────────────────────────┘
 ```
+---
 
 ## 🎯 Componentes Principales y Funcionamiento
 
@@ -363,6 +365,37 @@ Program.cs:
     ]
   }
   ```
+---
+
+## 📈 Características Avanzadas
+
+### 1. **Thread Safety**
+- Operaciones de repositorio protegidas con `lock`
+- Acceso concurrente seguro al archivo JSON
+
+### 2. **Correlation ID**
+- Trazabilidad completa de peticiones
+- Header `X-Correlation-ID` en request/response
+- Integrado con logging
+
+### 3. **Logging Estructurado**
+- Serilog con múltiples sinks
+- Logs rotativos por día
+- Context information en cada log
+
+### 4. **Validación Robusta**
+- Data Annotations en DTOs
+- Validación de ModelState automática
+- Validaciones de negocio en Services
+- Respuestas de error detalladas
+
+### 5. **Documentación Auto-generada**
+- Swagger UI interactivo
+- Documentación de todos los endpoints
+- Ejemplos de peticiones/respuestas
+- Soporte para múltiples versiones
+
+---
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -374,11 +407,12 @@ Program.cs:
 | Mapster | 7.4.0 | Object mapping |
 | Swashbuckle | 9.0.3 | Documentación OpenAPI |
 | Asp.Versioning | 8.1.0 | Versionado de API |
-| xUnit | - | Testing framework |
-| FluentAssertions | - | Assertions para tests |
-| Moq | - | Mocking framework |
+| xUnit | 2.9.3 | Testing framework |
+| FluentAssertions | 8.6.0 | Assertions para tests |
+| Moq | 4.20.72 | Mocking framework |
+---
 
-## 🚀 Ejecución
+## 🚀 Ejecución de proyecto
 
 ### Ejecución Local
 
@@ -421,26 +455,27 @@ cd Products.Api/RunProject
 chmod +x run-docker-only.sh && ./run-docker-only.sh
 ```
 
-#### Opción 2: Docker Compose
+#### Opción 2: Con .NET SDK (build híbrida - más rápida)
 
-```bash
-cd Products.Api/RunProject
-docker-compose up --build
-```
-
-### Ejecutar Tests
-
+**Windows (PowerShell):**
 ```powershell
-# Todos los tests
-dotnet test
-
-# Tests de un proyecto específico
-dotnet test Products.Api.Application.Test
-dotnet test Products.Api.Persistence.Test
-
-# Con cobertura
-dotnet test --collect:"XPlat Code Coverage"
+cd RunProject
+.\run.ps1
 ```
+
+**Windows (CMD):**
+```cmd
+cd RunProject
+run.bat
+```
+
+**Linux/Mac:**
+```bash
+cd RunProject
+chmod +x run.sh
+./run.sh
+```
+---
 
 ## 🧪 Testing
 
@@ -462,11 +497,7 @@ dotnet test Products.Api.Persistence.Test
 # Tests de integración
 dotnet test Products.Api.Integration.Test
 ```
-
-
-## Cobertura de Tests
-
-### Generar reporte
+### Generar reporte de tests
 
 ```bash
 # Ejecutar tests con cobertura
@@ -482,35 +513,7 @@ reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:".
 start ./CoverageReport/index.html
 ```
 
-## 📈 Características Avanzadas
-
-### 1. **Thread Safety**
-- Operaciones de repositorio protegidas con `lock`
-- Acceso concurrente seguro al archivo JSON
-
-### 2. **Correlation ID**
-- Trazabilidad completa de peticiones
-- Header `X-Correlation-ID` en request/response
-- Integrado con logging
-
-### 3. **Logging Estructurado**
-- Serilog con múltiples sinks
-- Logs rotativos por día
-- Context information en cada log
-
-### 4. **Validación Robusta**
-- Data Annotations en DTOs
-- Validación de ModelState automática
-- Validaciones de negocio en Services
-- Respuestas de error detalladas
-
-### 5. **Documentación Auto-generada**
-- Swagger UI interactivo
-- Documentación de todos los endpoints
-- Ejemplos de peticiones/respuestas
-- Soporte para múltiples versiones
-
-```
+---
 
 ## 🤝 Buenas Prácticas Implementadas
 
@@ -525,106 +528,7 @@ start ./CoverageReport/index.html
 9. ✅ **Documentation**: Swagger/OpenAPI completo
 10. ✅ **Thread Safety**: Operaciones concurrentes seguras
 
-## 🐳 Ejecución con Docker
-
-El proyecto puede ejecutarse usando Docker con una **estrategia de compilación híbrida**.
-
-### Requisitos
-- **Docker** 20.10+
-- **.NET 8 SDK** (para compilación local antes del build de Docker)
-
-### ¿Por qué se requiere .NET SDK?
-Los scripts compilan localmente primero para evitar problemas de conectividad (`NU1301`) dentro de Docker. Esto garantiza builds más rápidos y confiables.
-
-### Ejecución Rápida
-
-**Navega a la carpeta RunProject:**
-```bash
-cd RunProject
-```
-
-**Windows (PowerShell):**
-```powershell
-.\run.ps1
-```
-
-**Linux/macOS:**
-```bash
-chmod +x run.sh && ./run.sh
-```
-
-**Docker Compose:**
-```bash
-docker-compose up --build
-```
-
-**Los scripts ejecutan:**
-1. ✅ Compilación local (usando .NET SDK)
-2. ✅ Construcción de imagen Docker
-3. ✅ Ejecución del contenedor
-4. ✅ Verificación de health
-
-### Acceso
-- **Swagger UI**: http://localhost:5000
-- **Health Check**: http://localhost:5000/api/v1/health
-
-> 📖 Ver guía completa en: [`DOCKER_RUN.md`](./DOCKER_RUN.md)
-
-> ⚠️ **Sin .NET SDK?** Ejecuta localmente con `dotnet run` o consulta [`RUN_LOCAL.md`](./RUN_LOCAL.md)
-
 ---
-
-## 📊 Cobertura de Tests
-
-### Generar Reporte de Cobertura
-
-```bash
-# Ejecutar tests con cobertura
-dotnet test Products.Api.sln --collect:"XPlat Code Coverage" --results-directory ./TestResults
-
-# Instalar ReportGenerator (una sola vez)
-dotnet tool install -g dotnet-reportgenerator-globaltool
-
-# Generar reporte HTML
-reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:"./CoverageReport" -reporttypes:Html
-
-# Abrir reporte
-start ./CoverageReport/index.html
-```
-
-> 📖 Ver guía completa en: [`RUN_LOCAL.md`](./RUN_LOCAL.md)
-
-## ✨ Validaciones con FluentValidation
-
-El proyecto implementa validaciones robustas usando **FluentValidation**:
-
-### Validators Implementados
-
-| Validator | Reglas |
-|-----------|--------|
-| `CreateProductRequestValidator` | Name (requerido, 3-200 chars), Description (requerido), Price (>0), Stock (>=0), CategoryId (>0) |
-| `UpdateProductRequestValidator` | Mismas reglas que Create |
-| `CreateCategoryRequestValidator` | Name (requerido, 2-100 chars) |
-
-### Ejemplo de Validación
-
-```csharp
-public class CreateProductRequestValidator : AbstractValidator<CreateProductRequest>
-{
-    public CreateProductRequestValidator()
-    {
-        RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("El nombre es requerido")
-            .MinimumLength(3).WithMessage("El nombre debe tener al menos 3 caracteres")
-            .MaximumLength(200).WithMessage("El nombre no puede exceder 200 caracteres");
-
-        RuleFor(x => x.Price)
-            .GreaterThan(0).WithMessage("El precio debe ser mayor a 0");
-        
-        // ... más reglas
-    }
-}
-```
 
 ## 📚 Documentación Adicional
 
