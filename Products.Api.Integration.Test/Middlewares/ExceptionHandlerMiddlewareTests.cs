@@ -17,17 +17,21 @@ public class ExceptionHandlerMiddlewareTests : IClassFixture<CustomWebApplicatio
     }
 
     [Fact]
-    public async Task Returns_BadRequest_When_ModelValidation_Fails()
+    public async Task Returns_BadRequest_When_ModelValidation_Fails_On_Create()
     {
+
         var request = new
         {
             Name = "",
+            Description = "Test",
             CategoryId = 1,
-            Price = 100
+            Price = 100,
+            Stock = 10
         };
 
+        // Act
         var response = await _client.PostAsJsonAsync("/api/v1/products", request);
-
+        
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         var content = await response.Content.ReadAsStringAsync();
         content.Should().Contain("\"title\":\"Bad Request\"");
@@ -38,13 +42,20 @@ public class ExceptionHandlerMiddlewareTests : IClassFixture<CustomWebApplicatio
     }
 
     [Fact]
-    public async Task Returns_BadRequest_When_BadRequestException_Is_Thrown()
+    public async Task Returns_BadRequest_When_FluentValidation_Fails_On_Price()
     {
-        var count = -1;
-        var page = 1;
+        var request = new
+        {
+            Name = "Test Product",
+            Description = "Test",
+            CategoryId = 1,
+            Price = -100,
+            Stock = 10
+        };
 
-        var response = await _client.GetAsync($"/api/v1/products?count={count}&page={page}");
-
+        // Act
+        var response = await _client.PostAsJsonAsync("/api/v1/products", request);
+        
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         var content = await response.Content.ReadAsStringAsync();
         content.Should().Contain("\"title\":\"Bad Request\"");
@@ -73,16 +84,19 @@ public class ExceptionHandlerMiddlewareTests : IClassFixture<CustomWebApplicatio
     {
         var request = new
         {
-            Name = "Hogar",
+            Name = "TestCategoryDuplicate",
         };
-
+        
+        await _client.PostAsJsonAsync("/api/v1/categories", request);
+        
         var response = await _client.PostAsJsonAsync("/api/v1/categories", request);
-
-        //response.StatusCode.Should().Be((HttpStatusCode)422);
+        
+        response.StatusCode.Should().Be((HttpStatusCode)422);
         var content = await response.Content.ReadAsStringAsync();
         content.Should().Contain("\"title\":\"Business rule violated\"");
         content.Should().Contain("\"type\":\"https://yourdomain.com/errors/business\"");
         content.Should().Contain("/api/v1/categories");
         content.Should().Contain("traceId");
+        content.Should().Contain("Ya existe una categoria con el mismo nombre");
     }
 }

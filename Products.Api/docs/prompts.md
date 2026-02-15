@@ -123,4 +123,37 @@ exitosos, errores 404, validaciones, y casos de borde.
 - Tests de middlewares con HttpContext simulado.
 - Tests de integración con WebApplicationFactory.
 
+
 ---
+
+## 7. Configuración de Docker Dual
+
+### Objetivo
+Implementar dos estrategias de Docker: solo Docker vs compilación híbrida.
+
+### Prompt
+```
+Crea dos estrategias de ejecución con Docker para .NET 8:
+1. SOLO Docker: Dockerfile multi-stage que compile todo dentro del contenedor
+   sin requerir .NET SDK en la máquina host
+2. Híbrida: Scripts que compilen localmente y usen Dockerfile.prebuilt
+
+Incluye scripts de PowerShell y Bash para ambas estrategias, con manejo de 
+errores NU1301 de NuGet y reintentos automáticos.
+```
+
+### Resultado Esperado
+- Dockerfile multi-stage con reintentos de NuGet.
+- Scripts run-docker-only.ps1 y run-docker-only.sh para ejecución solo con Docker.
+- Scripts run.ps1, run.bat, run.sh para compilación híbrida.
+- Documentación clara de requisitos y cuándo usar cada estrategia.
+
+---
+
+## Conclusión
+
+Estos prompts representan las etapas principales del desarrollo, demostrando:
+- ✅ Pensamiento arquitectónico desde el inicio.
+- ✅ Priorización de aspectos no funcionales (errores, logging, testing).
+- ✅ Iteración y refinamiento basado en análisis.
+- ✅ Uso de IA como herramienta de aceleración, no reemplazo.

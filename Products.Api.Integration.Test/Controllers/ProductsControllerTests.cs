@@ -405,13 +405,12 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
     }
 
     [Fact]
-    public async Task GetRelatedProducts_ValidatesLimitRange()
+    public async Task GetRelatedProducts_ReturnsMaximumAllowedProducts()
     {
-        // Arrange: Crear un producto
         var createRequest = new CreateProductInput
         {
             Name = $"TestProduct_{Guid.NewGuid()}",
-            Description = "Product for Validation Test",
+            Description = "Product for Max Limit Test",
             Price = 800m,
             Stock = 2,
             CategoryId = 1
@@ -423,11 +422,15 @@ public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory
         );
         var created = await postResponse.Content.ReadFromJsonAsync<ProductDetailOutput>(_camelCaseOptions);
 
-        // Act: Intentar con límite fuera de rango (mayor a 20)
-        var response = await _client.GetAsync($"/api/v1/products/{created!.Id}/related?limit=25");
+        // Act: Solicitar el máximo permitido (20 productos)
+        var response = await _client.GetAsync($"/api/v1/products/{created!.Id}/related?limit=20");
 
-        // Assert: Debería fallar la validación
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        // Assert: Debe retornar OK con hasta 20 productos
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        
+        var relatedProducts = await response.Content.ReadFromJsonAsync<List<ProductSummaryOutput>>(_camelCaseOptions);
+        relatedProducts.Should().NotBeNull();
+        relatedProducts.Should().HaveCountLessThanOrEqualTo(20);
     }
 
     [Fact]

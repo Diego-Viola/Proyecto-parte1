@@ -13,24 +13,59 @@
 
 ## 1. Ejecutar el Proyecto
 
-### Restaurar dependencias
+### Perfiles de Ejecución Disponibles
+
+El proyecto tiene configurados dos perfiles en `launchSettings.json`:
+
+#### Perfil 1: HTTP (Recomendado para desarrollo)
+- **Puerto**: http://localhost:5289
+- **Comando**: `dotnet run` (usa este perfil por defecto)
+- **Swagger**: http://localhost:5289
+
+#### Perfil 2: IIS Express
+- **Puerto**: http://localhost:62999
+- **Comando**: Se ejecuta desde Visual Studio seleccionando "IIS Express"
+- **Swagger**: http://localhost:62999/swagger
+
+### Opción A: Desde el directorio raíz del proyecto
+
 ```bash
+# Restaurar dependencias
 dotnet restore Products.Api.sln
-```
 
-### Compilar la solución
-```bash
+# Compilar la solución
 dotnet build Products.Api.sln
+
+# Ejecutar la API (usa perfil HTTP por defecto)
+dotnet run --project Products.Api/Products.Api.csproj
 ```
 
-### Ejecutar la API
+### Opción B: Desde el directorio Products.Api
+
 ```bash
-dotnet run --project Products.Api.csproj
+# Navegar al directorio
+cd Products.Api
+
+# Restaurar dependencias
+dotnet restore
+
+# Compilar
+dotnet build
+
+# Ejecutar la API (usa perfil HTTP por defecto)
+dotnet run
 ```
 
-La API estará disponible en:
-- **HTTP**: http://localhost:5000
-- **HTTPS**: https://localhost:5001
+### URLs de Acceso
+
+Después de ejecutar, la API estará disponible en:
+
+| Perfil | URL Base | Swagger UI |
+|--------|----------|------------|
+| **HTTP** (dotnet run) | http://localhost:5289 | http://localhost:5289 |
+| **IIS Express** | http://localhost:62999 | http://localhost:62999/swagger |
+
+> **Nota**: El perfil HTTP redirige automáticamente a Swagger desde la raíz.
 
 ---
 
@@ -38,8 +73,14 @@ La API estará disponible en:
 
 Una vez ejecutada la API, accede a la documentación interactiva:
 
+**Con perfil HTTP (dotnet run)**:
 ```
-http://localhost:5000
+http://localhost:5289
+```
+
+**Con perfil IIS Express**:
+```
+http://localhost:62999/swagger
 ```
 
 Swagger UI mostrará todos los endpoints disponibles con ejemplos de request/response.
@@ -48,8 +89,14 @@ Swagger UI mostrará todos los endpoints disponibles con ejemplos de request/res
 
 ## 3. Verificar Health Check
 
+**Con perfil HTTP**:
 ```bash
-curl http://localhost:5000/api/v1/health
+curl http://localhost:5289/api/v1/health
+```
+
+**Con perfil IIS Express**:
+```bash
+curl http://localhost:62999/api/v1/health
 ```
 
 Respuesta esperada:
@@ -113,57 +160,3 @@ reportgenerator -reports:"./TestResults/**/coverage.cobertura.xml" -targetdir:".
 - Linux: `xdg-open ./CoverageReport/index.html`
 
 ---
-
-## 6. Cobertura Estimada por Capa
-
-| Capa | Cobertura Estimada | Componentes Cubiertos |
-|------|-------------------|----------------------|
-| **API (Presentación)** | ~85% | Controllers, Middlewares, Validators |
-| **Application** | ~80% | Services, DTOs, Mappers |
-| **Domain** | ~90% | Entities, Exceptions |
-| **Persistence** | ~75% | Repositories, Context |
-
-### Áreas con mayor cobertura:
-- ✅ Controllers (ProductsController, CategoriesController)
-- ✅ Middlewares (ExceptionHandler, CorrelationId)
-- ✅ Validators (FluentValidation)
-- ✅ Helpers (ProductEnricherHelper)
-
-### Áreas con menor cobertura:
-- ⚠️ Logging (difícil de testear)
-- ⚠️ Startup/Program.cs (configuración)
-
----
-
-## 7. Comandos Rápidos
-
-```bash
-# Ejecutar todo rápidamente
-dotnet restore && dotnet build && dotnet run --project Products.Api.csproj
-
-# Tests rápidos
-dotnet test --no-build --verbosity minimal
-
-# Limpiar y reconstruir
-dotnet clean && dotnet build
-```
-
----
-
-## Troubleshooting
-
-### Error: Puerto en uso
-```bash
-# Cambiar puerto en launchSettings.json o usar:
-dotnet run --project Products.Api.csproj --urls="http://localhost:5050"
-```
-
-### Error: Certificado HTTPS
-```bash
-dotnet dev-certs https --trust
-```
-
-### Error: Dependencias no encontradas
-```bash
-dotnet restore --force
-```
