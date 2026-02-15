@@ -5,11 +5,6 @@ using Products.Api.Application.Helpers;
 
 namespace Products.Api.Application.Test.Helpers;
 
-/// <summary>
-/// Tests unitarios para ProductEnricherHelper.
-/// Verifica que el enriquecimiento de productos genere datos consistentes
-/// y completos para la página de detalle del marketplace.
-/// </summary>
 public class ProductEnricherHelperTests
 {
     private ProductDetailOutput CreateBasicProduct(long id = 1, string name = "Test Product", 

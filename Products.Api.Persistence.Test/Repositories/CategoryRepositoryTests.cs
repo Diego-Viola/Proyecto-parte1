@@ -3,7 +3,6 @@ using Moq;
 using System.ComponentModel;
 using System.Text.Json;
 using Products.Api.Domain.Models;
-using Products.Api.Persistence;
 using Products.Api.Persistence.Entities;
 using Products.Api.Persistence.Interfaces;
 using Products.Api.Persistence.Repositories;

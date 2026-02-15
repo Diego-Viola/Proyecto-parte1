@@ -11,9 +11,6 @@ using Products.Api.Exceptions;
 
 namespace Products.Api.Test.Unit.Middlewares;
 
-/// <summary>
-/// Tests unitarios para ExceptionHandlerMiddleware.
-/// </summary>
 public class ExceptionHandlerMiddlewareTests
 {
     private readonly Mock<ILogger<ExceptionHandlerMiddleware>> _loggerMock;

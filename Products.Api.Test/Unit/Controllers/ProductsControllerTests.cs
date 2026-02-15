@@ -12,9 +12,6 @@ using Products.Api.Application.Exceptions;
 
 namespace Products.Api.Test.Unit.Controllers;
 
-/// <summary>
-/// Tests unitarios para ProductsController.
-/// </summary>
 public class ProductsControllerTests
 {
     private readonly Mock<IProductService> _productServiceMock;

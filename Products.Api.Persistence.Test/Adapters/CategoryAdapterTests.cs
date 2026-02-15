@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using System.ComponentModel;
-using Products.Api.Domain.Models;
 using Products.Api.Persistence.Adapters;
 using Products.Api.Persistence.Entities;
 

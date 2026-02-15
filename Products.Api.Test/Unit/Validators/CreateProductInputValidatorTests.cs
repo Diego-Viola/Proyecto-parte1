@@ -5,9 +5,6 @@ using Products.Api.Validators;
 
 namespace Products.Api.Test.Unit.Validators;
 
-/// <summary>
-/// Tests unitarios para CreateProductInputValidator.
-/// </summary>
 public class CreateProductInputValidatorTests
 {
     private readonly CreateProductInputValidator _validator;

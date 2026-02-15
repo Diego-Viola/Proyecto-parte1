@@ -1,12 +1,9 @@
-﻿﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using FluentAssertions;
 using Products.Api.Middlewares;
 
 namespace Products.Api.Test.Unit.Middlewares;
 
-/// <summary>
-/// Tests unitarios para CorrelationIdMiddleware.
-/// </summary>
 public class CorrelationIdMiddlewareTests
 {
     private const string CorrelationIdHeader = "X-Correlation-ID";

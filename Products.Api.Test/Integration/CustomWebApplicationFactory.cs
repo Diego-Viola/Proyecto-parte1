@@ -3,10 +3,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Products.Api.Test.Integration;
 
-/// <summary>
-/// Factory personalizada para crear instancias de la aplicación para tests de integración.
-/// Permite configurar servicios mock o de test según sea necesario.
-/// </summary>
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -15,7 +11,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         builder.ConfigureServices(_ =>
         {
-            // Aquí puedes reemplazar servicios reales por mocks o implementaciones de test
+            // Acá se puede reemplazar servicios reales por mocks o implementaciones de test
             // Ejemplo:
             // services.RemoveAll<IProductService>();
             // services.AddScoped<IProductService, MockProductService>();

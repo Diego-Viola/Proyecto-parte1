@@ -11,9 +11,6 @@ using Products.Api.Domain.Exceptions;
 
 namespace Products.Api.Test.Unit.Controllers;
 
-/// <summary>
-/// Tests unitarios para CategoriesController.
-/// </summary>
 public class CategoriesControllerTests
 {
     private readonly Mock<ICategoryService> _categoryServiceMock;

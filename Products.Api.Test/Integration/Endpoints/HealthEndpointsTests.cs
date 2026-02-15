@@ -1,14 +1,10 @@
-﻿﻿using System.Net;
-using System.Net.Http.Json;
+﻿using System.Net;
 using System.Text.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Products.Api.Test.Integration.Endpoints;
 
-/// <summary>
-/// Tests de integración para el endpoint de Health Check.
-/// </summary>
 public class HealthEndpointsTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;

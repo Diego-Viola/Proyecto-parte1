@@ -9,9 +9,6 @@ using Products.Api.Application.DTOs.Outputs.Generics;
 
 namespace Products.Api.Test.Integration.Endpoints;
 
-/// <summary>
-/// Tests de integración para los endpoints de Categories.
-/// </summary>
 public class CategoriesEndpointsTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;

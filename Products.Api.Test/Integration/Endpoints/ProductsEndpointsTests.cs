@@ -10,9 +10,6 @@ using Products.Api.Application.DTOs.Outputs.Products;
 
 namespace Products.Api.Test.Integration.Endpoints;
 
-/// <summary>
-/// Tests de integración para los endpoints de Products.
-/// </summary>
 public class ProductsEndpointsTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;

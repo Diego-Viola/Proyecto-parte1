@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using System.Text.Json;
-using Products.Api.Persistence;
 using Products.Api.Persistence.Entities;
 
 namespace Products.Api.Persistence.Test;

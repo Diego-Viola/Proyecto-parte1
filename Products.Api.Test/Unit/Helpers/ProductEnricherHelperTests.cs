@@ -5,9 +5,6 @@ using Products.Api.Application.Helpers;
 
 namespace Products.Api.Test.Unit.Helpers;
 
-/// <summary>
-/// Tests unitarios para ProductEnricherHelper.
-/// </summary>
 public class ProductEnricherHelperTests
 {
     [Fact]
