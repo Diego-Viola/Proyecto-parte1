@@ -6,6 +6,7 @@ namespace Products.Api.Persistence;
 public class CustomContext
 {
     private readonly string _filePath;
+    private static readonly object _fileLock = new();
 
     public List<ProductEntity> Products { get; set; } = new();
     public List<CategoryEntity> Categories { get; set; } = new();
@@ -61,13 +62,16 @@ public class CustomContext
 
     public void SaveChanges()
     {
-        var data = new JsonData
+        lock (_fileLock)
         {
-            Products = Products,
-            Categories = Categories
-        };
-        var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(_filePath, json);
+            var data = new JsonData
+            {
+                Products = Products,
+                Categories = Categories
+            };
+            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, json);
+        }
     }
 }
 

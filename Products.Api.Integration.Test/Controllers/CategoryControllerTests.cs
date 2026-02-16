@@ -11,6 +11,7 @@ using Products.Api.Application.DTOs.Outputs.Generics;
 namespace Products.Api.Integration.Test.Controllers;
 
 [Category("Integration")]
+[Collection("IntegrationTests")]
 public class CategoryControllerTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;

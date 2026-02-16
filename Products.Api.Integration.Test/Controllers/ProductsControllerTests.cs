@@ -13,6 +13,7 @@ using Products.Api.Common;
 namespace Products.Api.Integration.Test.Controllers;
 
 [Category("Integration")]
+[Collection("IntegrationTests")]
 public class ProductsControllerTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;

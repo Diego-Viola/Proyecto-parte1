@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿﻿using FluentAssertions;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Json;
@@ -7,6 +7,7 @@ using Products.Api.Integration.Test.Support;
 namespace Products.Api.Integration.Test.Middlewares;
 
 [Category("Integration")]
+[Collection("IntegrationTests")]
 public class ExceptionHandlerMiddlewareTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client;
