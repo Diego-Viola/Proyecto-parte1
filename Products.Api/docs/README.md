@@ -9,7 +9,7 @@
 > **Prueba Técnica**
 >
 > **Objetivo:**
-> Construir una API backend que provea toda la información necesaria para soportar una página de detalle de ítem, inspirada en Mercado Libre. 
+> Construir una API backend que provea toda la información necesaria para soportar una página de detalle de ítem, inspirada en Mercado Libre.
 > Tu API debe entregar de manera eficiente los detalles requeridos del producto y la información relacionada, alineándose con las mejores prácticas de desarrollo backend.
 >
 > Este ejercicio se enfoca exclusivamente en el diseño e implementación del backend.
@@ -527,6 +527,77 @@ start ./CoverageReport/index.html
 8. ✅ **Unit Testing**: Tests exhaustivos con alta cobertura
 9. ✅ **Documentation**: Swagger/OpenAPI completo
 10. ✅ **Thread Safety**: Operaciones concurrentes seguras
+
+---
+
+## ✔️ Validaciones con FluentValidation
+
+El proyecto utiliza **FluentValidation** para validación expresiva de entrada:
+
+| Validator | Campo | Reglas |
+|-----------|-------|--------|
+| `CreateProductInputValidator` | Name | Requerido, 3-200 caracteres |
+| | Description | Requerido |
+| | Price | Mayor a 0 |
+| | Stock | Mayor o igual a 0 |
+| | CategoryId | Mayor a 0 |
+| `UpdateProductInputValidator` | (mismas reglas que Create) | |
+| `CreateCategoryInputValidator` | Name | Requerido, 2-100 caracteres |
+
+**Ubicación**: `Products.Api/Validators/`
+
+**Integración**: Los validadores se registran automáticamente en el pipeline de ASP.NET Core y validan antes de llegar al controller.
+
+---
+
+## ⚠️ Supuestos y Limitaciones
+
+### Supuestos
+
+- API diseñada para un solo tenant (sin multitenancy).
+- Los datos enriquecidos del endpoint `/detail` (vendedor, shipping, ratings, variantes) son **simulados** con seeds determinísticos basados en el ID del producto.
+- Stock máximo permitido para compra: 60% del stock disponible (regla de negocio simulada).
+- Los productos relacionados se generan algorítmicamente, no basados en comportamiento real de usuarios.
+
+### Limitaciones (por alcance de prueba técnica)
+
+| Limitación | Razón | Solución Producción |
+|------------|-------|---------------------|
+| **Persistencia JSON** | No es transaccional ni escala horizontalmente | PostgreSQL + EF Core |
+| **Sin autenticación** | Fuera del alcance | JWT + Identity Server |
+| **Sin caché** | Simplicidad | Redis para lectura intensiva |
+| **Sin rate limiting** | No implementado | ASP.NET Rate Limiting |
+| **Sin circuit breaker** | No hay servicios externos reales | Polly |
+
+### Decisiones Conscientes (Trade-offs)
+
+Las decisiones arquitectónicas están documentadas en detalle en [`DECISIONS.md`](./DECISIONS.md):
+
+- **ADR-001**: Clean Architecture con capas separadas
+- **ADR-002**: Persistencia JSON vs Base de datos
+- **ADR-003**: Manejo centralizado de errores
+- **ADR-004**: Versionado de API en URL
+- **ADR-005**: Correlation ID para trazabilidad
+- **ADR-006**: Modelo de dominio simplificado
+- **ADR-007**: Sin caching (trade-off consciente)
+- **ADR-008**: Estrategia de testing
+
+---
+
+## 🤖 Uso de GenAI
+
+Este proyecto fue desarrollado con asistencia de herramientas de IA generativa, como se permite y recomienda en la consigna.
+
+Los prompts utilizados están documentados en [`PROMPTS.md`](./PROMPTS.md), cubriendo:
+
+- Diseño de arquitectura
+- Implementación de endpoints
+- Manejo de errores
+- Validaciones
+- Testing
+- Configuración de Docker
+
+**Principio aplicado**: La IA como acelerador, no como reemplazo del criterio técnico. Toda sugerencia fue validada y refinada.
 
 ---
 
